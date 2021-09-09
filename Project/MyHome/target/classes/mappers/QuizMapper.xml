@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.spring.myWeb.quiz.mapper.IQuizMapper">
+
+	<resultMap type="com.spring.myWeb.command.QuizVO" id="QuizMap">
+		<id property="quizNum" column="quiz_num" />
+		<result property="regDate" column="reg_date" />
+		<result property="updateDate" column="update_date" />
+	</resultMap>
+	
+	<insert id="regist">
+  		INSERT INTO quiz(quiz_num, writer, title, content, type, uploadpath, fileloca, filename, filerealname)
+ 		VALUES(quiz_seq.NEXTVAL, #{writer}, #{title}, #{content}, #{type}, #{uploadpath}, #{fileloca}, #{filename}, #{filerealname})
+  	</insert>
+	
+	<select id="getList" resultMap="QuizMap">
+  		SELECT *
+		FROM(  	
+	  		SELECT ROWNUM as rn, tbl.*
+	  		FROM
+	 		( 	
+		  		SELECT * FROM quiz
+		  		ORDER BY quiz_num DESC
+	  		) tbl
+  		)
+  		<![CDATA[
+  		WHERE rn > (#{page}-1) * #{countPerPage} 
+  		AND rn <= (#{page} * #{countPerPage}
+  		]]>
+  	</select>
+  	
+  	<select id="getDetail" resultMap="QuizMap">
+  		SELECT * FROM quiz
+  		WHERE quiz_num = #{quizNum}
+  	</select>
+  	
+  	<select id="getTotalCount">
+  		SELECT COUNT(*) FROM quiz
+  	</select>
+  	
+  	<update id="modify">
+  		UPDATE quiz 
+  		SET title=#{title}, content=#{content}, type=#{type}, uploadpath=#{uploadpath}, fileloca=#{fileloca}, filename=#{filename}, filerealname=#{filerealname}, update_date=SYSDATE
+  		WHERE quiz_num = #{quizNum}
+  	</update>
+  
+  	<delete id="delete">
+  		DELETE FROM quiz
+  		WHERE quiz_num = #{quizNum}
+  	</delete>
+
+</mapper>

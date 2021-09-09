@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="com.spring.myWeb.answer.mapper.IAnswerMapper">
+
+	<resultMap type="com.spring.myWeb.command.AnswerVO" id="AnswerMap">
+		<id property="answerNum" column="answer_num" />
+		<result property="quizNum" column="quiz_num"/>
+		<result property="regDate" column="reg_date"/>
+		<result property="updateDate" column="update_date"/>
+	</resultMap>
+	
+	<insert id="regist">
+		INSERT INTO answer(answer_num, quiz_num, writer, content)
+		VALUES(answer_seq.NEXTVAL, #{quizNum}, #{writer}, #{content})
+	</insert>
+	
+	<select id="getList" resultMap="AnswerMap">
+		SELECT *
+		FROM
+		(
+			SELECT ROWNUM rn, tbl.* 
+			FROM
+			(
+				SELECT * FROM answer
+				WHERE quiz_num = #{quizNum}
+				ORDER BY answer_num DESC
+			) tbl
+		)
+		WHERE
+	</select>
+	
+	<update id="modify">
+		UPDATE answer
+		SET content=#{content}, update_date=SYSDATE
+		WHERE answer_num=#{answerNum}	
+	</update>
+	
+	<delete id="delete">
+		DELETE FROM answer
+		WHERE answer_num=#{answerNum}
+	</delete>
+
+</mapper>
