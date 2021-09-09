@@ -16,8 +16,7 @@ public class AnswerService implements IAnswerService {
 
 	@Override
 	public void regist(AnswerVO vo) {
-		// TODO Auto-generated method stub
-
+		mapper.regist(vo);
 	}
 
 	@Override

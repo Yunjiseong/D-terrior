@@ -1,6 +1,7 @@
 package com.spring.myWeb.answer.mapper;
 
 import java.util.List;
+import java.util.Map;
 
 import com.spring.myWeb.command.AnswerVO;
 
@@ -10,7 +11,7 @@ public interface IAnswerMapper {
 	void regist(AnswerVO vo);
 
 	// 답변 목록
-	List<AnswerVO> getList(int quizNum);
+	List<AnswerVO> getList(Map<String, Object> datas);
 
 	// 답변 수정
 	void modify(AnswerVO vo);

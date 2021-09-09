@@ -17,38 +17,32 @@ public class QuizService implements IQuizService {
 	
 	@Override
 	public void regist(QuizVO vo) {
-		// TODO Auto-generated method stub
-
+		mapper.regist(vo);
 	}
 
 	@Override
 	public QuizVO getDetail(int quizNum) {
-		// TODO Auto-generated method stub
-		return null;
+		return mapper.getDetail(quizNum);
 	}
 
 	@Override
 	public List<QuizVO> getList(QuizPageVO paging) {
-		// TODO Auto-generated method stub
-		return null;
+		return mapper.getList(paging);
 	}
 
 	@Override
 	public int getTotalCount() {
-		// TODO Auto-generated method stub
-		return 0;
+		return mapper.getTotalCount();
 	}
 
 	@Override
 	public void modify(QuizVO vo) {
-		// TODO Auto-generated method stub
-
+		mapper.modify(vo);
 	}
 
 	@Override
 	public void delete(int quizNum) {
-		// TODO Auto-generated method stub
-
+		mapper.delete(quizNum);
 	}
 
 }
