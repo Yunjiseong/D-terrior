@@ -1,8 +1,10 @@
 package com.spring.myWeb.answer.service;
 
 import java.util.List;
+import java.util.Map;
 
 import com.spring.myWeb.command.AnswerVO;
+import com.spring.myWeb.util.QuizPageVO;
 
 public interface IAnswerService {
 
@@ -10,7 +12,7 @@ public interface IAnswerService {
 	void regist(AnswerVO vo);
 
 	// 답변 목록
-	List<AnswerVO> getList(int quizNum);
+	Map<String, Object> getList(int quizNum, QuizPageVO paging);
 
 	// 답변 수정
 	void modify(AnswerVO vo);

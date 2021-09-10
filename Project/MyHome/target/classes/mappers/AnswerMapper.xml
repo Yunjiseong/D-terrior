@@ -29,7 +29,10 @@
 				ORDER BY answer_num DESC
 			) tbl
 		)
-		WHERE
+		<![CDATA[
+		WHERE rn > (#{paging.page}-1)*#{paging.countPerPage})
+		AND rn < #{paging.page}*#{paging.countPerPage}
+		]]>
 	</select>
 	
 	<update id="modify">

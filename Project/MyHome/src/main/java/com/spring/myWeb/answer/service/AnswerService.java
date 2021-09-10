@@ -1,12 +1,15 @@
 package com.spring.myWeb.answer.service;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.spring.myWeb.answer.mapper.IAnswerMapper;
 import com.spring.myWeb.command.AnswerVO;
+import com.spring.myWeb.util.QuizPageVO;
 
 @Service
 public class AnswerService implements IAnswerService {
@@ -20,9 +23,13 @@ public class AnswerService implements IAnswerService {
 	}
 
 	@Override
-	public List<AnswerVO> getList(int quizNum) {
-		// TODO Auto-generated method stub
-		return null;
+	public Map<String, Object> getList(int quizNum, QuizPageVO paging) {
+		
+		Map<String, Object> datas = new HashMap<>();
+		datas.put("quizNum", quizNum);
+		datas.put("paging", paging);
+		
+		return datas;
 	}
 
 	@Override
@@ -33,8 +40,7 @@ public class AnswerService implements IAnswerService {
 
 	@Override
 	public void delete(int answerNum) {
-		// TODO Auto-generated method stub
-
+		mapper.delete(answerNum);
 	}
 
 }
