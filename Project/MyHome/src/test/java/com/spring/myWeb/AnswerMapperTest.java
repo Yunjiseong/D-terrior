@@ -6,8 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import com.spring.myWeb.answer.mapper.IAnswerMapper;
 import com.spring.myWeb.command.AnswerVO;
+import com.spring.myWeb.quiz.mapper.IAnswerMapper;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration({"file:src/main/webapp/WEB-INF/config/db-config.xml", "file:src/main/webapp/WEB-INF/config/servlet-config.xml"})

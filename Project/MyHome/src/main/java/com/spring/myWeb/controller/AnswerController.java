@@ -9,8 +9,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.spring.myWeb.answer.service.IAnswerService;
 import com.spring.myWeb.command.AnswerVO;
+import com.spring.myWeb.quiz.service.IAnswerService;
 import com.spring.myWeb.util.QuizPageVO;
 
 // 비동기 통신
