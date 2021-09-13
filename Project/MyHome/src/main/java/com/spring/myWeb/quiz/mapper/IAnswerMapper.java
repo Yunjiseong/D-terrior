@@ -1,4 +1,4 @@
-package com.spring.myWeb.answer.mapper;
+package com.spring.myWeb.quiz.mapper;
 
 import java.util.List;
 import java.util.Map;
