@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.spring.myWeb.command.AnswerVO;
 import com.spring.myWeb.quiz.service.IAnswerService;
+import com.spring.myWeb.util.QuizPageCreator;
 import com.spring.myWeb.util.QuizPageVO;
 
 // 비동기 통신
@@ -37,8 +38,12 @@ public class AnswerController {
 		paging.setPageNum(pageNum);
 		paging.setCountPerPage(5);
 		
+		QuizPageCreator qpc = new QuizPageCreator();
+		qpc.setPage(paging);
+		qpc.setPageTotalCount(service.getTotalCount());
+		
 		service.getList(quizNum, paging);
-		return ""; //비동기
+		return "regitSuccess"; //비동기
 	}
 	
 	@PostMapping("/delete")

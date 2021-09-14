@@ -45,5 +45,10 @@
 		DELETE FROM answer
 		WHERE answer_num=#{answerNum}
 	</delete>
+	
+	<select id="getTotalCount" resultType="int">
+		SELECT COUNT(*)
+		FROM answer
+	</select>
 
 </mapper>

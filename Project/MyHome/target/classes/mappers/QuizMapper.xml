@@ -38,7 +38,7 @@
   		WHERE quiz_num = #{quizNum}
   	</select>
   	
-  	<select id="getTotalCount">
+  	<select id="getTotalCount" resultType="int">
   		SELECT COUNT(*) FROM quiz
   	</select>
   	

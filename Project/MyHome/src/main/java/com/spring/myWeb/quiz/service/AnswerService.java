@@ -34,13 +34,17 @@ public class AnswerService implements IAnswerService {
 
 	@Override
 	public void modify(AnswerVO vo) {
-		// TODO Auto-generated method stub
-
+		mapper.modify(vo);
 	}
 
 	@Override
 	public void delete(int answerNum) {
 		mapper.delete(answerNum);
+	}
+	
+	@Override
+	public int getTotalCount() {
+		return mapper.getTotalCount();
 	}
 
 }

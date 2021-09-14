@@ -18,8 +18,8 @@ public class QuizPageCreator {
 	private int endPage;
 	private boolean prev;
 	private boolean next;
-	private int pageTotalCount; // 총 게시물 수?
-	private int pageBtn = 10; // 한 화면에 보여징 페이비 버튼 수
+	private int pageTotalCount; // 총 게시물 수
+	private int pageBtn = 10; // 한 화면에 보여질 페이비 버튼 수
 	
 	private void pageCalc() {
 		

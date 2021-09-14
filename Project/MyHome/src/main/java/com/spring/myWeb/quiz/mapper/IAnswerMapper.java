@@ -18,5 +18,9 @@ public interface IAnswerMapper {
 
 	// 답변 삭제
 	void delete(int answerNum);
+	
+	// 댓글 총 개수
+	int getTotalCount();
+
 
 }

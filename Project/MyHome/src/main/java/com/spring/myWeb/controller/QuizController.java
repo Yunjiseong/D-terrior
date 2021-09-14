@@ -19,6 +19,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.spring.myWeb.command.QuizVO;
 import com.spring.myWeb.quiz.service.IQuizService;
+import com.spring.myWeb.util.QuizPageCreator;
 import com.spring.myWeb.util.QuizPageVO;
 
 @Controller
@@ -33,6 +34,10 @@ public class QuizController {
 	public void getList(Model model, QuizPageVO paging) {
 		System.out.println("quiz/list: GET");
 
+		QuizPageCreator qpc = new QuizPageCreator();
+		qpc.setPage(paging);
+		qpc.setPageTotalCount(service.getTotalCount());
+		
 		List<QuizVO> list = service.getList(paging);
 		model.addAttribute("articles", list);
 	}
