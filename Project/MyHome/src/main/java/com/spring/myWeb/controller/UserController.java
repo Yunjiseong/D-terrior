@@ -1,5 +1,7 @@
 package com.spring.myWeb.controller;
 
+import javax.servlet.http.HttpSession;
+
 import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -61,13 +63,14 @@ public class UserController {
 	
 	//로그인요청
 	@PostMapping("/login")
-	public String userLogin(String id, String pw, Model model, RedirectAttributes ra) {
+	public String userLogin(String id, String pw, HttpSession session) {
 		System.out.println("로그인요청");
 		
 		UserVO vo = service.userLogin(id, pw);
 		
 		if(vo != null) {
 			System.out.println("로그인성공");
+			session.setAttribute("userId", vo.getId());
 			return "/user/loginsuccess";
 		} else {
 			return "/user/loginfail";
