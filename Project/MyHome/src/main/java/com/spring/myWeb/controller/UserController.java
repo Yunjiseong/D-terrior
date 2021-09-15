@@ -3,6 +3,7 @@ package com.spring.myWeb.controller;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -55,6 +56,22 @@ public class UserController {
 	@GetMapping("/userLoginPage")
 	public String loginPage() {
 		return "user/loginPage";
+	}
+	
+	//로그인요청
+	@PostMapping("/login")
+	public String login(@Param("id") String id, @Param("pw") String pw) {
+		System.out.println("로그인요청");
+		//db에서 꺼내온 id와 pw를 vo에 담음.
+		
+		UserVO vo = service.userLogin(id, pw);
+		
+		if(vo != null) {
+			System.out.println("로그인성공");
+			return "/user/loginsuccess";
+		} else {
+			return "/user/loginfail";
+		}
 	}
 	
 }

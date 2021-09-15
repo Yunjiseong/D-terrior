@@ -38,7 +38,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
  		AND pw=#{pw}
  	</delete>
  	
- 	<select id="login" resultType="com.spring.myWeb.command.UserVO">
+ 	<select id="userLogin" resultType="com.spring.myWeb.command.UserVO">
 		SELECT * FROM users
 		WHERE id = #{id}
 		AND pw = #{pw}

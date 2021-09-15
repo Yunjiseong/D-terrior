@@ -33,6 +33,6 @@
 	</bean>	
 	
 	<mybatis-spring:scan base-package="com.spring.myWeb.myhome.mapper"/>
-
+	<mybatis-spring:scan base-package="com.spring.myWeb.user.mapper"/>
 		
 </beans>
