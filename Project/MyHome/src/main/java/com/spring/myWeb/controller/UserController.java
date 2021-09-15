@@ -7,6 +7,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.spring.myWeb.command.UserVO;
 import com.spring.myWeb.user.service.UserService;
@@ -60,9 +61,8 @@ public class UserController {
 	
 	//로그인요청
 	@PostMapping("/login")
-	public String login(@Param("id") String id, @Param("pw") String pw) {
+	public String userLogin(String id, String pw, Model model, RedirectAttributes ra) {
 		System.out.println("로그인요청");
-		//db에서 꺼내온 id와 pw를 vo에 담음.
 		
 		UserVO vo = service.userLogin(id, pw);
 		

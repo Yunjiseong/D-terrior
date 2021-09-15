@@ -20,5 +20,5 @@ public interface UserService {
 	void userDelete(@Param("id") String id, @Param("pw") String pw);
 	
 	//로그인
-	UserVO userLogin(String id, String pw);
+	UserVO userLogin(@Param("id") String id, @Param("pw") String pw);
 }

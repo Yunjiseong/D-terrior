@@ -27,7 +27,7 @@ public class UserServiceImpl implements UserService {
 	
 	//로그인
 	@Override
-	public UserVO userLogin(String id, String pw) {
+	public UserVO userLogin(@Param("id") String id, @Param("pw") String pw) {
 		return mapper.userLogin(id, pw);
 	}
 	
