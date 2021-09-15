@@ -16,8 +16,8 @@
 
     <style>
         @import url("http://fonts.googleapis.com/earlyaccess/nanumgothic.css");
-	
-	html {
+
+html {
 		height: 100%;
 	}
 	
@@ -92,6 +92,7 @@
     margin-bottom: 50px;
 }
     </style>
+    </style>
   </head>
 
 
@@ -115,20 +116,28 @@
         </div>
  
         <button id="#" class="btn btn-lg btn-primary btn-block" type="submit">로 그 인</button>
-        <button id="'#" class="btn btn-lg btn-primary btn-block popup" type="submit">회원가입</button>
+        <button id="'#" class="btn btn-lg btn-primary btn-block btn-open-popup " type="submit">회원가입</button>
       </form>
 		</div>
 	</div>
 <!--모달창-->
-  <div class="modal">
-    <div class="modal_body"><strong>회원가입 분류창</strong>
-        <div class="image">
-        </div>
+<div class="modal">
+  <div class="modal_body block"><strong>회원가입 분류창</strong><br>
+   
 
-    <button id="#" class="btn btn-lg btn-primary btn-block" type="submit">일반 회원</button>
-    <button id="#" class="btn btn-lg btn-primary btn-block" type="submit">전문가 회원</button>
-</div>
+
+    <ul>
+      <li>
+    <button id="#" class="btn-primary btn-square" type="submit">일반 <br>회원</button>
+  </li>
+  <li>
+    <button id="'#" class="btn-primary btn-square" type="submit">전문가 회원</button>
+  </li>
+
+
+  </ul>
   </div>
+</div>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -139,7 +148,7 @@
   <script>
     const body = document.querySelector('body');
     const modal = document.querySelector('.modal');
-    const btnOpenPopup = document.querySelector('.btn btn-lg btn-primary btn-block popup');
+    const btnOpenPopup = document.querySelector('.btn-open-popup');
 
     btnOpenPopup.addEventListener('click', () => {
       modal.classList.toggle('show');

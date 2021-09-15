@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+    pageEncoding="EUC-KR"%>
 
 <!DOCTYPE html>
 <html lang="ko">
@@ -13,13 +13,13 @@
     
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <title>  ë¡œê·¸ì¸  </title> 
+    <title>  ·Î±×ÀÎ  </title> 
     <link rel="shortcut icon" href="../img/home-icon.png">
 
     <style>
         @import url("http://fonts.googleapis.com/earlyaccess/nanumgothic.css");
-	
-	html {
+
+html {
 		height: 100%;
 	}
 	
@@ -94,6 +94,7 @@
     margin-bottom: 50px;
 }
     </style>
+    </style>
   </head>
 
 
@@ -101,36 +102,44 @@
 
 	<div class="card align-middle" style="width:20rem; border-radius:20px;">
 		<div class="card-title" style="margin-top:30px;">
-			<h2 class="card-title text-center" style="color:#116566;">ì¤‘ì•™ì˜ ì§‘</h2>
+			<h2 class="card-title text-center" style="color:#116566;">Áß¾ÓÀÇ Áı</h2>
 		</div>
 		<div class="card-body">
       <form class="form-signin">
-        <h5 class="form-signin-heading">ì´ë©”ì¼ ì •ë³´ë¥¼ ì…ë ¥í•˜ì„¸ìš”</h5>
+        <h5 class="form-signin-heading">ÀÌ¸ŞÀÏ Á¤º¸¸¦ ÀÔ·ÂÇÏ¼¼¿ä</h5>
         <label for="inputEmail" class="sr-only">E-mail</label>
         <input type="text" id="#" class="form-control" placeholder="E-mail" required autofocus><BR>
         <label for="inputPassword" class="sr-only">Password</label>
         <input type="password" id="#" class="form-control" placeholder="Password" required><br>
         <div class="checkbox">
           <label>
-            <input type="checkbox" value="remember-me"> ê¸°ì–µí•˜ê¸°
+            <input type="checkbox" value="remember-me"> ±â¾ïÇÏ±â
           </label>
         </div>
  
-        <button id="#" class="btn btn-lg btn-primary btn-block" type="submit">ë¡œ ê·¸ ì¸</button>
-        <button id="'#" class="btn btn-lg btn-primary btn-block popup" type="submit">íšŒì›ê°€ì…</button>
+        <button id="#" class="btn btn-lg btn-primary btn-block" type="submit">·Î ±× ÀÎ</button>
+        <button id="'#" class="btn btn-lg btn-primary btn-block btn-open-popup " type="submit">È¸¿ø°¡ÀÔ</button>
       </form>
 		</div>
 	</div>
-<!--ëª¨ë‹¬ì°½-->
-  <div class="modal">
-    <div class="modal_body"><strong>íšŒì›ê°€ì… ë¶„ë¥˜ì°½</strong>
-        <div class="image">
-        </div>
+<!--¸ğ´ŞÃ¢-->
+<div class="modal">
+  <div class="modal_body block"><strong>È¸¿ø°¡ÀÔ ºĞ·ùÃ¢</strong><br>
+   
 
-    <button id="#" class="btn btn-lg btn-primary btn-block" type="submit">ì¼ë°˜ íšŒì›</button>
-    <button id="#" class="btn btn-lg btn-primary btn-block" type="submit">ì „ë¬¸ê°€ íšŒì›</button>
-</div>
+
+    <ul>
+      <li>
+    <button id="#" class="btn-primary btn-square" type="submit">ÀÏ¹İ <br>È¸¿ø</button>
+  </li>
+  <li>
+    <button id="'#" class="btn-primary btn-square" type="submit">Àü¹®°¡ È¸¿ø</button>
+  </li>
+
+
+  </ul>
   </div>
+</div>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -141,7 +150,7 @@
   <script>
     const body = document.querySelector('body');
     const modal = document.querySelector('.modal');
-    const btnOpenPopup = document.querySelector('.btn btn-lg btn-primary btn-block popup');
+    const btnOpenPopup = document.querySelector('.btn-open-popup');
 
     btnOpenPopup.addEventListener('click', () => {
       modal.classList.toggle('show');

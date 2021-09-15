@@ -29,7 +29,7 @@
       top: 50%;
       left: 50%;
 
-      width: 400px;
+      width: 500px;
       height: 600px;
 
       padding: 40px;
@@ -42,30 +42,51 @@
 
       transform: translateX(-50%) translateY(-50%);
     }
+  .btn-square {
+  margin: 5px;
+  position: relative;
+  width: 150px;
+  padding: 40px;
+}
 
-    .image {
-      width: 300px;
-      height: 300px;
-      background-image: url(../img/interior3.png);
-      background-size: contain;
-      background-repeat: no-repeat;
-      background-position: center;
-      border: 1px black;
-      margin-bottom: 50px;
-    }
+.btn-square:after {
+  content: "";
+  display: block;
+  padding-bottom: 100%;
+}
+ul{
+  text-align: center;
+}
+li{
+  margin-top: 150px;
+  list-style: none;
+  float : left;
+  padding: 10px;
+}
+
+
+
+
+
   </style>
 </head>
 
 <body>
   <div class="modal">
-    <div class="modal_body"><strong>회원가입 분류창</strong>
-      <div class="image">
-      </div>
+    <div class="modal_body block"><strong>회원가입 분류창</strong><br>
+     
 
 
+      <ul>
+        <li>
+      <button id="#" class="btn-primary btn-square" type="submit">일반 <br>회원</button>
+    </li>
+    <li>
+      <button id="'#" class="btn-primary btn-square" type="submit">전문가 회원</button>
+    </li>
 
-      <button id="#" class="btn btn-lg btn-primary btn-block" type="submit">일반 회원</button>
-      <button id="'#" class="btn btn-lg btn-primary btn-block" type="submit">전문가 회원</button>
+
+    </ul>
     </div>
   </div>
   <button class="btn-open-popup">Modal 띄우기</button>

@@ -9,6 +9,8 @@
     <link rel="shortcut icon" href="../img/home-icon.png">
     <link href="../css/bootstrap.min.css" rel="stylesheet">
     <link href="../css/teamstyle.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
     <style>
         .contentForm {
             width: 40%;
@@ -47,7 +49,7 @@
 
 <body>
     <form action="#" method="post">
-        <div class="contentForm col-xs-12 col-md-10"> <input type="hidden" name="#" value="#"> <input type="hidden"
+        <div class="contentForm col-xs-12 col-md-12"> <input type="hidden" name="#" value="#"> <input type="hidden"
                 name="groupId" value="#">
             <input type="hidden" name="depth" value="#"> <input type="hidden" name="#" value="#">
             <div class="input-group input-group-sm" role="group" aria-label="...">
@@ -68,21 +70,37 @@
                                 <p>글내용</p>
                             </td>
                         </tr>
-
+                     
+                            <tr> <td colspan="2" 
+                                style="border-bottom: hidden;
+                                border-left: hidden;
+                                border-right: hidden;" 
+                                
+                                >
+                                <button type="button" class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-bookmark"></span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bookmark" viewBox="0 0 16 16">
+                                    <path d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v13.5a.5.5 0 0 1-.777.416L8 13.101l-5.223 2.815A.5.5 0 0 1 2 15.5V2zm2-1a1 1 0 0 0-1 1v12.566l4.723-2.482a.5.5 0 0 1 .554 0L13 14.566V2a1 1 0 0 0-1-1H4z"/>
+                                  </svg>
+                              </button>
+                              <button type="button" class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-heart"></span> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16">
+                                    <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"/>
+                                  </svg>
+                              </button>
+                              <div class="btn-group btn-group-sm " style= "margin-left: 225px;"role="group" aria-label="..."> <input type="submit"
+                                class="btn btn-primary btns" value="수정하기"> <input type="reset" class="btn btn-primary btns"
+                                value="초기화"> <input type="button" class="btn btn-primary btns" value="취소"> </div>
+                            </td>
+                            </tr>
                     </tbody>
                 </table>
-            </div>
-            <div class=" page-con">
-                <div class="btn-group btn-group-sm" role="group" aria-label="..."> <input type="submit"
-                        class="btn btn-primary btns" value="수정하기"> <input type="reset" class="btn btn-primary btns"
-                        value="초기화"> <input type="button" class="btn btn-primary btns" value="취소"> </div>
             </div>
 
 
             <!-- Reply Form {s} -->
 
-            <div class="container">
-                <div class="row" style="width: 1000px;">
+            <div class="container col-xs-12 col-md-12">
+                <div class="row" style="width: 700px;">
                     <div class="col-xs-12 col-md-9 write-wrap">
                         <div class="reply-wrap">
                             <div class="reply-image">

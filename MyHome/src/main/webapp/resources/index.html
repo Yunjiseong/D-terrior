@@ -1,270 +1,149 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="kr">
 
 <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <meta name="description" content="" />
-    <meta name="author" content="" />
-    <title>Agency - Start Bootstrap Theme</title>
-    <link rel="shortcut icon" href="../img/KakaoTalk_20210909_171221036.png">
+    
+    <title>D'terrior</title>
     <!-- Favicon-->
-    <link rel="icon" type="image/x-icon" href="../assets/favicon.ico" />
-    <!--header-->
-    <link rel="stylesheet" href="../css/realheader.css">
+    <link rel="icon" type="image/x-icon" href="../img/favicon-16x160.jpg" />
+    <!-- Font Awesome icons (free version)-->
+    <script src="https://use.fontawesome.com/releases/v5.15.3/js/all.js" crossorigin="anonymous"></script>
+    <!-- Google fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css" />
+    
+    <link href="../css/styles.css" rel="stylesheet">
+    <link href="../team/css/footer.css" rel="stylesheet">
+    <link href="../team/css/header.css" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdn.rawgit.com/twbs/bootstrap/v4-dev/dist/css/bootstrap.css">
+    <style>
+        
 
+        .carousel-container {
+            width: 900px;
+            margin: 30px auto;
+            border: 0px solid #000;
+            overflow: hidden;
+            position: relative;
+        }
 
-    <!-- best,icon,feedcss-->
-    <link rel="stylesheet" href="../css/best.css" />
+        .carousel-slide {
+            display: flex;
+            width: 100%;
+            height: 450px;
+        }
 
+        #prevBtn {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            transform: translate(0%, -50%);
+            width: 20px;
+            height: 36px;
+            background: url(img/angle_left_arrow_icon_123990.png) no-repeat;
+            text-indent: -9999px;
+        }
+
+        #nextBtn {
+            position: absolute;
+            top: 50%;
+            right: 0;
+            transform: translate(0%, -50%);
+            width: 20px;
+            height: 36px;
+            background: url(img/angle_right_arrow_icon_123991.png) no-repeat;
+            text-indent: -9999px;
+        }
+    </style>
+    </style>
 </head>
 
-<body>
+<body id="page-top">
     <!-- Navigation-->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <nav class="navbar navbar-expand-lg  fixed-top" style="background-color: rgb(255, 253, 253);">
         <div class="container">
-            <img class="navbar-brand" href="#" img src="../img/logo.jpg">
+            <img class="navbar-brand" href="#" img src="../team/img/logo2.jpg">
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
                 aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
 
-            <form class="navbar-form pull-left" role="search">
+            <form class="navbar-form pull-center" role="search">
                 <div class="input-group">
                     <input type="text" class="form-control" placeholder="Search">
                     <div class="input-group-btn" style="justify-content: center;">
-                        <button type="submit" class="btn btn-default"><span
+                        <button type="submit" class="btn btn-info"><span
                                 class="glyphicon glyphicon-search">검색</span></button>
                     </div>
                 </div>
             </form>
 
-            <div class="collapse navbar-collapse" id="navbarResponsive">
-                <ul class="navbar-nav ml-auto" style="justify-content: end;">
+            <div class="collapse navbar-collapse" id="navbarResponsive" style="justify-content:end;">
+                <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="#">로그인</a>
+                        <a class="nav-link" href="#" style="color: black;"> 로그인</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">회원가입</a>
+                        <a class="nav-link" href="#" style="color: black;">회원가입</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" style="color: black;">고객센터</a>
+                    </li>
+
+                </ul>
+
+            </div>
+        </div>
+    </nav>
+    <nav class="navbar navbar-expand-lg navbar-light nav2"  
+    style=" background-color: rgb(255, 253, 253); ">
+        <div class="container" style="display: flex;">
+
+
+            <div class="collapse navbar-collapse" id="navbarResponsive"
+                style="padding:30px 0px 0px 0px;  margin-top: 50px; font-size: 20px; 
+                        justify-content:start; font-family: Arial, Helvetica, sans-serif; ">
+                <ul class="navbar-nav ml-auto" style="">
+                    <li class="nav-item ">
+                        <a class="nav-link" href="#">홈</a>
+                    </li>
+                    <li class="nav-item ">
+                        <a class="nav-link" href="#">스토어</a>
+                    </li>
+                    <li class="nav-item ">
+                        <a class="nav-link" href="#">커뮤니티</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">질문과답변</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">고객센터</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">이벤트</a>
+                    <li style="justify-content:end;">
+                 <button class=" btn btn-lg btn-info"> 뽐내기 </button>
+                </li>
                 </ul>
             </div>
-        </div>
+         
+
+
     </nav>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark" style="padding:50px 0px 0px 0px;">
-        <div class="container" style="flex-shrink: initial;">
-
+    <div class="carousel-container">
+        <div class="carousel-slide">
+            <img src="img/interior5.png" id="lastClone">
+            <img src="img/interior4.png">
+            <img src="img/interior6.jpg">
+            <img src="img/interior3.png">
+            <img src="img/interior2.png">
+            <img src="img/interior8.png" id="firstClone">
         </div>
-        <div class="collapse navbar-collapse" id="navbarResponsive">
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="#">로그인</a>
-                </li>
-            </ul>
-        </div>
-    </nav>
-
-
-
-    <section id="main-mediaD100000215" class="section-main section-main-brand">
-        <div class="section-title-wrap">
-            <h3 class="section-title">랜선집들이 BEST 리뷰 모음 👍<span class="section-title--small"></span></h3>
-        </div>
-        <div class="container">
-            <ul>
-
-                <li class=" col section-main-brand__item">
-                    <a href="#">
-                        <span class="section-main-brand__item-img">
-                            <img src="../img/D100000215/P000000326_S100004714ad75.jpg" alt="">
-                        </span>
-                        <div class="section-main-brand__text">
-                            <span class="section-main-brand__item-text">
-                                아기자기한 우드톤 인테리어
-                            </span>
-                            <span class="section-main-brand__item-brand __brand-1">
-                                <img src="../img/D100000215/P000000326_S100004724ad75.png" alt="">
-                            </span>
-                        </div>
-                    </a>
-                </li>
-
-                <li class="col section-main-brand__item">
-                    <a href="#">
-                        <span class="section-main-brand__item-img">
-                            <img src="../img/D100000215/P000000326_S100004715ad75.jpg" alt="">
-                        </span>
-                        <div class="section-main-brand__text">
-                            <span class="section-main-brand__item-text">
-                                산뜻함 가득, 신혼부부집
-                            </span>
-                            <span class="section-main-brand__item-brand __brand-1">
-                                <img src="../img/D100000215/P000000326_S100004725ad75.png" alt="">
-                            </span>
-                        </div>
-                    </a>
-                </li>
-
-                <li class="col section-main-brand__item">
-                    <a href="#">
-                        <span class="section-main-brand__item-img">
-                            <img src="../img/D100000215/P000000326_S100004716ad75.jpg" alt="">
-                        </span>
-                        <div class="section-main-brand__text">
-                            <span class="section-main-brand__item-text">
-                                코피스책상으로 우리집홈까페
-                            </span>
-                            <span class="section-main-brand__item-brand __brand-1">
-                                <img src="../img/D100000215/P000000326_S100004726ad75.png" alt="">
-                            </span>
-                        </div>
-                    </a>
-                </li>
-
-                <li class="col section-main-brand__item">
-                    <a href="#">
-                        <span class="section-main-brand__item-img">
-                            <img src="../img/D100000215/P000000326_S100004717ad75.jpg" alt="">
-                        </span>
-                        <div class="section-main-brand__text">
-                            <span class="section-main-brand__item-text">
-                                리바트로 꾸민 달콤한 나의공간
-                            </span>
-                            <span class="section-main-brand__item-brand __brand-1">
-                                <img src="../img/D100000215/P000000326_S100004727ad75.png" alt="">
-                            </span>
-                        </div>
-                    </a>
-                </li>
-
-                <li class="col section-main-brand__item">
-                    <a href="#">
-                        <span class="section-main-brand__item-img">
-                            <img src="../img/D100000215/P000000326_S100004718ad75.jpg" alt="">
-                        </span>
-                        <div class="section-main-brand__text">
-                            <span class="section-main-brand__item-text">
-                                두 아이가 사는 따뜻한 우리집
-                            </span>
-                            <span class="section-main-brand__item-brand __brand-1">
-                                <img src="../img/D100000215/P000000326_S100004728ad75.png" alt="">
-                            </span>
-                        </div>
-                    </a>
-                </li>
-
-            </ul>
-        </div>
-    </section>
-
-    <section class="col section-main section-open-house">
-
-        <div class="icon-category-lists">
-            <ul>
-                <li class="icon-category-item is-active" data-filter4="" data-sort="cncnCnt1m">
-                    <a href="javascript:;" class="is-active"><i class="ico-best"></i>BEST</a>
-                </li>
-                <li class="icon-category-item" data-filter4="" data-sort="rgstdtime">
-                    <a href="javascript:;"><i class="ico-comm_all"></i>NEW</a>
-                </li>
-
-                <li class="icon-category-item is-active" data-filter4="D0001" data-sort="cncnCnt1m">
-                    <a href="javascript:;"><i class="ico-comm_livingroom" data-option="livingroom"></i>거실</a>
-                </li>
-
-                <li class="icon-category-item is-active" data-filter4="D0002" data-sort="cncnCnt1m">
-                    <a href="javascript:;"><i class="ico-comm_bed" data-option="bed"></i>침실</a>
-                </li>
-
-                <li class="icon-category-item is-active" data-filter4="D0003" data-sort="cncnCnt1m">
-                    <a href="javascript:;"><i class="ico-comm_library" data-option="library"></i>서재</a>
-                </li>
-
-                <li class="icon-category-item is-active" data-filter4="D0004" data-sort="cncnCnt1m">
-                    <a href="javascript:;"><i class="ico-comm_kids" data-option="kids"></i>아이방</a>
-                </li>
-
-                <li class="icon-category-item is-active" data-filter4="D0005" data-sort="cncnCnt1m">
-                    <a href="javascript:;"><i class="ico-comm_dress" data-option="dress"></i>드레스룸</a>
-                </li>
-
-                <li class="icon-category-item is-active" data-filter4="D0006" data-sort="cncnCnt1m">
-                    <a href="javascript:;"><i class="ico-comm_kitchen" data-option="kitchen"></i>주방</a>
-                </li>
-
-                <li class="icon-category-item is-active" data-filter4="D0007" data-sort="cncnCnt1m">
-                    <a href="javascript:;"><i class="ico-comm_bath" data-option="bath"></i>욕실</a>
-                </li>
-
-                <li class="icon-category-item is-active" data-filter4="D0011" data-sort="cncnCnt1m">
-                    <a href="javascript:;"><i class="ico-comm_house" data-option="house"></i>홈인테리어</a>
-                </li>
-
-                <li class="icon-category-item is-active" data-filter4="D0008" data-sort="cncnCnt1m">
-                    <a href="javascript:;"><i class="ico-comm_balcony" data-option="balcony"></i>기타공간</a>
-                </li>
-
-            </ul>
-        </div>
-    </section>
-    <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore
-        magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-        pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est
-        laborum.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-        dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-        commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-        pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est
-        laborum.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-        dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-        commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-        pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est
-        laborum.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-        dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-        commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-        pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est
-        laborum.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-        dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-        commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-        pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est
-        laborum.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-        dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-        commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-        pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est
-        laborum.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-        dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-        commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-        pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est
-        laborum.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-        dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-        commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-        pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est
-        laborum.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-        dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-        commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-        pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est
-        laborum.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-        dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-        commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-        pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est
-        laborum.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-        dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-        commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-        pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est
-        laborum.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-        dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-        commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-        pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est
-        laborum.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-        dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-        commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-        pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est
-        laborum.</div>
-
-
+        <button id="prevBtn">Prev</button>
+        <button id="nextBtn">Next</button>
+    </div>
 
 
 </body>
@@ -274,34 +153,228 @@
 
 
 <!-- Footer-->
-<footer class="footer py-4">
-    <div class="container">
-        <div class="row align-items-center">
-            <div class="col-lg-4 text-lg-start">Copyright &copy; Your Website 2021</div>
-            <div class="col-lg-4 my-3 my-lg-0">
-                <a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-twitter"></i></a>
-                <a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-facebook-f"></i></a>
-                <a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-linkedin-in"></i></a>
+<footer id="footer" class="xans-element- xans-layout xans-layout-footer noborder nomargin">
+    <div class="container clearfix ">
+
+        <div class="footer-widgets-wrap pb-3 border-bottom clearfix">
+
+            <div class="row">
+
+                <div class="col-lg-2 col-md-3 col-6">
+                    <div class="widget clearfix">
+
+                        <!-- ① 푸터 컬럼1 어바웃 : 텍스트와 링크를 교체하세요 -->
+                        <h4 class="ls0 mb-3 nott">ABOUT US</h4>
+
+                        <ul class="list-unstyled iconlist ml-0">
+                            <!--<li><a href="/HBC/html/brand/about1.html">회사소개</a></li>-->
+                            <li><a href="">이용안내</a></li>
+                            <li class="copyright-links"><a href="">이용약관</a></li>
+                            <li class="copyright-links"><a href="">개인정보취급방침</a></li>
+                            <!-- <li><a href="/HBC/html/brand/about1.html">오프라인 매장안내</a></li> -->
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-3 col-6">
+                    <div class="widget clearfix">
+
+                        <h4 class="ls0 mb-3 nott">SHOPPING GUIDE</h4>
+
+                        <ul class="list-unstyled iconlist ml-0">
+                            <li class="copyright-links">
+                                <a href="">주문내역조회</a></li>
+                            <li><a href="">적립금내역보기</a></li>
+                            <li><a href="">1:1문의하기</a></li>
+                            <li><a href="">자주하는질문</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-3 col-6">
+                    <div class="widget clearfix">
+
+
+                        <h4 class="ls0 mb-3 nott">SNS</h4>
+
+                        <ul class="list-unstyled iconlist ml-0">
+                            <li>
+                                <a href="" title="Instagram" target="blank"><img
+                                        src="../team/img/insta.png"><span>Instagram</span></a> 
+                            </li>
+                            <li><a href="" title="Blog" target="blank"><img
+                                        src="../team/img/naver_blog.png"><span>blog</span></a>
+                            </li>
+                            <li><a href="" title="Facebook" target="blank"><img
+                                        src="../team/img/fook.png"><span>Facebook</span></a>
+                            </li>
+                            <li><a href="" title="Youtube" target="blank"><img
+                                        src="../team/img/youtube.png"><span>Youtube</span></a>
+                            </li>
+
+
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-3 col-6">
+                    <div class="widget clearfix">
+
+
+                        <h4 class="ls0 mb-3 nott">BANK INFO</h4>
+
+                        <ul class="list-unstyled iconlist ml-0">
+                            <li>
+                                <span>우리은행 :</span><br> 1005-603-970833</li>
+                            <li>
+                                <span>예금주 :</span> 정수</li>
+                            <li><select name="select" onchange="window.open(value,'_blank');"
+                                    style="display:block !important; width:80%;">
+                                    <option> 은행목록</option>
+                                    <option value="#!">우리은행</option>
+                                    <option value="#!">신한은행</option>
+                                    <option value="#!">IBK기업은행</option>
+                                    <option value="#!">KB국민은행</option>
+                                    <option value="#!">KEB하나은행</option>
+                                    <option value="#!">NH농협</option>
+                                </select></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-8">
+                    <div class="widget clearfix">
+
+
+                        <h4 class="ls0 mb-3 nott">CS CENTER</h4>
+                        <div class="widget subscribe-widget mt-2 clearfix">
+                            <ul class="list-unstyled iconlist ml-0">
+                                <li class="hb_footer_tel ls1" ></li>
+                                <li class="ls1">
+                                    <span>운영시간｜</span> 평일 9:00am - 6:00pm</li>
+                                <li class="ls1">
+                                    <span>점심시간｜</span> 12:30pm - 2:00pm</li>
+                                <li class="ls1">
+                                    <span>CS센터휴무｜</span> 주말·공휴일 휴무</li>
+                            </ul>
+                        </div>
+
+                    </div>
+                </div>
+
             </div>
-            <div class="col-lg-4 text-lg-end">
-                <a class="link-dark text-decoration-none me-3" href="#!">Privacy Policy</a>
-                <a class="link-dark text-decoration-none" href="#!">Terms of Use</a>
+
+        </div>
+        <!-- .footer-widgets-wrap end -->
+
+    </div>
+
+    <div id="copyrights" class="copyright">
+
+        <div id="bottom-container" class="container clearfix">
+
+            <div class="row justify-content-between align-items-center " style="font-size 20px;">
+                <div class="col-md-6">
+
+                    <div class="copy-link">
+                        |<span>법인명(상호) : D'terrior </span> | <span>대표자(성명) : 정수</span> | <span><br>|사업자 등록번호 안내 :
+                            [471-81-02025]</span>|<span>통신판매업 신고 : 일산탄현1437호
+                        | <span>|개인정보보호책임자 :오광훈</span>|
+                        <span>전화 : 02-6666-2546</span> | <span><br>|주소 :고양시 일산서구 탄현동 242 D'terrior타워
+                            812호|</span><br>
+                        <p class="copyright">Copyright © <strong> D'terrior</strong>. All rights reserved.</p>
+                    </div>
+                </div>
+
+                <div class="col-md-6 d-md-flex flex-md-column align-items-md-end mt-4 mt-md-0">
+                    <div class="copyrights-menu copyright-links clearfix">
+
+                        <a href="#" target="blank"><img src="../team/img/logo2.jpg"></a>
+
+                    </div>
+
+                </div>
             </div>
+
+        </div>
+
+    </div>
+    <!-- #copyrights end -->
+
+    <!-- Portfolio Modals-->
+    <!-- Portfolio item 1 modal popup-->
+
+    <!-- Bootstrap core JS-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Core theme JS-->
+    <script src="js/scripts.js"></script>
+    <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+    <!-- * *                               SB Forms JS                               * *-->
+    <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
+    <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+    <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+    </body>
+</footer>
+<!-- #footer end -->
+<!-- GoToTop : 우측하단 위젯[카카오상담하기 / 네이버톡톡상담]
+	============================================================== -->
+<!--//@import(/HBC/html/gototop.html)-->
+<!-- 결제를 위한 필수 영역 -->
+<div id="progressPaybar" style="display:none;">
+    <div id="progressPaybarBackground" class="layerProgress"></div>
+    <div id="progressPaybarView">
+        <div class="box">
+            <p class="graph">
+                <span><img src="//img.echosting.cafe24.com/skin/base_ko_KR/layout/txt_progress.gif"
+                        alt="현재 결제가 진행중입니다."></span>
+                <span><img src="//img.echosting.cafe24.com/skin/base/layout/img_loading.gif" alt=""></span>
+            </p>
+            <p class="txt">
+                본 결제 창은 결제완료 후 자동으로 닫히며,결제 진행 중에 본 결제 창을 닫으시면<br>
+                주문이 되지 않으니 결제 완료 될 때 까지 닫지 마시기 바랍니다.
+            </p>
         </div>
     </div>
-</footer>
-<!-- Portfolio Modals-->
-<!-- Portfolio item 1 modal popup-->
+</div>
+<!--슬라이드-->
+<script>
+    const carouselSlide = document.querySelector('.carousel-slide');
+    const carouselImages = document.querySelectorAll('.carousel-slide img');
 
-<!-- Bootstrap core JS-->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"></script>
-<!-- Core theme JS-->
-<script src="js/scripts.js"></script>
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
-<!-- * *                               SB Forms JS                               * *-->
-<!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
-<script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
-</body>
+    const prevBtn = document.querySelector('#prevBtn');
+    const nextBtn = document.querySelector('#nextBtn');
+
+    let counter = 1;
+    const size = carouselImages[0].clientWidth;
+    carouselSlide.style.transform = 'translateX(' + (-size * counter) + 'px)';
+
+    // Buttons
+    nextBtn.addEventListener('click', () => {
+        if (counter >= carouselImages.length - 1) return;
+        carouselSlide.style.transition = "transform 0.4s ease-in-out";
+        counter++;
+        carouselSlide.style.transform = 'translateX(' + (-size * counter) + 'px)';
+    });
+
+    prevBtn.addEventListener('click', () => {
+        if (counter <= 0) return;
+        carouselSlide.style.transition = "transform 0.4s ease-in-out";
+        counter--;
+        carouselSlide.style.transform = 'translateX(' + (-size * counter) + 'px)';
+    });
+
+    // 캐러쉘
+    carouselSlide.addEventListener('transitionend', () => {
+        console.log(carouselImages[counter]);
+        if (carouselImages[counter].id === 'lastClone') {
+            carouselSlide.style.transition = 'none'; // 트랜지션 효과 없애기
+            counter = carouselImages.length - 2; // couter 초기화
+            carouselSlide.style.transform = 'translateX(' + (-size * counter) + 'px)'; // 실제 마지막 이미지로 이동.
+        } else if (carouselImages[counter].id === 'firstClone') {
+            carouselSlide.style.transition = 'none';
+            counter = carouselImages.length - counter; // couter 초기화
+            carouselSlide.style.transform = 'translateX(' + (-size * counter) + 'px)';
+        }
+    });
+</script>
+<!-- jQuery first, then Bootstrap JS. -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="https://cdn.rawgit.com/twbs/bootstrap/v4-dev/dist/js/bootstrap.js"></script>
 
 </html>
