@@ -4,6 +4,7 @@
 <html>
 
 <head>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -67,7 +68,7 @@
           </div>
           <div class="col-md-6 mb-3"> <label for="email-code">인증코드</label> <input type="text" class="form-control"
             id="email-code" placeholder="" value="" required>
-            <button class="btn btn-primary code" type="submit">인증확인</button>
+            <button class="btn btn-primary code" id="sendCode" type="button">인증확인</button>
           </div>  
           <div class="mb-3"> <label for="password">비밀번호</label> <input type="password" class="form-control" id="pw"
             placeholder="비밀번호를 적어주세요" required name="pw">
@@ -121,7 +122,36 @@
       </div>
     </div>
   </div>
+<script>
 
+$('#sendCode').click(function() {
+	if($('#email').val() === '') {
+		alert('아이디(이메일)을 입력해주세요.');
+		return;
+	}
+	
+	const id = $('#email').val();
+	
+	$.ajax({
+		type: "post",
+		url: "/user/idCheck",
+		data: id,
+		headers: {
+			"Content-type" : "application/json"
+		},
+		success: function(data) {
+			if(data === 'send') {
+				alert('인증코드가 발송되었습니다')
+			} else {
+				alert('이미 가입된 이메일입니다.')
+			}
+		},
+		error: function() {
+			alert('서버에러 입니다. 관리자에게 문의하세요.');
+		}
+	});	
+});
+</script>
 
 
 </body>

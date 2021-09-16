@@ -45,4 +45,11 @@ public class UserServiceImpl implements UserService {
 		mapper.userDelete(id, pw);
 	}
 
+	@Override
+	public int idCheck(String id) {
+		return mapper.idCheck(id);
+	}
+	
+	
+
 }

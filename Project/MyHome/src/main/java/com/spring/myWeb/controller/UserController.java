@@ -8,7 +8,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.spring.myWeb.command.UserVO;
@@ -75,6 +77,19 @@ public class UserController {
 		} else {
 			return "/user/loginfail";
 		}
+	}
+	
+	//아이디중복체크
+	@ResponseBody
+	@PostMapping("/idCheck")
+	public String idCheck(@RequestBody String id) {
+		int chk = service.idCheck(id);
+		if(chk == 1) {
+			return "exist";
+		} else {
+			return "send";
+		}
+		
 	}
 	
 }

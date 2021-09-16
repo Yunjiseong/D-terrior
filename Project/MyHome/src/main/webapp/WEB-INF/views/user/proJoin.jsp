@@ -4,6 +4,7 @@
 <html>
 
 <head>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -103,13 +104,13 @@
           <div class="row">
             <div class="col-md-8 mb-3"> <label for="Attention">전문분야</label>
                <div class=invalid-checkbox>
-                  <label><input type="checkbox" name="major" value="Attention-1">시공</label>
-                  <label><input type="checkbox" name="major" value="Attention-2"> 타일</label><br>
-                  <label><input type="checkbox" name="major" value="Attention-3"> 건축자재</label>
-                  <label><input type="checkbox" name="major" value="Attention-4"> 건축설비</label><br>
-                  <label><input type="checkbox" name="major" value="Attention-6"> 도배</label>
-                  <label><input type="checkbox" name="major" value="Attention-7"> 창틀</label>
-                  <label><input type="checkbox" name="major" value="Attention-8"> 페인트</label>
+                  <label><input type="checkbox" name="major" value="major-1">시공</label>
+                  <label><input type="checkbox" name="major" value="major-2">타일</label><br>
+                  <label><input type="checkbox" name="major" value="major-3">건축자재</label>
+                  <label><input type="checkbox" name="major" value="major-4">건축설비</label><br>
+                  <label><input type="checkbox" name="major" value="major-6">도배</label>
+                  <label><input type="checkbox" name="major" value="major-7">창틀</label>
+                  <label><input type="checkbox" name="major" value="major-8">페인트</label>
                </div>
                <div class="col-md-8 mb-3"><label>증빙서류</label>
                <form  action="#" method="post" enctype="#">
@@ -124,7 +125,36 @@
       </div>
     </div>
   </div>
+<script>
 
+$('#sendCode').click(function() {
+	if($('#email').val() === '') {
+		alert('아이디(이메일)을 입력해주세요.');
+		return;
+	}
+	
+	const id = $('#email').val();
+	
+	$.ajax({
+		type: "post",
+		url: "/user/idCheck",
+		data: id,
+		headers: {
+			"Content-type" : "application/json"
+		},
+		success: function(data) {
+			if(data === 'send') {
+				alert('인증코드가 발송되었습니다')
+			} else {
+				alert('이미 가입된 이메일입니다.')
+			}
+		},
+		error: function() {
+			alert('서버에러 입니다. 관리자에게 문의하세요.');
+		}
+	});	
+});
+</script>
 
 
 </body>
