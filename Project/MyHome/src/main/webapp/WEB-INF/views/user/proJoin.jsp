@@ -8,7 +8,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>  회원가입(전문가)  </title> 
+  <title>  회원가입(일반)  </title> 
   <link rel="shortcut icon" href="../img/home-icon.png">
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
@@ -64,20 +64,19 @@
           </div>
           <div class="mb-3"> <label for="email">이메일</label> <input type="email" class="form-control" id="email"
               placeholder="you@example.com" required name="id">
-            <div class="invalid-feedback"> 이메일을 입력해주세요. 
-            </div>
-            <div class="col-md-6 mb-3"> <label for="email-code">인증코드</label> <input type="text" class="form-control"
-              id="email-code" placeholder="" value="" required>
-              <button class="btn btn-primary code" type="submit">인증확인</button>
-            </div>  
+            <div class="invalid-feedback"> 이메일을 입력해주세요. </div>
           </div>
+          <div class="col-md-6 mb-3"> <label for="email-code">인증코드</label> <input type="text" class="form-control"
+            id="email-code" placeholder="" value="" required>
+            <button class="btn btn-primary code" id="sendCode" type="button">인증확인</button>
+          </div>  
           <div class="mb-3"> <label for="password">비밀번호</label> <input type="password" class="form-control" id="pw"
             placeholder="비밀번호를 적어주세요" required name="pw">
-          <div class="invalid-feedback"> 비밀번호 입력해주세요. 
+          <div class="invalid-feedback"> 비밀번호. 
           </div>
           <div class="mb-3"> <label for="passwordCH">비밀번호확인</label> <input type="password" class="form-control" id="pw"
             placeholder="비밀번호를 다시 한번 적어주세요" required>
-          <div class="invalid-feedback"> 비밀번호확인 체크해주세요. 
+          <div class="invalid-feedback"> 비밀번호 확인해주세요. 
           </div>
           <div class="mb-3"><label for="phoene">전화번호</label> <br>
             <select id="mPhone1" name="phone1">
@@ -87,14 +86,14 @@
                 <option value="018">018</option>
                 <option value="019">019</option>
             </select>-
-            <input id="mPhone2" name="phone2" type="number" value="" size="4" maxlength="4" autocomplete="off">-
-            <input id="mPhone3" name="phone3" type="number" value="" size="4" maxlength="4" autocomplete="off">
+            <input id="mPhone2" name="phone2" type="number" value="" size="2" maxlength="4" autocomplete="off">-
+            <input id="mPhone3" name="phone3" type="number" value="" size="2" maxlength="4" autocomplete="off">
         </div>
-        <div class="mb-3"> <label for="address">테스트용 우편번호</label> <input type="text" class="form-control" id="address"
+		<div class="mb-3"> <label for="address">테스트용 우편번호</label> <input type="text" class="form-control" id="address"
               placeholder="서울특별시 강남구" required name="zipNum">
             <div class="invalid-feedback"> 테스트용 우편번호 </div>
           </div>
-        </div> 
+
           <div class="mb-3"> <label for="address">주소</label> <input type="text" class="form-control" id="address"
               placeholder="서울특별시 강남구" required name="addrBasic">
             <div class="invalid-feedback"> 주소를 입력해주세요. </div>
@@ -117,7 +116,7 @@
                 <input type="file" name="profile" multiple>
               </div>
               </select>
-        
+              
             </div>
            
           <div class="mb-4"></div> <button class="btn btn-primary btn-lg btn-block" type="submit">가입 완료</button>
@@ -137,7 +136,7 @@ $('#sendCode').click(function() {
 	
 	$.ajax({
 		type: "post",
-		url: "/user/idCheck",
+		url: "/user/mailCheck",
 		data: id,
 		headers: {
 			"Content-type" : "application/json"
