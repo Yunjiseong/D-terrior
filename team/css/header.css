@@ -1,0 +1,44 @@
+.acup{
+    display: block !important;
+    background-color: white;
+}
+
+#community{
+    display: none;
+    background-color: white;
+    font-size: 25px; font-style: inherit;
+     margin-top: 70px;
+}
+#store{
+    display: none;
+    background-color: white;
+    font-size: 25px; font-style: inherit;
+     margin-top: 70px;
+}
+.lnr-magnifier {
+    color: #fff;
+    font-size: 1rem;
+}
+#header-cate{
+    display: none;
+    max-width: 1366px;
+    text-align: center;
+    height: auto;
+}
+.category-list ul li:first-child {
+    margin-left: 0;
+  }
+  .header-categorys ul li {
+    display: inline-block;
+    margin: 0px;
+    text-align: center; 
+  }
+  .collapse{
+      background-color: white;
+  }
+  a{
+      color: black;
+  }
+  .fas{
+    color: rgb(51, 49, 49);
+  }
