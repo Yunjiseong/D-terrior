@@ -75,7 +75,7 @@
           </div>
           <div class="row">
             <div class="col-md-6 mb-3"> <label for="nickname">닉네임</label> <input type="text" class="form-control"
-                id="nickName" placeholder="" value="" required name="nickName">
+                id="nickName" placeholder="(2~15자)" value="" required name="nickName">
                 <span id="msgNickChk">닉네임중복체크</span>
                 <span id="msgNick"></span>
               <div class="invalid-feedback"> 닉네임을 입력해주세요.
@@ -210,10 +210,7 @@ $('#sendCode').click(function() {
 	if($('#email').val() === '') {
 		alert('아이디(이메일)을 입력해주세요.');
 		return;
-	} else if(document.getElementById("email").style.borderColor = "red"){
-		alert('형식에 맞지 않는 이메일입니다')
-		return;
-	}
+	} 
 	const id = $('#email').val();
 	$.ajax({
 		type: "post",
@@ -224,6 +221,7 @@ $('#sendCode').click(function() {
 		},
 		success: function(data) {
 			if(data === 'send'){
+				$("#sendCode").attr('disabled', true);
 				$.ajax({
 					type: "post",
 					url: "<c:url value='/user/mailCheck' />",
@@ -232,17 +230,21 @@ $('#sendCode').click(function() {
 						"Content-type" : "application/json"
 					},
 					success: function(data) {
-						code = data;
-						alert('인증번호가 발송되었습니다 이메일을 확인해주세요');
-						document.getElementById("sendCode").innerHTML = "인증번호가 발송되었습니다";
-						document.getElementById("sendCode").style.backgroundColor = "gray";
-						$("#sendCode").attr('disabled', true);
+						if(data != 'notvalid'){
+							code = data;
+							alert('인증번호가 발송되었습니다 이메일을 확인해주세요');
+							document.getElementById("sendCode").innerHTML = "인증번호가 발송되었습니다";
+							document.getElementById("sendCode").style.backgroundColor = "gray";
+						} else {
+							alert('유효하지 않은 이메일입니다');
+							$("#sendCode").attr('disabled', false);
+						}
 					},
 					error: function() {
 						alert('서버에러 입니다. 관리자에게 문의하세요.');
 					}
 				});	
-			} else {
+			} else if(data === 'exist') {
 				alert('이미 가입된 이메일입니다');
 			}
 			
@@ -266,6 +268,7 @@ inputCode.onkeyup = function(){
 }
 
 /*아이디 형식(이메일) 검사 스크립트*/
+
 var id = document.getElementById("email");
 id.onkeyup = function() {
     var regex = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
@@ -274,7 +277,7 @@ id.onkeyup = function() {
         document.getElementById("msgId").innerHTML = "사용가능한 이메일입니다."; 
     } else {
         document.getElementById("email").style.borderColor = "red";
-        document.getElementById("msgId").innerHTML = "형식에 맞지 않는 이메일입니다"; //디자인조정필요
+        document.getElementById("msgId").innerHTML = "형식에 맞지 않는 이메일입니다";
     }
 }
 /*비밀번호 형식 검사 스크립트*/
@@ -312,6 +315,7 @@ nform.onkeyup = function() {
 		document.getElementById("nickName").style.borderColor = "red";
 		document.getElementById("msgNick").innerHTML = "닉네임은 2~15자 이내여야합니다";
 	}
+	
 }
 /* 주소찾기 */
   function sample6_execDaumPostcode() {
@@ -361,7 +365,6 @@ nform.onkeyup = function() {
       }
     }).open();
   }
-  
 
 </script>
 

@@ -50,7 +50,7 @@ public class UserController {
 
 	//회원가입요청
 	@PostMapping("/userJoin")
-	public String join(UserVO vo, @RequestParam("file") MultipartFile file) {
+	public String join(UserVO vo, @RequestParam(required=false) MultipartFile file) {
 		System.out.println("회원가입요청");
 		try {
 			String username = vo.getNickName();
@@ -190,7 +190,6 @@ public class UserController {
 						"인증 번호는 " + checkNum + "입니다." + 
 						"<br>" + 
 						"해당 인증번호를 인증번호 확인란에 기입하여 주세요.";
-
 		try {
 			MimeMessage message = mailSender.createMimeMessage();
 			MimeMessageHelper helper = new MimeMessageHelper(message, true, "utf-8");
@@ -201,6 +200,7 @@ public class UserController {
 			mailSender.send(message);
 		} catch(Exception e) {
 			e.printStackTrace();
+			return "notvalid";
 		}
 		String code = Integer.toString(checkNum);
 		System.out.println(code);

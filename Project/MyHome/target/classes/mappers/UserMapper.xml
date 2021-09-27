@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
+<mapper namespace="com.spring.myWeb.user.mapper.IUserMapper">
+     <resultMap type="com.spring.myWeb.command.UserVO" id="user">
+        <id column="id" property="id" />
+        <result column="pw" property="pw" />
+        <result column="nick_name" property="nickName" />
+        <result column="phone1" property="phone1" />
+        <result column="phone2" property="phone2" />
+        <result column="phone3" property="phone3" />
+        <result column="grade" property="grade" />
+        <result column="interest" property="interest" />
+        <result column="addr_basic" property="addrBasic" />
+        <result column="addr_detail" property="addrDetail" />
+        <result column="zip_num" property="zipNum" />
+        <result column="major" property="major" />
+        <result column="profile" property="profile" />
+        <result column="scrap" property="scrap" />
+        <result column="paper" property="paper" />
+     </resultMap>
+ 
+    <insert id="userJoin">
+        insert into users(id, pw, nick_name, phone1, phone2, phone3, grade, interest, addr_basic, addr_detail, zip_num, major, profile, scrap, paper)
+        values (#{id}, #{pw}, #{nickName}, #{phone1, jdbcType=VARCHAR}, #{phone2, jdbcType=VARCHAR}, #{phone3, jdbcType=VARCHAR}, #{grade, jdbcType=VARCHAR}, #{interest, jdbcType=VARCHAR}, #{addrBasic}, #{addrDetail, jdbcType=VARCHAR}, #{zipNum}, #{major, jdbcType=VARCHAR}, #{profile, jdbcType=VARCHAR}, #{scrap, jdbcType=VARCHAR}, #{paper, jdbcType=VARCHAR})
+    </insert>
+    
+    <update id="userUpdate">
+    	UPDATE users
+    	SET pw=#{pw}, nick_name=#{nickName}, phone1=#{phone1}, phone2=#{phone2}, phone3=#{phone3}, grade=#{grade}, interest=#{interest}, addr_basic=#{addrBasic}, addr_detail=#{addrDetail}, zip_num=#{zipNum}, major=#{major}, profile=#{profile}, scrap=#{scrap}
+		WHERE id=#{id}    	
+    </update>
+ 
+ 	<delete id="userDelete">
+ 		DELETE FROM users
+ 		WHERE id=#{id}
+ 		AND pw=#{pw}
+ 	</delete>
+ 	
+ 	<select id="userLogin" resultType="com.spring.myWeb.command.UserVO">
+		SELECT * FROM users
+		WHERE id = #{id}
+		AND pw = #{pw}
+	</select>
+	
+	<select id="idCheck" resultType="int">
+		SELECT COUNT (*) FROM users
+		WHERE id = #{id}
+	</select>
+	
+	<select id="nickCheck" resultType="int">
+		SELECT COUNT (*) FROM users
+		WHERE nick_name = #{nickName}
+	</select>
+ 
+</mapper>
