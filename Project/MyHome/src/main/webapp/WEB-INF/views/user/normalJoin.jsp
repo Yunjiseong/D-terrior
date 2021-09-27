@@ -114,7 +114,7 @@
               <div class="row">
                 <div class="col-md-8 mb-3"> <label for="Attention">관심분야</label>
                   <div class=invalid-checkbox>
-                    <label><input class="checkcss" type="checkbox" name="interest" value="intr1">가구</label>
+                    <label><input class="checkcss" type="checkbox" name="interest" value="intr1"> 가구</label>
                     <label><input class="checkcss" type="checkbox" name="interest" value="intr2"> 패브릭</label><br>
                     <label><input class="checkcss" type="checkbox" name="interest" value="intr3"> 조명</label>
                     <label><input class="checkcss" type="checkbox" name="interest" value="intr4"> 장식/소품</label><br>
@@ -195,15 +195,15 @@ $('#nickChk').click(function(){
 			"Content-type" : "application/json"
 		},		
 		success: function(data){
-			if(data === 'ok') {
-				alert('사용가능한 닉네임입니다');
-				document.getElementById("nickName").style.borderColor = "green";
-				document.getElementById('msgNickChk').innerHTML = '사용가능한 닉네임입니다';
-			} else {
+			if(data === 'exist') {
 				alert('이미 존재하는 닉네임입니다');
 				document.getElementById("nickName").style.borderColor = "red";
-				document.getElementById('msgNickChk').innerHTML = '이미 존재하는 닉네임입니다';
-			}
+				document.getElementById('msgNick').innerHTML = '이미 존재하는 닉네임입니다';
+			} else if(data === 'ok') {
+				alert('사용가능한 닉네임입니다');
+				document.getElementById("nickName").style.borderColor = "green";
+				document.getElementById('msgNick').innerHTML = '사용가능한 닉네임입니다';
+			} 
 		}
 	});
 });
@@ -259,20 +259,6 @@ $('#sendCode').click(function() {
 	});	
 });
 
-/* 인증번호 비교 */
-/*
-
-var inputCode = document.getElementById("email-code");
-inputCode.onkeyup = function(){
-	if( code === document.getElementById("email-code").value ){
-		document.getElementById("email-code").style.borderColor = "green";
-		document.getElementById("msgCodeChk").innerHTML = "인증번호가 일치합니다";
-	} else {
-		document.getElementById("email-code").style.borderColor = "red";
-		document.getElementById("msgCodeChk").innerHTML = "인증번호가 일치하지 않습니다";
-	}
-}
-*/
 /* 인증번호 확인 */
 var inputCode = document.getElementById("emailCode");
 $('#codeChk').click(function(){
@@ -303,19 +289,19 @@ id.onkeyup = function() {
 /*비밀번호 형식 검사 스크립트*/
 var pw = document.getElementById("pw");
 pw.onkeyup = function(){
-    var regex = /^[A-Za-z0-9+]{8,16}$/;
+    var regex = /^(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{8,20}$/;
      if(regex.test(document.getElementById("pw").value )) {
         document.getElementById("pw").style.borderColor = "green";
         document.getElementById("msgPw").innerHTML = "사용가능합니다";
     } else {
         document.getElementById("pw").style.borderColor = "red";
-        document.getElementById("msgPw").innerHTML = "비밀번호는 8자 이상이어야 합니다.";
+        document.getElementById("msgPw").innerHTML = "비밀번호는 영문, 숫자, 특수문자를 혼합하여 8~20자리 이내여야 합니다";
     }
 }
 /*비밀번호 확인검사*/
 var pwConfirm = document.getElementById("pwChk");
 pwConfirm.onkeyup = function() {
-    var regex = /^[A-Za-z0-9+]{8,16}$/;
+    var regex = /^(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{8,20}$/;
     if(document.getElementById("pwChk").value == document.getElementById("pw").value ) {
         document.getElementById("pwChk").style.borderColor = "green";
         document.getElementById("msgPwChk").innerHTML = "비밀번호가 일치합니다";
@@ -328,12 +314,14 @@ pwConfirm.onkeyup = function() {
 var nform = document.getElementById("nickName");
 nform.onkeyup = function() {
 	var regex = /^.{2,15}$/;
-	if(regex.test(document.getElementById("nickName").value )){
-		document.getElementById("nickName").style.borderColor = "#008001";
-		document.getElementById("msgNick").innerHTML = "";
-	} else {
+	if(!regex.test(document.getElementById("nickName").value )){
+		document.getElementById("nickChk").setAttribute("disabled", "disabled");
 		document.getElementById("nickName").style.borderColor = "red";
 		document.getElementById("msgNick").innerHTML = "닉네임은 2~15자 이내여야합니다";
+	} else {
+		document.getElementById("nickName").style.borderColor = "#008001";
+		document.getElementById("msgNick").innerHTML = "";
+		document.getElementById('nickChk').removeAttribute("disabled");
 	}
 	
 }
@@ -384,7 +372,7 @@ nform.onkeyup = function() {
         document.getElementById("sample6_detailAddress").focus();
       }
     }).open();
-  }  
+  }
 
 </script>
 
