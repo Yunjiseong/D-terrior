@@ -32,7 +32,7 @@
 		<property name="mapperLocations" value="classpath:/mappers/*.xml" />
 	</bean>	
 	
-	<mybatis-spring:scan base-package="com.spring.myWeb.myhome.mapper"/>
-	<mybatis-spring:scan base-package="com.spring.myWeb.user.mapper"/>
+	<mybatis-spring:scan base-package="com.spring.myWeb.**.mapper"/>
+
 		
 </beans>

@@ -9,6 +9,6 @@
 <body>
 	LOGIN SUCCESS
 	<br>
-	현재 로그인한 아이디 : ${userId} 
+	현재 로그인한 아이디 : ${id} 
 </body>
 </html>

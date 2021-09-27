@@ -1,27 +1,62 @@
 package com.spring.myWeb.user.service;
 
 import org.apache.ibatis.annotations.Param;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.spring.myWeb.command.UserVO;
+import com.spring.myWeb.user.mapper.IUserMapper;
 
-public interface UserService {
+@Service
+public class UserService implements IUserService {
 	
-	//CRUD 기능 메서드
+	@Autowired
+	private IUserMapper mapper;
+	
+	@Override
 	//회원등록
-	void userJoin(UserVO vo);
-	
-	//회원정보 불러오기
-	UserVO userInfo(String id);
-	
-	//회원정보 수정
-	void userUpdate(UserVO vo);
-	
-	//회원탈퇴
-	void userDelete(@Param("id") String id, @Param("pw") String pw);
+	public void userJoin(UserVO vo) {
+		mapper.userJoin(vo);
+	}
+
+	@Override
+	//회원정보
+	public UserVO userInfo(String id) {
+		return null;
+	}
 	
 	//로그인
-	UserVO userLogin(@Param("id") String id, @Param("pw") String pw);
+	@Override
+	public UserVO userLogin(@Param("id") String id, @Param("pw") String pw) {
+		return mapper.userLogin(id, pw);
+	}
 	
-	//아이디 중복체크
-	int idCheck(String id);
+
+	@Override
+	//회원정보 수정
+	public void userUpdate(UserVO vo) {
+		mapper.userUpdate(vo);
+	}
+
+
+	//회원탈퇴
+	@Override
+	public void userDelete(@Param("id")String id, @Param("pw")String pw) {
+		mapper.userDelete(id, pw);
+	}
+	
+	//아이디중복체크
+	@Override
+	public int idCheck(String id) {
+		return mapper.idCheck(id);
+	}
+
+	//닉네임중복체크
+	@Override
+	public int nickCheck(String nickName) {
+		return mapper.nickCheck(nickName);
+	}
+	
+	
+
 }

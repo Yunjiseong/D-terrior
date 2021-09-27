@@ -5,17 +5,10 @@
     <meta charset="utf-8" />
     
     <title>D'terrior</title>
-    <!-- Favicon-->
-    <link rel="icon" type="image/x-icon" href="../img/favicon-16x160.jpg" />
-    <!-- Font Awesome icons (free version)-->
-    <script src="https://use.fontawesome.com/releases/v5.15.3/js/all.js" crossorigin="anonymous"></script>
-    <!-- Google fonts-->
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
-    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css" />
     
-    <link href="../css/styles.css" rel="stylesheet">
-    <link href="../team/css/footer.css" rel="stylesheet">
-    <link href="../team/css/header.css" rel="stylesheet">
+    
+    
+    
     
     <link rel="stylesheet" href="https://cdn.rawgit.com/twbs/bootstrap/v4-dev/dist/css/bootstrap.css">
     <style>
@@ -28,6 +21,12 @@
             overflow: hidden;
             position: relative;
         }
+     .carimg {
+      top: 0;
+      left: 0;
+      min-width: 1000px;
+      min-height: 400px;
+    } 
 
         .carousel-slide {
             display: flex;
@@ -57,89 +56,98 @@
             text-indent: -9999px;
         }
     </style>
-    </style>
+    
 </head>
 
 <body id="page-top">
     <!-- Navigation-->
-    <nav class="navbar navbar-expand-lg  fixed-top" style="background-color: rgb(255, 253, 253);">
-        <div class="container">
-            <img class="navbar-brand" href="#" img src="../team/img/logo2.jpg">
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
-                aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
+    <header>
+        <nav class="navbar navbar-expand-lg  fixed-top" style="background-color: rgb(255, 253, 253); align-content: flex-start;">
+          <div class="container">
+              <img class="navbar-brand" href="#" img src="../img/logo2.jpg">
+              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+                  aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+              </button>
+            <ul class="navbar-nav ml-auto">
+            <li class="nav-item" id="id1">
+                <a class="nav-link" href="#" style="color: black;">커뮤니티</a>
+            </li>
+            <li class="nav-item" id="id2">
+                <a class="nav-link" href="#" style="color: black;">스토어</a>
+            </li>
+            </ul>
+              <form class="" role="search">
+                  <div class="input-group">
+                      <input type="text" class="form-control" placeholder="Search">
+                      <div class="input-group-btn" style="justify-content: center;"style="padding: left 50px;">
+                          <button type="submit" class="btn btn-info"><span
+                                  class="glyphicon glyphicon-search">검색</span></button>
+                      </div>
+                  </div>
+              </form>
+        
+              <div class="collapse navbar-collapse" id="navbarResponsive" style="justify-content:end;">
+                  <ul class="navbar-nav ml-auto">
+                      <li class="nav-item">
+                          <a class="nav-link" href="#" style="color: black;"> 로그인</a>
+                      </li>
+                      <li class="nav-item">
+                          <a class="nav-link" href="#" style="color: black;">회원가입</a>
+                      </li>
+                      <li class="nav-item">
+                          <a class="nav-link" href="#" style="color: black;">고객센터</a>
+                      </li>
+        
+                  </ul>
+        
+              </div>
+          </div>
+        </nav>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light acup"id="community" 
+        style="padding-top:90; font-size: 25px; font-style: inherit; ">
+          <div class="container-fluid">
+            <a class="navbar-brand" href="#">Navbar</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
             </button>
-
-            <form class="navbar-form pull-center" role="search">
-                <div class="input-group">
-                    <input type="text" class="form-control" placeholder="Search">
-                    <div class="input-group-btn" style="justify-content: center;">
-                        <button type="submit" class="btn btn-info"><span
-                                class="glyphicon glyphicon-search">검색</span></button>
-                    </div>
-                </div>
-            </form>
-
-            <div class="collapse navbar-collapse" id="navbarResponsive" style="justify-content:end;">
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#" style="color: black;"> 로그인</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#" style="color: black;">회원가입</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#" style="color: black;">고객센터</a>
-                    </li>
-
-                </ul>
-
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+              <div class="navbar-nav">
+                <a class="nav-link" href="#">Home</a>
+                <a class="nav-link" href="#">내집뽐내기</a>
+                <a class="nav-link" href="#">질문과답변</a>
+                <a class="nav-link" href="#">이벤트</a>
+              </div>
             </div>
-        </div>
-    </nav>
-    <nav class="navbar navbar-expand-lg navbar-light nav2"  
-    style=" background-color: rgb(255, 253, 253); ">
-        <div class="container" style="display: flex;">
-
-
-            <div class="collapse navbar-collapse" id="navbarResponsive"
-                style="padding:30px 0px 0px 0px;  margin-top: 50px; font-size: 20px; 
-                        justify-content:start; font-family: Arial, Helvetica, sans-serif; ">
-                <ul class="navbar-nav ml-auto" style="">
-                    <li class="nav-item ">
-                        <a class="nav-link" href="#">홈</a>
-                    </li>
-                    <li class="nav-item ">
-                        <a class="nav-link" href="#">스토어</a>
-                    </li>
-                    <li class="nav-item ">
-                        <a class="nav-link" href="#">커뮤니티</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">질문과답변</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">고객센터</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">이벤트</a>
-                    <li style="justify-content:end;">
-                 <button class=" btn btn-lg btn-info"> 뽐내기 </button>
-                </li>
-                </ul>
+          </div>
+        </nav>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light acup" id="store"
+        style="padding-top:90; font-size: 25px; font-style: inherit; ">
+          <div class="container-fluid">
+            <a class="navbar-brand" href="#">Navbar</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+              <div class="navbar-nav">
+                <a class="nav-link" href="#">Home</a>
+                <a class="nav-link" href="#">베스트</a>
+                <a class="nav-link" href="#">카테고리</a>
+                <a class="nav-link" href="#">전문가의손길</a>
+              </div>
             </div>
-         
-
-
-    </nav>
+          </div>
+        </nav>
+        </header>
+    
     <div class="carousel-container">
         <div class="carousel-slide">
-            <img src="img/interior5.png" id="lastClone">
-            <img src="img/interior4.png">
-            <img src="img/interior6.jpg">
-            <img src="img/interior3.png">
-            <img src="img/interior2.png">
-            <img src="img/interior8.png" id="firstClone">
+            <img class="carimg" src="img/interior5.png" id="lastClone">
+            <img class="carimg" src="img/interior4.png">
+            <img class="carimg" src="img/interior6.jpg">
+            <img class="carimg" src="img/interior3.png">
+            <img class="carimg" src="img/interior2.png">
+            <img class="carimg" src="img/interior8.png" id="firstClone">
         </div>
         <button id="prevBtn">Prev</button>
         <button id="nextBtn">Next</button>
@@ -198,16 +206,16 @@
                         <ul class="list-unstyled iconlist ml-0">
                             <li>
                                 <a href="" title="Instagram" target="blank"><img
-                                        src="../team/img/insta.png"><span>Instagram</span></a> 
+                                        src="img/insta.png"><span>Instagram</span></a> 
                             </li>
                             <li><a href="" title="Blog" target="blank"><img
-                                        src="../team/img/naver_blog.png"><span>blog</span></a>
+                                        src="img/naver_blog.png"><span>blog</span></a>
                             </li>
                             <li><a href="" title="Facebook" target="blank"><img
-                                        src="../team/img/fook.png"><span>Facebook</span></a>
+                                        src="img/fook.png"><span>Facebook</span></a>
                             </li>
                             <li><a href="" title="Youtube" target="blank"><img
-                                        src="../team/img/youtube.png"><span>Youtube</span></a>
+                                        src="img/youtube.png"><span>Youtube</span></a>
                             </li>
 
 
@@ -269,7 +277,7 @@
 
         <div id="bottom-container" class="container clearfix">
 
-            <div class="row justify-content-between align-items-center " style="font-size 20px;">
+            <div class="row justify-content-between align-items-center " style="font-size=20px;">
                 <div class="col-md-6">
 
                     <div class="copy-link">
@@ -285,7 +293,7 @@
                 <div class="col-md-6 d-md-flex flex-md-column align-items-md-end mt-4 mt-md-0">
                     <div class="copyrights-menu copyright-links clearfix">
 
-                        <a href="#" target="blank"><img src="../team/img/logo2.jpg"></a>
+                        <a href="#" target="blank"><img src="img/logo2.jpg"></a>
 
                     </div>
 
@@ -309,29 +317,8 @@
     <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
     <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
     <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
-    </body>
-</footer>
-<!-- #footer end -->
-<!-- GoToTop : 우측하단 위젯[카카오상담하기 / 네이버톡톡상담]
-	============================================================== -->
-<!--//@import(/HBC/html/gototop.html)-->
-<!-- 결제를 위한 필수 영역 -->
-<div id="progressPaybar" style="display:none;">
-    <div id="progressPaybarBackground" class="layerProgress"></div>
-    <div id="progressPaybarView">
-        <div class="box">
-            <p class="graph">
-                <span><img src="//img.echosting.cafe24.com/skin/base_ko_KR/layout/txt_progress.gif"
-                        alt="현재 결제가 진행중입니다."></span>
-                <span><img src="//img.echosting.cafe24.com/skin/base/layout/img_loading.gif" alt=""></span>
-            </p>
-            <p class="txt">
-                본 결제 창은 결제완료 후 자동으로 닫히며,결제 진행 중에 본 결제 창을 닫으시면<br>
-                주문이 되지 않으니 결제 완료 될 때 까지 닫지 마시기 바랍니다.
-            </p>
-        </div>
-    </div>
-</div>
+  
+
 <!--슬라이드-->
 <script>
     const carouselSlide = document.querySelector('.carousel-slide');
@@ -371,6 +358,28 @@
             counter = carouselImages.length - counter; // couter 초기화
             carouselSlide.style.transform = 'translateX(' + (-size * counter) + 'px)';
         }
+
+
+
+        /////////////////////////////////////////////////////////////
+        $(function() {
+  $('#id1').mouseover(function(){
+    $('#community').addClass('acup');
+    $('#store').removeClass('acup');
+  }); //커뮤니티 마우스온 이벤트 종료  
+
+
+
+  $('#id2').mouseover(function(){
+    $('#community').removeClass('acup');
+    $('#store').addClass('acup');
+  }); //스토어 마우스온 이벤트 종료
+
+
+
+
+
+});//end jquery
     });
 </script>
 <!-- jQuery first, then Bootstrap JS. -->

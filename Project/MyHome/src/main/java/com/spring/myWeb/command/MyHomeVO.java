@@ -18,8 +18,20 @@ create table myhome(
     img varchar2(200),
     regdate date default sysdate,
     updatedate date default sysdate,
-    like_cnt number(10,0)
-);
+    like_cnt number(10,0) default 0,
+    view_cnt number default 0,
+    scrap_cnt number default 0,
+    homeForm VARCHAR2(30),
+    money VARCHAR2(30),
+    homeSize VARCHAR2(30),
+    place VARCHAR2(30),
+    direction VARCHAR2(30),
+    room VARCHAR2(30),
+    age VARCHAR2(30),
+    family VARCHAR2(30),
+    worker VARCHAR2(30),
+    region VARCHAR2(30)
+)
 
 -- 글 번호 pk 설정
 alter table myhome
@@ -46,9 +58,12 @@ create sequence myhome_seq
 @AllArgsConstructor
 public class MyHomeVO {
 	
-	private int bno, likeCnt;
+	private int bno, likeCnt, viewCnt, scrapCnt;
 	private String writer, title, content, img;
 	private Timestamp regDate, updateDate;	
+	private int sort;
+	private String homeForm, money, homeSize, place
+	, direction, room, age, family, worker, region;
 
 }
 

@@ -3,7 +3,7 @@ package com.spring.myWeb.myhome.mapper;
 import java.util.List;
 
 import com.spring.myWeb.command.MyHomeVO;
-import com.spring.myWeb.command.PageVO;
+import com.spring.myWeb.myhome.util.PageVO;
 
 public interface IMyHomeMapper {
 	

@@ -202,23 +202,28 @@
 			<artifactId>commons-io</artifactId>
 			<version>2.4</version>
 		</dependency>
+
+		<!-- xml parser 한글처리 추가 -->
+		<dependency>
+			<groupId>xerces</groupId>
+			<artifactId>xercesImpl</artifactId>
+			<version>2.9.1</version>
+		</dependency>
 		
 		<!-- 이메일 인증: https://mvnrepository.com/artifact/javax.mail/mail -->
-<dependency>
-	<groupId>javax.mail</groupId>
-	<artifactId>mail</artifactId>
-	<version>1.4.7</version>
-</dependency>
+		<dependency>
+			<groupId>javax.mail</groupId>
+			<artifactId>mail</artifactId>
+			<version>1.4.7</version>
+		</dependency>
+		
+		<!-- https://mvnrepository.com/artifact/org.springframework/spring-context-support -->
 
-<!-- https://mvnrepository.com/artifact/org.springframework/spring-context-support -->
-<dependency>
-	<groupId>org.springframework</groupId>
-	<artifactId>spring-context-support</artifactId>
-	<version>${org.springframework-version}</version>
-</dependency>
-
-
-
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context-support</artifactId>
+			<version>${org.springframework-version}</version>
+		</dependency>
 
 	</dependencies>
 

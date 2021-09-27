@@ -3,20 +3,63 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
+
 <mapper	namespace="com.spring.myWeb.myhome.mapper.IMyHomeMapper">
 
-	<resultMap type="com.spring.myWeb.command.MyHomeVO" id="MyHomeMap">
+	<resultMap type="com.spring.myWeb.command.MyHomeVO" id="HomeMap">
 		<result column="regdate" property="regDate" />
 		<result column="updatedate" property="updateDate"/>
 		<result column="like_cnt" property="likeCnt"/>
+		<result column="homeform" property="homeForm"/>
+		<result column="homesize" property="homeSize"/>
 	</resultMap>
 	
+	<sql id="order">
+		<if test="sort == 1">ORDER BY regdate DESC</if>
+		<if test="sort == 2">ORDER BY likeCnt DESC</if>
+	</sql>	
+	
+	<sql id="search">
+		<if test="homeForm != null">homeform = #{homeForm} </if>
+		<if test="homeForm == null">bno IS NOT NULL </if>
+		<if test="money != null"> AND money = #{money}</if>
+		<if test="homeSize != null"> AND homesize = #{homeSize}</if>
+	</sql>
+	
 	<insert id="regist">
-		INSERT INTO myhome(bno, writer, title, content, img)
-		VALUES(myhome_seq.NEXTVAL, #{writer}, #{title}, #{content}, #{img})
+		INSERT INTO myhome(bno, writer, title, content, homeform, money, homesize, place, direction, room, age, family, worker, region)
+		VALUES(myhome_seq.NEXTVAL, #{writer}, #{title}, #{content}, #{homeForm}, #{money}, #{homeSize}, #{place}, #{direction}, #{room}, #{age}, #{family}, #{worker}, #{region})
 	</insert>
 	
+	<select id="getList" resultMap="HomeMap">
+		SELECT * FROM
+			(
+			SELECT ROWNUM rn, tbl.* FROM
+				(
+				SELECT * FROM myhome
+				WHERE <include refid="search" />
+				) tbl
+			)
+		<![CDATA[
+		WHERE rn > (#{nowPage}-1) * #{countPerPage} 
+		AND rn <= #{nowPage} * #{countPerPage}
+		]]> 
+		<include refid="order" />
+	</select>
 	
+	<select id="getDetail" resultMap="HomeMap">
+		SELECT * FROM myhome
+		WHERE bno=#{bno}
+	</select>
+	
+	<select id="getTotalArticles" resultType="int">
+		SELECT COUNT(*) FROM myhome
+		WHERE <include refid="search" />
+	</select>
+	
+	<update id="update">
+		UPDATE myhome SET 
+	</update>
 
 
 	

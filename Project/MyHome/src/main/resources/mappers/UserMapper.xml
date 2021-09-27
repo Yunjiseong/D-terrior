@@ -3,7 +3,7 @@
 PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
  
-<mapper namespace="com.spring.myWeb.user.mapper.UserMapper">
+<mapper namespace="com.spring.myWeb.user.mapper.IUserMapper">
      <resultMap type="com.spring.myWeb.command.UserVO" id="user">
         <id column="id" property="id" />
         <result column="pw" property="pw" />
@@ -19,11 +19,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         <result column="major" property="major" />
         <result column="profile" property="profile" />
         <result column="scrap" property="scrap" />
+        <result column="paper" property="paper" />
      </resultMap>
  
     <insert id="userJoin">
-        insert into users(id, pw, nick_name, phone1, phone2, phone3, grade, interest, addr_basic, addr_detail, zip_num, major, profile, scrap)
-        values (#{id}, #{pw}, #{nickName}, #{phone1}, #{phone2}, #{phone3}, #{grade, jdbcType=VARCHAR}, #{interest, jdbcType=VARCHAR}, #{addrBasic}, #{addrDetail, jdbcType=VARCHAR}, #{zipNum}, #{major, jdbcType=VARCHAR}, #{profile, jdbcType=VARCHAR}, #{scrap, jdbcType=VARCHAR})
+        insert into users(id, pw, nick_name, phone1, phone2, phone3, grade, interest, addr_basic, addr_detail, zip_num, major, profile, scrap, paper)
+        values (#{id}, #{pw}, #{nickName}, #{phone1, jdbcType=VARCHAR}, #{phone2, jdbcType=VARCHAR}, #{phone3, jdbcType=VARCHAR}, #{grade, jdbcType=VARCHAR}, #{interest, jdbcType=VARCHAR}, #{addrBasic}, #{addrDetail, jdbcType=VARCHAR}, #{zipNum}, #{major, jdbcType=VARCHAR}, #{profile, jdbcType=VARCHAR}, #{scrap, jdbcType=VARCHAR}, #{paper, jdbcType=VARCHAR})
     </insert>
     
     <update id="userUpdate">
@@ -47,6 +48,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="idCheck" resultType="int">
 		SELECT COUNT (*) FROM users
 		WHERE id = #{id}
+	</select>
+	
+	<select id="nickCheck" resultType="int">
+		SELECT COUNT (*) FROM users
+		WHERE nick_name = #{nickName}
 	</select>
  
 </mapper>

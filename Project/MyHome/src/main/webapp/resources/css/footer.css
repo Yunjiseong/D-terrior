@@ -4,7 +4,7 @@
     .footer-top {
     min-height : 116px;
     padding : 45px 0;
-    background-color : #141414;
+    background-color : #f08080;
     color : #202020;
     }
     .footer-top li {
@@ -239,12 +239,12 @@
         }
         
         footer {
-            background-color: #49c7da;
+            background-color: #fcf7f7e7;
             padding-top: 30px;
         }
         
         .copyright {
-            background-color: #49c7da;
+            background-color: #fcf8f8e7;
         }
         html {
             height: 100%;

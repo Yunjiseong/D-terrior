@@ -3,7 +3,7 @@ package com.spring.myWeb.myhome.service;
 import java.util.List;
 
 import com.spring.myWeb.command.MyHomeVO;
-import com.spring.myWeb.command.PageVO;
+import com.spring.myWeb.myhome.util.PageVO;
 
 public interface IMyHomeService {
 
