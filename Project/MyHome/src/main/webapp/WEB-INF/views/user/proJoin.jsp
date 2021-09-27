@@ -1,139 +1,181 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+	pageEncoding="EUC-KR"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 
 <head>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title> 회원가입(전문가) </title>
-  <link rel="shortcut icon" href="../img/home-icon.png">
-  <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  <style>
-    body {
-      min-height: 100vh;
-      background: -webkit-gradient(linear, left bottom, right top, from(#fff), to(#fff));
-      background: -webkit-linear-gradient(bottom left, #fff 0%, #fffc 100%);
-      background: -moz-linear-gradient(bottom left, #fff 0%, #fff 100%);
-      background: -o-linear-gradient(bottom left, #fff 0%, #fff 100%);
-      background: linear-gradient(to top right, #fff 0%, #fff 100%);
-    }
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>회원가입(전문가회원)</title>
+<link rel="shortcut icon" href="../img/home-icon.png">
+<!-- Bootstrap CSS -->
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+	crossorigin="anonymous">
+<style>
+body {
+	min-height: 100vh;
+	background: -webkit-gradient(linear, left bottom, right top, from(#fff),
+		to(#fff));
+	background: -webkit-linear-gradient(bottom left, #fff 0%, #fffc 100%);
+	background: -moz-linear-gradient(bottom left, #fff 0%, #fff 100%);
+	background: -o-linear-gradient(bottom left, #fff 0%, #fff 100%);
+	background: linear-gradient(to top right, #fff 0%, #fff 100%);
+}
 
-    .input-form {
-      max-width: 680px;
-      margin-top: 80px;
-      padding: 32px;
-      background: #fff;
-      -webkit-border-radius: 10px;
-      -moz-border-radius: 10px;
-      border-radius: 10px;
-      -webkit-box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.15);
-      -moz-box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.15);
-      box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.15)
-    }
+.input-form {
+	max-width: 680px;
+	margin-top: 80px;
+	padding: 32px;
+	background: #fff;
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+	-webkit-box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.15);
+	-moz-box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.15);
+	box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.15)
+}
 
-    .invalid-checkbox {
-      border: #000 solid 1px;
-      border-radius: 10px;
-      background-color: #fff;
-      width: 50%;
-    }
+.invalid-checkbox {
+	border: #000 solid 1px;
+	border-radius: 10px;
+	background-color: #fff;
+	width: 50%;
+}
 
-    .code {
-      margin-top: 10px;
-    }
+.code {
+	margin-top: 32px;
+}
 
-    .checkcss {
-      margin: 5px;
-    }
-    .ka-api {
-      margin: 5px;
-    }
-  </style>
+.checkcss {
+	margin: 5px;
+}
+
+.ka-api {
+	margin: 5px;
+}
+
+.code2 {
+	margin: 0 0 20px 20px;
+}
+</style>
 </head>
 
 <body>
-  <div class="container">
-    <div class="input-form-backgroud row">
-      <div class="input-form col-md-12 mx-auto">
-        <h4 class="mb-3">회원가입(전문가)</h4>
-        <form action="<c:url value='/user/userJoin' />" method="post" class="validation-form" novalidate enctype="multipart/form-data" onsubmit="return formcheck()" name="fc">
-          <div class="mb-3"> <label for="email">이메일</label> <input type="email" class="form-control" id="email"
-              placeholder="you@example.com" required name="id">
-              <span id="msgId">이메일형식체크</span>
-            <div class="invalid-feedback"> 이메일을 입력해주세요. </div>
-          </div>
-          <div class="col-md-6 mb-3"> <label for="email-code">인증코드</label> <input type="text" class="form-control"
-              id="emailCode" placeholder="" value="" required name="emailCode">
-              <span id="msgCodeChk"></span>
-               <button class="btn btn-primary code" type="button" id="codeChk" style="display: none">확인</button>
-            <button class="btn btn-primary code" type="button" id="sendCode">이메일 인증코드 발송하기</button>
-          </div>
-          <div class="row">
-            <div class="col-md-6 mb-3"> <label for="nickname">닉네임</label> <input type="text" class="form-control"
-                id="nickName" placeholder="(2~15자)" value="" required name="nickName">
-                <span id="msgNick">닉네임중복체크</span>
-              <div class="invalid-feedback"> 닉네임을 입력해주세요.
-            </div>
-          </div><button class="btn btn-primary code" type="button" id="nickChk" >중복확인</button>
-          </div>
-          <div class="mb-3"> <label for="password">비밀번호</label> <input type="password" class="form-control" id="pw"
-              placeholder="비밀번호를 적어주세요" required name="pw">
-              <span id="msgPw">비밀번호체크</span>
-            <div class="invalid-feedback"> 비밀번호.
-            </div>
-            <div class="mb-3"> <label for="passwordCH">비밀번호확인</label> <input type="password" class="form-control"
-                id="pwChk" placeholder="비밀번호를 다시 한번 적어주세요" required name="pwChk">
-                <span id="msgPwChk">비밀번호체크체크</span>
-              <div class="invalid-feedback"> 비밀번호 확인해주세요.
-              </div>
-              <div class="mb-3"><label for="phoene">전화번호</label> <br>
-                <select id="phone1" name="phone1">
-                  <option value="010" selected>010</option>
-                  <option value="011">011</option>
-                  <option value="016">017</option>
-                  <option value="018">018</option>
-                  <option value="019">019</option>
-                </select>-
-                <input id="phone2" name="phone2" type="text" onKeyup="this.value=this.value.replace(/[^0-9]/g,'');" value="" size="2" maxlength="4" autocomplete="off">-
-                <input id="phone3" name="phone3" type="text" onKeyup="this.value=this.value.replace(/[^0-9]/g,'');" value="" size="2" maxlength="4" autocomplete="off">
-              </div>
+	<div class="container">
+		<div class="input-form-backgroud row">
+			<div class="input-form col-md-12 mx-auto">
+				<h4 class="mb-3">회원가입(전문가회원)</h4>
+				<form action="<c:url value='/user/userJoin' />" method="post"
+					class="validation-form" novalidate enctype="multipart/form-data"
+					onsubmit="return formcheck()" name="fc">
+					<div class="mb-3">
+						<label for="email">이메일</label> <input type="email"
+							class="form-control" id="email" placeholder="you@example.com"
+							required name="id"> <span id="msgId"></span>
+						<div class="invalid-feedback">이메일을 입력해주세요.</div>
+					</div>
 
-              <input class="ka-api" type="text" id="sample6_postcode" placeholder="우편번호" name="zipNum">
-              <input class="ka-api" type="button" onclick="sample6_execDaumPostcode()" value="우편번호 찾기"><br>
-              <input class="ka-api" type="text" id="sample6_address" placeholder="주소" name="addrBasic"><br>
-              <input class="ka-api" type="text" id="sample6_detailAddress" placeholder="상세주소" name="addrDetail">
-              <input class="ka-api" type="text" id="sample6_extraAddress" placeholder="참고항목" readonly>
+					<div class="row">
+						<div class="col-md-6 mb-3">
+							<label for="emailCode">인증코드</label> <input type="text"
+								class="form-control" id="emailCode" placeholder="" value=""
+								required name="emailCode"> <span id="msgCodeChk"></span>
+						</div>
 
-              <div class="col-md-8 mb-3"> <label for="Attention">전문분야</label>
-              <div class=invalid-checkbox>
-                <label><input class="checkcss" type="checkbox" name="major" value="major1"> 시공</label>
-                <label><input class="checkcss" type="checkbox" name="major" value="major2"> 타일</label><br>
-                <label><input class="checkcss" type="checkbox" name="major" value="major3"> 건축자재</label>
-                <label><input class="checkcss" type="checkbox" name="major" value="major4"> 건축설비</label><br>
-                <label><input class="checkcss" type="checkbox" name="major" value="major5"> 창호/샷시</label>
-                <label><input class="checkcss" type="checkbox" name="major" value="major6"> 도배</label><br>
-                <label><input class="checkcss" type="checkbox" name="major" value="major7"> 창틀</label>
-                <label><input class="checkcss" type="checkbox" name="major" value="major8"> 페인트</label>
-              </div>
-              <div class="col-md-8 mb-3"><label>증빙서류</label>
-                  <input type="file" name="file" multiple>
-              </div>
-                <div class="mb-4"></div> <button class="btn btn-primary btn-lg btn-block" type="submit">가입하기</button>
-        </form>
-      </div>
-    </div>
-  </div>
+						<div class="col-md-6 mb-3">
+							<button class="btn btn-info code" type="button" id="codeChk"
+								style="display: none">확인</button>
+						</div>
+						<button class="btn btn-info code2" type="button" id="sendCode">이메일
+							인증코드 발송하기</button>
+					</div>
+
+
+
+					<div class="row">
+						<div class="col-md-6 mb-3">
+							<label for="nickname">닉네임</label> <input type="text"
+								class="form-control" id="nickName" placeholder="(2~15자)"
+								value="" required name="nickName"> <span id="msgNickChk"></span>
+							<span id="msgNick"></span>
+							<div class="invalid-feedback">닉네임을 입력해주세요.</div>
+						</div>
+						<div class="col-md-6 md-3">
+							<button class="btn btn-info code" type="button" id="nickChk">중복확인</button>
+						</div>
+					</div>
+					<div class="mb-3">
+						<label for="password">비밀번호</label> <input type="password"
+							class="form-control" id="pw" placeholder="비밀번호를 적어주세요" required
+							name="pw"> <span id="msgPw"></span>
+						<div class="invalid-feedback">비밀번호.</div>
+						<div class="mb-3">
+							<label for="passwordCH">비밀번호확인</label> <input type="password"
+								class="form-control" id="pwChk" placeholder="비밀번호를 다시 한번 적어주세요"
+								required name="pwChk"> <span id="msgPwChk"></span>
+							<div class="invalid-feedback">비밀번호 확인해주세요.</div>
+							<div class="mb-3">
+								<label for="phoene">전화번호</label> <br> <select id="phone1"
+									name="phone1">
+									<option value="010" selected>010</option>
+									<option value="011">011</option>
+									<option value="016">017</option>
+									<option value="018">018</option>
+									<option value="019">019</option>
+								</select>- <input id="phone2" name="phone2" type="text"
+									onKeyup="this.value=this.value.replace(/[^0-9]/g,'');" value=""
+									size="2" maxlength="4" autocomplete="off">- <input
+									id="phone3" name="phone3" type="text"
+									onKeyup="this.value=this.value.replace(/[^0-9]/g,'');" value=""
+									size="2" maxlength="4" autocomplete="off">
+							</div>
+
+							<input class="ka-api" type="text" id="sample6_postcode"
+								placeholder="우편번호" name="zipNum"> <input class="ka-api"
+								type="button" onclick="sample6_execDaumPostcode()"
+								value="우편번호 찾기"><br> <input class="ka-api"
+								type="text" id="sample6_address" placeholder="주소"
+								name="addrBasic"><br> <input class="ka-api"
+								type="text" id="sample6_detailAddress" placeholder="상세주소"
+								name="addrDetail"> <input class="ka-api" type="text"
+								id="sample6_extraAddress" placeholder="참고항목" readonly>
+
+							<div class="row">
+								<div class="col-md-8 mb-3">
+									<label for="Attention">전문분야 </label>
+									<<div class=invalid-checkbox>
+                                      <label><input class="checkcss" type="checkbox" name="major" value="major1"> 시공</label>
+                                      <label><input class="checkcss" type="checkbox" name="major" value="major2"> 타일</label><br>
+                                      <label><input class="checkcss" type="checkbox" name="major" value="major3"> 건축자재</label>
+                                      <label><input class="checkcss" type="checkbox" name="major" value="major4"> 건축설비</label><br>
+                                      <label><input class="checkcss" type="checkbox" name="major" value="major5"> 창호/샷시</label>
+                                      <label><input class="checkcss" type="checkbox" name="major" value="major6"> 도배</label><br>
+                                      <label><input class="checkcss" type="checkbox" name="major" value="major7"> 창틀</label>
+                                      <label><input class="checkcss" type="checkbox" name="major" value="major8"> 페인트</label>
+                                    </div>
+                                    <div class="col-md-8 mb-3"><label>증빙서류</label>
+                                        <input type="file" name="file" multiple>
+                                    </div>
+								<button class="btn btn-info btn-lg btn-block" type="submit">가입하기</button>
+				</form>
+			</div>
+		</div>
+	</div>
+	</div>
+	</div>
+	</div>
 
 
 
 </body>
-<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+<script
+	src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script>
 
 /* submit formcheck */
@@ -214,7 +256,7 @@ $('#sendCode').click(function() {
 		alert('아이디(이메일)을 입력해주세요.');
 		return;
 	} 
-	$('#codeChk').show();
+	$("#sendCode").attr('disabled', true);
 	const id = $('#email').val();
 	$.ajax({
 		type: "post",
@@ -225,7 +267,6 @@ $('#sendCode').click(function() {
 		},
 		success: function(data) {
 			if(data === 'send'){
-				$("#sendCode").attr('disabled', true);
 				$.ajax({
 					type: "post",
 					url: "<c:url value='/user/mailCheck' />",
@@ -235,6 +276,7 @@ $('#sendCode').click(function() {
 					},
 					success: function(data) {
 						if(data != 'notvalid'){
+							$('#codeChk').show();
 							code = data;
 							alert('인증번호가 발송되었습니다 이메일을 확인해주세요');
 							document.getElementById("sendCode").innerHTML = "인증번호가 발송되었습니다";
@@ -250,6 +292,7 @@ $('#sendCode').click(function() {
 				});	
 			} else if(data === 'exist') {
 				alert('이미 가입된 이메일입니다');
+				$("#sendCode").attr('disabled', false);
 			}
 			
 		},
@@ -295,7 +338,7 @@ pw.onkeyup = function(){
         document.getElementById("msgPw").innerHTML = "사용가능합니다";
     } else {
         document.getElementById("pw").style.borderColor = "red";
-        document.getElementById("msgPw").innerHTML = "비밀번호는 영문, 숫자, 특수문자를 혼합하여 8~20자리 이내여야 합니다";
+        document.getElementById("msgPw").innerHTML = "비밀번호는 영문, 숫자, 특수문자를 혼합하여 8~20자리 이내여야 합니다(사용가능 특수문자 !@#$%^&*)";
     }
 }
 /*비밀번호 확인검사*/
@@ -373,7 +416,7 @@ nform.onkeyup = function() {
       }
     }).open();
   }
-  
+
 
 </script>
 

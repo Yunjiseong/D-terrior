@@ -71,7 +71,7 @@ public class UserController {
 			
 			File saveFile = new File(uploadFolder + "\\" + vo.getNickName() + fileExtension);
 			file.transferTo(saveFile); //실제 파일 저장 메서드 (fileWriter 작업을 손쉽게 한방에 처리해 줍니다.)
-			vo.setPaper(uploadFolder + saveFile.toString());
+			vo.setPaper(saveFile.toString());
 		} catch (Exception e) {
 			System.out.println("업로드 중 문제 발생!: " + e.getMessage());
 		}
@@ -121,10 +121,13 @@ public class UserController {
 	@PostMapping("/idCheck")
 	public String idCheck(@RequestBody String id) {
 		System.out.println("아이디중복체크요청");
+		System.out.println(id);
 		int chk = service.idCheck(id);
 		if(chk == 1) {
+			System.out.println("exist");
 			return "exist";
 		} else {
+			System.out.println("send");
 			return "send";
 		}
 
@@ -165,18 +168,18 @@ public class UserController {
 						"인증 번호는 " + checkNum + "입니다." + 
 						"<br>" + 
 						"해당 인증번호를 인증번호 확인란에 기입하여 주세요.";
-//		try {
-//			MimeMessage message = mailSender.createMimeMessage();
-//			MimeMessageHelper helper = new MimeMessageHelper(message, true, "utf-8");
-//			helper.setFrom(setFrom);
-//			helper.setTo(toMail);
-//			helper.setSubject(title);
-//			helper.setText(content,true);
-//			mailSender.send(message);
-//		} catch(Exception e) {
-//			e.printStackTrace();
-//			return "notvalid";
-//		}
+		try {
+			MimeMessage message = mailSender.createMimeMessage();
+			MimeMessageHelper helper = new MimeMessageHelper(message, true, "utf-8");
+			helper.setFrom(setFrom);
+			helper.setTo(toMail);
+			helper.setSubject(title);
+			helper.setText(content,true);
+			mailSender.send(message);
+		} catch(Exception e) {
+			e.printStackTrace();
+			return "notvalid";
+		}
 		String code = Integer.toString(checkNum);
 		System.out.println(code);
 		return code;
