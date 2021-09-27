@@ -50,8 +50,12 @@
   }
   .nav-head {
       left: 10.5%;
-      
-  }
+      color: #000;
+      }
+    .nav-head  a{
+        color: #000;
+
+    }
   .nav-head2{
       left: 12.5%;
       color: rgba(0, 0, 0, 1);
