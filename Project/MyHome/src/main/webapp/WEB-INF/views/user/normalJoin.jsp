@@ -69,8 +69,9 @@
             <div class="invalid-feedback"> 이메일을 입력해주세요. </div>
           </div>
           <div class="col-md-6 mb-3"> <label for="email-code">인증코드</label> <input type="text" class="form-control"
-              id="email-code" placeholder="" value="" required name="emailCode">
+              id="emailCode" placeholder="" value="" required name="emailCode">
               <span id="msgCodeChk"></span>
+              <button class="btn btn-primary code" type="button" id="codeChk" style="display: none">확인</button>
             <button class="btn btn-primary code" type="button" id="sendCode">이메일 인증코드 발송하기</button>
           </div>
           <div class="row">
@@ -159,8 +160,8 @@ function formcheck(){
 		  fc.pwChk.focus();
 		  return false;
 	/*2.올바르지않은입력값*/
-	  } else if(code != fc.emailCode.value) {
-		  alert("이메일 인증코드가 올바르지 않습니다")
+	  } else if(document.getElementById("sendCode").innerHTML != "인증되었습니다") {
+		  alert("이메일 인증을 진행해주세요")
 		  fc.emailCode.focus();
 		  return false;
 	  } else if(fc.pw.value != fc.pwChk.value){
@@ -171,8 +172,10 @@ function formcheck(){
 		  alert("닉네임 중복확인을 해주세요")
 		  fc.id.focus();
 		  return false;
+	  } else {
+		  alert('회원가입이 완료되었습니다. 로그인창으로 이동합니다');
+		  return true;
 	  }
-	  	  else return true;
 }
 
 
@@ -190,7 +193,7 @@ $('#nickChk').click(function(){
 		data: nickName,
 		headers: {
 			"Content-type" : "application/json"
-		},
+		},		
 		success: function(data){
 			if(data === 'ok') {
 				alert('사용가능한 닉네임입니다');
@@ -211,6 +214,7 @@ $('#sendCode').click(function() {
 		alert('아이디(이메일)을 입력해주세요.');
 		return;
 	} 
+	$('#codeChk').show();
 	const id = $('#email').val();
 	$.ajax({
 		type: "post",
@@ -256,6 +260,8 @@ $('#sendCode').click(function() {
 });
 
 /* 인증번호 비교 */
+/*
+
 var inputCode = document.getElementById("email-code");
 inputCode.onkeyup = function(){
 	if( code === document.getElementById("email-code").value ){
@@ -266,6 +272,20 @@ inputCode.onkeyup = function(){
 		document.getElementById("msgCodeChk").innerHTML = "인증번호가 일치하지 않습니다";
 	}
 }
+*/
+/* 인증번호 확인 */
+var inputCode = document.getElementById("emailCode");
+$('#codeChk').click(function(){
+	if( code === document.getElementById("emailCode").value ){
+		$('#email').attr('readonly', true);
+		$('#emailCode').attr('readonly', true);
+		$('#codeChk').hide();
+		document.getElementById("sendCode").innerHTML = "인증되었습니다";
+	} else {
+		alert('인증번호가 일치하지 않습니다 이메일을 확인해주세요');
+		$('#emailCode').focus();
+	}
+});
 
 /*아이디 형식(이메일) 검사 스크립트*/
 
@@ -301,7 +321,7 @@ pwConfirm.onkeyup = function() {
         document.getElementById("msgPwChk").innerHTML = "비밀번호가 일치합니다";
     } else {
         document.getElementById("pwChk").style.borderColor = "red";
-        document.getElementById("msgPwChk").innerHTML = "비밀번호 확인란을 확인하세요";
+        document.getElementById("msgPwChk").innerHTML = "비밀번호가 일치하지 않습니다.";
     }
 }
 /*닉네임 형식검사*/
@@ -309,7 +329,7 @@ var nform = document.getElementById("nickName");
 nform.onkeyup = function() {
 	var regex = /^.{2,15}$/;
 	if(regex.test(document.getElementById("nickName").value )){
-		document.getElementById("nickName").style.borderColor = "green";
+		document.getElementById("nickName").style.borderColor = "#008001";
 		document.getElementById("msgNick").innerHTML = "";
 	} else {
 		document.getElementById("nickName").style.borderColor = "red";
@@ -364,8 +384,7 @@ nform.onkeyup = function() {
         document.getElementById("sample6_detailAddress").focus();
       }
     }).open();
-  }
-  
+  }  
 
 </script>
 

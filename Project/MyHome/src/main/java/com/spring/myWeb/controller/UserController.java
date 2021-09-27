@@ -53,52 +53,27 @@ public class UserController {
 	public String join(UserVO vo, @RequestParam(required=false) MultipartFile file) {
 		System.out.println("회원가입요청");
 		try {
-			String username = vo.getNickName();
-			String fileLoca = "";
-			// 파일 저장 경로
-			String path = "C:\\projectfileupload";
-			// 파일 이름에 사용할 날짜
-			SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd");
-			Date date = new Date();
-			String fileDate = sdf.format(date);
-
-			if(!file.isEmpty()) { // 업로드 파일이 있는 경우
-				// 저장할 폴더 경로
-				String uploadPath = path + "\\" + username;
-
-				File folder = new File(uploadPath);
-				if (!folder.exists()) {
-					folder.mkdir();
-				}
-
-				// 서버에 저장할 파일 이름
-				String fileRealName = file.getOriginalFilename();
-
-				// 파일명을 고유한 랜덤 문자로 작성 (중복 방지)
-				UUID uuid = UUID.randomUUID();
-				String[] uuids = uuid.toString().split("-");
-				String uniqueName = uuids[0];
-
-				// 확장자
-				String fileExtension = fileRealName.substring(fileRealName.lastIndexOf("."), fileRealName.length());
-
-				String fileName = fileDate + "_" + uniqueName + fileExtension;
-
-				// 파일 경로 + 이름
-				String filePath = uploadPath + "\\" + fileName;
-
-				System.out.println(filePath);
-
-				File saveFile = new File(filePath);
-				file.transferTo(saveFile);
-
-				// sql에 저장할 파일 경로
-				fileLoca = username + "/" + fileName;
-			} 
-
+			String fileRealName = file.getOriginalFilename(); //파일 정보
+			Long size = file.getSize(); //파일 사이즈
+			
+			System.out.println("파일명: " + fileRealName);
+			System.out.println("사이즈: " + size);
+			
+			//서버에서 저장할 파일 이름
+			String fileExtension = fileRealName.substring(fileRealName.lastIndexOf("."), fileRealName.length());
+			String uploadFolder = "C:\\test\\upload";
+			
+//			UUID uuid = UUID.randomUUID();
+//			String[] uuids = uuid.toString().split("-");
+//			String uniqueName = uuids[0];
+//			System.out.println("생성된 고유 문자열: " + uniqueName);
+//			System.out.println("확장자명: " + fileExtension);
+			
+			File saveFile = new File(uploadFolder + "\\" + vo.getNickName() + fileExtension);
+			file.transferTo(saveFile); //실제 파일 저장 메서드 (fileWriter 작업을 손쉽게 한방에 처리해 줍니다.)
+			vo.setPaper(uploadFolder + saveFile.toString());
 		} catch (Exception e) {
-			System.out.println("※파일 업로드 중 오류 발생※");
-			e.printStackTrace();
+			System.out.println("업로드 중 문제 발생!: " + e.getMessage());
 		}
 		service.userJoin(vo);
 
@@ -114,7 +89,7 @@ public class UserController {
 
 	//회원탈퇴요청
 	@PostMapping("/userDelete")
-	public void userDelete(@Param("id")String id, @Param("pw")String pw) {
+	public void userDelete(@RequestParam("id")String id, @RequestParam("pw")String pw) {
 		System.out.println("회원탈퇴요청");
 		service.userDelete(id, pw);
 	}
@@ -190,18 +165,18 @@ public class UserController {
 						"인증 번호는 " + checkNum + "입니다." + 
 						"<br>" + 
 						"해당 인증번호를 인증번호 확인란에 기입하여 주세요.";
-		try {
-			MimeMessage message = mailSender.createMimeMessage();
-			MimeMessageHelper helper = new MimeMessageHelper(message, true, "utf-8");
-			helper.setFrom(setFrom);
-			helper.setTo(toMail);
-			helper.setSubject(title);
-			helper.setText(content,true);
-			mailSender.send(message);
-		} catch(Exception e) {
-			e.printStackTrace();
-			return "notvalid";
-		}
+//		try {
+//			MimeMessage message = mailSender.createMimeMessage();
+//			MimeMessageHelper helper = new MimeMessageHelper(message, true, "utf-8");
+//			helper.setFrom(setFrom);
+//			helper.setTo(toMail);
+//			helper.setSubject(title);
+//			helper.setText(content,true);
+//			mailSender.send(message);
+//		} catch(Exception e) {
+//			e.printStackTrace();
+//			return "notvalid";
+//		}
 		String code = Integer.toString(checkNum);
 		System.out.println(code);
 		return code;
