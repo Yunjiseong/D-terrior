@@ -1,0 +1,68 @@
+.acup{
+    display: block !important;
+    background-color: white;
+}
+
+#community{
+    display: none;
+    background-color: white;
+    font-size: 25px; font-style: inherit;
+     margin-top: 70px;
+}
+#store{
+    display: none;
+    background-color: white;
+    font-size: 25px; font-style: inherit;
+     margin-top: 70px;
+}
+.lnr-magnifier {
+    color: #fff;
+    font-size: 1rem;
+}
+#header-cate{
+    display: none;
+    max-width: 1366px;
+    text-align: center;
+    height: auto;
+}
+.category-list ul li:first-child {
+    margin-left: 0;
+  }
+  .header-categorys ul li {
+    display: inline-block;
+    margin: 0px;
+    text-align: center; 
+  }
+  .collapse{
+      background-color: white;
+  }
+  a{
+      color: black;
+  }
+  .fas{
+    color: rgb(51, 49, 49);
+  }
+  @font-face {
+    font-family: 'Cafe24SsurroundAir';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2105_2@1.0/Cafe24SsurroundAir.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+  }
+  .nav-head {
+      left: 10.5%;
+      
+  }
+  .nav-head2{
+      left: 12.5%;
+      color: rgba(0, 0, 0, 1);
+  }
+  .nav-item2{
+    color: rgba(0, 0, 0, 1);
+    
+  }
+  .category-item{
+      padding: 0 28px 0 27px;
+  }
+  
+  
+  
