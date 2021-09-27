@@ -9,194 +9,13 @@
 <title>내집 뽐내기</title>
 
 <link href="../css/bootstrap.min.css" rel="stylesheet">
+<link href="../css/Boast_view.css" rel="stylesheet">
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 <script src="https://kit.fontawesome.com/86e4aadf8c.js" crossorigin="anonymous"></script>
 <style>   
 
-    #main{
-        width: 100%;
-        height: 300px;
-    }
-
-    .contain{
-        width: 60%;
-        margin: 0px auto;
-    }
-
-    #before-title{
-        text-align: left;
-        color: blue;
-    }
-
-    #title{
-        font-size: 35px;
-        text-align: center;
-    }
-
-    .img{
-        height: 240px;
-        width: 100%;
-        border-radius: 5%;
-      }
-
-    .profile{
-        width: 20px;
-        height: 20px;
-        border-radius: 50%;
-    }
-
-    .card{
-        margin-bottom: 10px;
-        border: none;
-        background: none;
-     }
-     .index1{
-         font-weight: bold;
-     }
-     .index2{
-         color: blue;
-     }
-     .inimg{
-         width: 100%;
-         height: auto;
-         text-align: center;
-     }
-
-     .boast_write{
-        position: relative;
-        left: 5%;
-     }
-     .view-count{
-         text-align: center;
-
-     }
-     .userimg {
-    position: absolute;
-    width: 30px;
-    height: 30px;
-    top: 2px;
-    margin-left: 10px;
-    border-radius: 100%;
-    background-color: #dbdbdb;
-}
-
-.reply-wrap {
-    background: #f5f5f5;
-    padding: 15px;
-    border: 1px solid #ddd;
-    position: relative;
-}
-
-.reply-wrap .reply-image {
-    position: absolute;
-    left: 15px;
-    top: 15px;
-
-}
-
-.reply-wrap .reply-content {
-    padding-left: 60px;
-}
-
-.reply-content textarea {
-    resize: none;
-    width: 100%;
-    margin-bottom: 10px;
-}
-
-.reply-input > .form-control {
-    width: 200px;
-    margin-bottom: 5px;
-}
-
-.reply-input {
-    float: left;
-}
-
-.reply-group button {
-    float: right;
-}
-
-.reply-group small {
-    margin-left: 10px;
-    height: 20px;
-    line-height: 20px;
-}
-
-.reply-group a {
-    text-decoration: none;
-    color: #777;
-    float: right;
-}
-.btcon{
-    float: right;
-    margin-bottom: 20px;
-}
-.info{
-     text-align: center;
-}
-.title{
-    text-align: center;
-}
-.text-muted{
-    text-align: center;
-}
-.text-dete{
-    text-align: center;
-}
-.title-profile{
-    text-align: center;
-}
-#before-title{
-    text-align: center;
-}
-.pagination{
-    margin-top: 20px;
-}
-ul {
-    width: 300px;
-    margin-left: auto;
-    margin-right: auto;
-  }
-  .inwrite{
-      width: 100%;
-  }
-  .info{
-    margin: 30px 0 30px 0;
-      background-color: lightskyblue;
-      width: 45%;
-      position: relative;
-      left: 25%;
-  }
-  .boast_write{  
-      position: relative;
-  }
-  .boast_write .ico{
-    position:absolute;
-    bottom: 300px;
-     left:450px;
-     display: none;
-  }
-  .clearfix::after {
-    display: block;
-    clear: both;
-    content: "";
-}
-.boast_write .Exp{
-    position:absolute;
-    bottom: 300px;
-     left:470px;
-     display: none;
-     border: black solid 1px;
-     width: 200px;
-     height: auto;
-     background-color: rgba(254, 253, 253, 0.2);;
-  }
-.exptxt{
-    font-size: 12px;
-}
 
 
 </style>
@@ -219,13 +38,13 @@ ul {
     
             <hr class="my-2">
     
-            <div class="info">       
+            <div class="info col-md-12">       
                 <span class="index1">공간</span> <span class="index2">아파트</span> 
                 &nbsp;&nbsp;&nbsp; <span class="index1">작업</span> <span class="index2">전문가</span> 
                 &nbsp;&nbsp;&nbsp; <span class="index1">장소</span> <span class="index2">거실 리모델링</span>
                 &nbsp;&nbsp;&nbsp; <span class="index1">가족형태</span> <span class="index2">신혼부부</span>
                 &nbsp;&nbsp;&nbsp; <span class="index1">종류</span> <span class="index2">아파트</span>
-                &nbsp;&nbsp;&nbsp; <span class="index1">평수</span> <span class="index2">24</span>
+                &nbsp;&nbsp;&nbsp; <span class="index1">평수</span> <span class="index2">24평</span>
                 &nbsp;&nbsp;&nbsp; <span class="index1">견적</span> <span class="index2">2400만원</span>
             </div>
         </div>
@@ -237,9 +56,9 @@ ul {
                    <p>우리집은 이렇게 생겻네요~</p>
                    <img src="../img/interior11.png" class="inimg" alt="인테리어">
                    <p>위에 집보다 우리집이 더 인테리어 잘했죠?</p>
-                   <i class="fas fa-exclamation fa-1x ico"></i>
-                   <div class="Exp"> <span class="exptxt">이침대는 말이죠</span> 
-                    <hr> <span class="exptxt">000,000원이에요</span>
+                   <i class="fas fa-exclamation fa-2x ico"></i>
+                   <div class="Exp"> <a href="#"><span class="exptxt">이침대는 말이죠</span> 
+                    <hr> <span class="exptxt">000,000원이에요</span></a>
                 </div>
                    
                   </div>
@@ -349,7 +168,7 @@ $(document).ready(function(){
 	});
 });
 $(document).ready(function(){ 
-	$('.ico').hover(function(){ 
+	$('.ico').mousemove(function(){ 
 		$('.Exp').toggle(); 
 	});
 });
