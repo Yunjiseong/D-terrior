@@ -15,7 +15,7 @@
     <!-- 전체 박스 시작 -->
 <div class="frame">
 	<!-- main 타이틀 시작 -->
-	<div class="favor-head border-btm-black mgb20" style="text-align: center; font-weight: bold;">
+	<div class="favor-head border-btm-black mgb20" style="text-align: center; font-weight: bold;font-family:'Cafe24SsurroundAir', sans-serif;">
 		<h2>장바구니</h2>
 	</div>
 	<!-- main 타이틀 끝 -->
@@ -24,9 +24,9 @@
 	<c:set var="prodPriceAll" value="0" />
 	<div class="cart-table">
 		<div class="cart-table-title-row">
-			<div class="cart-table-title-prodInfo">상품정보</div>
+			<div class="cart-table-title-prodInfo"style="font-family:'Cafe24SsurroundAir', sans-serif;">상품정보</div>
 			<div class="cart-table-title-favor"></div>
-			<div class="cart-table-title-price">상품 가격</div>
+			<div class="cart-table-title-price"style="font-family:'Cafe24SsurroundAir', sans-serif;">상품 가격</div>
 			<div class="cart-table-title-delete"></div>
 		</div>
 			<div class="cart-table-content-row" id="}">
@@ -36,41 +36,24 @@
 							<img src="" />
 						</a>
 					</div>
-					<div class="cart-table-content-prodInfo-text">
+					<div class="cart-table-content-prodInfo-text"style="font-family:'Cafe24SsurroundAir', sans-serif;">
 						<p class="cart-table-content-prodInfo-p mgb10">가구이름</p>
 						<strong class="cart-table-content-prodInfo-strong">가구이름</strong>
 					</div>
 				</div>
-				<div class="cart-table-content-favor">
-					<!-- 이미 찜한 상품인지 확인 -->
-					<c:set var="loop_flag" value="false" />
-					<c:set var="isExist" value="false" />
-					<c:forEach var="favorNum" items="${favorProdIdList}">
-						<c:if test="${not loop_flag}">
-							<c:if test="${favorNum eq cartDto.productId}">
-								<c:set var="isExist" value="true" />
-								<c:set var="loop_flag" value="true" />
-							</c:if>
-						</c:if>
-					</c:forEach>
-					<!-- 찜한 상품 확인 후 아래 실행 -->
-					<c:choose>
-					<c:when test="${}">
-						<button type="button" class="fav-btn cart-table-content-favor-btn" style="left: 30px;" >
-							<i class="material-icons" style="color: red;">favorite</i>
-						</button>
-					</c:when>
-					<c:otherwise>
+				<div class="cart-table-content-favor"style="margin-right: 100px;">
+					
+					
+					
+					
+					
 						<button type="button" class="fav-btn cart-table-content-favor-btn" >
 							<i class="material-icons">favorite_border</i>
 						</button>
-					</c:otherwise>
-					</c:choose>
-					<!-- 변수 초기화 -->
-					<c:set var="loop_flag" value="false" />
-					<c:set var="isExist" value="false" />
+					
+						
 				</div>
-				<div class="cart-table-content-price">  가격
+				<div class="cart-table-content-price"style="font-family:'Cafe24SsurroundAir', sans-serif;">  가격
 					<fmt:formatNumber value="${cartDto.price}" type="number" />
 					<c:set var="price_one" value="${cartDto.price}" />
 				</div>
