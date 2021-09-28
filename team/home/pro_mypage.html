@@ -59,8 +59,8 @@
  							</a>
  						</div>
 
-						 <button id="'#" class="btn btn-sm btn-info btn-block" type="submit"><a class="#" href="#">등업 신청 </a></button>
 						 <button id="'#" class="btn btn-sm btn-info btn-block" type="submit"><a class="#" href="#">개인정보 수정 </a></button>
+						 <button id="'#" class="btn btn-sm btn-info btn-block btn-open-popup" type="submit"><a class="#" href="#">회원 탈퇴 </a></button>
  				</div>
                
 
@@ -90,9 +90,7 @@
 							<button type="button" class="btn btn-default btn-sm" style="border: 1px solid black;">질문 추천 </button>
 						</li>
 
-						<li class="category-item" data-filter4="" data-sort="rgstdtime" style="position: absolute; left: 53%;">
-							<button id="'#" class="btn btn-sm btn-info btn-block " style="border: 1px solid black;" type="submit">작성</button>
-						</li>
+					
 					
 					
 		
@@ -221,10 +219,54 @@
 	</nav>
 </div>
  </section>
- 	<script src="../js/jquery.min.js"></script>
- 	<script src="../js/bootstrap.min.js"></script>
- 	<script src="../js/scripts.js"></script>
  
+	 <div class="modal">
+		<div class="modal_body block"><strong>회원탈퇴</strong><br>
+	  
+		  <div class="container">
+			<div class="row">
+			  <div>
+				<img class="modal-img" src="../img/logo2.jpg" alt="로고사진">
+			  </div>
+			  <div class="low">
+				<label for="inputPassword" class="sr-only">Password</label>
+				<input type="password" id="#" class="form-control" placeholder="Password" required>
+			  </div>
+				  <button type="button" class="btn btn-info btn-sm">확인</button>
+	  
+			   
+				</div>
+			</div>
+		  </div>
+		</div>
+	  </div>
+
+
 </body>
- 
+<script src="../js/jquery.min.js"></script>
+<script src="../js/bootstrap.min.js"></script>
+<script src="../js/scripts.js"></script>
+<script>
+const body = document.querySelector('body');
+const modal = document.querySelector('.modal');
+const btnOpenPopup = document.querySelector('.btn-open-popup');
+
+btnOpenPopup.addEventListener('click', () => {
+  modal.classList.toggle('show');
+
+  if (modal.classList.contains('show')) {
+	body.style.overflow = 'hidden';
+  }
+});
+
+modal.addEventListener('click', (event) => {
+  if (event.target === modal) {
+	modal.classList.toggle('show');
+
+	if (!modal.classList.contains('show')) {
+	  body.style.overflow = 'auto';
+	}
+  }
+});
+</script>
 </html>

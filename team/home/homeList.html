@@ -13,9 +13,11 @@
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="../css/bootstrap.css">
     <link href="../css/style.css" rel="stylesheet">
+    <link href="../css/" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     
     <style>
+ 
       .bd-placeholder-img {
         font-homeSize: 1.125rem;
         text-anchor: middle;
@@ -157,25 +159,96 @@
          
       </div>
 	<br>
-	<div id="write-btn"><button type="button" id="writeBtn" class="btn btn-info" onclick="location.href='<c:url value="/myhome/homeWrite" />'">글쓰기</button></div>
+	<div id="write-btn"><button type="button" id="writeBtn" class="btn btn-info">글쓰기</button></div>
 	<!-- 글 목록 -->
       <div id="total">전체 ${fn:length(myhome)}</div>
+	    
+     
+      
       <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-	      <c:forEach var="num" items="${myhome}">
-	      	<div class="col-lg-4 col-sm-4">
-	          <div class="card">
-	            <a href='<c:url value="/myhome/homeDetail?bno=${num.bno}" />'>
-	              <img class="img" src='<c:url value="/resources/img/interior1.png" />' alt="사진">
-	              <div class="card-body">
-	                <p class="card-text">${num.title}</p>
-	                  <a href="#" class="id-link"><img class="profile" src='<c:url value="/resources/img/interior1.png" />' alt="사진"><small class="text-muted"> ${num.writer}</small></a>
-	                  <small class="text-muted">스크랩 ${num.scrapCnt} · 조회 ${num.viewCnt}</small> 
-	              </div>
-	            </a>  
-	          </div>
-	        </div>
-	      </c:forEach> 
-      </div>     
+	  
+        <div class="col-lg-4 col-sm-4">
+          <div class="card">
+          <a href="#" >
+          <img class="img" src="../img/interior1.png" alt="사진">
+          <div class="card-body">
+          <p class="card-text">' + list[i].title + '</p>
+          <a href="#" class="id-link"><img class="profile" src="../img/interior1.png" alt="사진"><small class="text-muted">' + list[i].writer + '</small></a>
+          <small class="text-muted">스크랩 조회 </small>
+          </div>
+          </a>
+          </div>
+          </div>
+
+          <div class="col-lg-4 col-sm-4">
+            <div class="card">
+            <a href="#" >
+            <img class="img" src="../img/interior1.png" alt="사진">
+            <div class="card-body">
+            <p class="card-text">' + list[i].title + '</p>
+            <a href="#" class="id-link"><img class="profile" src="../img/interior1.png" alt="사진"><small class="text-muted">' + list[i].writer + '</small></a>
+            <small class="text-muted">스크랩 조회 </small>
+            </div>
+            </a>
+            </div>
+            </div>
+
+            <div class="col-lg-4 col-sm-4">
+              <div class="card">
+              <a href="#" >
+              <img class="img" src="../img/interior1.png" alt="사진">
+              <div class="card-body">
+              <p class="card-text">' + list[i].title + '</p>
+              <a href="#" class="id-link"><img class="profile" src="../img/interior1.png" alt="사진"><small class="text-muted">' + list[i].writer + '</small></a>
+              <small class="text-muted">스크랩 조회 </small>
+              </div>
+              </a>
+              </div>
+              </div>
+
+              <div class="col-lg-4 col-sm-4">
+                <div class="card">
+                <a href="#" >
+                <img class="img" src="../img/interior1.png" alt="사진">
+                <div class="card-body">
+                <p class="card-text">' + list[i].title + '</p>
+                <a href="#" class="id-link"><img class="profile" src="../img/interior1.png" alt="사진"><small class="text-muted">' + list[i].writer + '</small></a>
+                <small class="text-muted">스크랩 조회 </small>
+                </div>
+                </a>
+                </div>
+                </div>
+
+                <div class="col-lg-4 col-sm-4">
+                  <div class="card">
+                  <a href="#" >
+                  <img class="img" src="../img/interior1.png" alt="사진">
+                  <div class="card-body">
+                  <p class="card-text">' + list[i].title + '</p>
+                  <a href="#" class="id-link"><img class="profile" src="../img/interior1.png" alt="사진"><small class="text-muted">' + list[i].writer + '</small></a>
+                  <small class="text-muted">스크랩 조회 </small>
+                  </div>
+                  </a>
+                  </div>
+                  </div>
+
+                  <div class="col-lg-4 col-sm-4">
+                    <div class="card">
+                    <a href="#" >
+                    <img class="img" src="../img/interior1.png" alt="사진">
+                    <div class="card-body">
+                    <p class="card-text">' + list[i].title + '</p>
+                    <a href="#" class="id-link"><img class="profile" src="../img/interior1.png" alt="사진"><small class="text-muted">' + list[i].writer + '</small></a>
+                    <small class="text-muted">스크랩 조회 </small>
+                    </div>
+                    </a>
+                    </div>
+                    </div>
+       
+       </div>   
+
+       
+      <
         
       
     <!--페이지-->
