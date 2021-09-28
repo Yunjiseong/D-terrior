@@ -30,7 +30,7 @@
 
 .sidebar-nav li {
   text-indent: 1.5em;
-  line-height: 2.8em;
+  line-height: 4.5em;
 }
 
 .sidebar-nav li a {
@@ -52,6 +52,12 @@
   width: 90%;
 }
 .pag{
+  position: relative;
   margin : 10px;
-  margin-left: 550px;
+  left: 40%;
+}
+.title{
+ position: relative;
+ left: 35%;
+ padding: 50px;
 }

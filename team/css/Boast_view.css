@@ -1,7 +1,9 @@
 
     #main{
         width: 100%;
-        height: 300px;
+        height: 400px;
+        object-fit: cover;
+        
     }
 
     .contain{
@@ -11,7 +13,9 @@
 
     #before-title{
         text-align: left;
-        color: blue;
+        color: black;
+        font-weight: bold;
+        margin: 30px;
     }
 
     #title{
@@ -38,9 +42,17 @@
      }
      .index1{
          font-weight: bold;
+         font-size: 18px;
+        
      }
+     .index3{
+        font-weight: bold;
+        font-size: 18px;
+       color: lightgray;
+        padding-right: 15px;
+    }
      .index2{
-         color: blue;
+         color: black;
      }
      .inimg{
          width: 100%;
@@ -151,6 +163,7 @@ ul {
     margin: 30px 0 30px 0;
       background-color: rgb(246, 246, 246);
       width: 48%;
+      height: auto;
       position: relative;
       left: 25%;
       border: 2px solid rgb(246, 246, 246);
@@ -177,13 +190,15 @@ ul {
      left:470px;
      display: none;
      border: black solid 1px;
-     width: 200px;
-     height: auto;
-     background-color: rgba(254, 253, 253, 0.2);;
+     width: 220px;
+     height: 130px;
+     background-color: rgba(254, 253, 253, 0.8);;
      padding: 10px;
   }
 .exptxt{
     font-size: 12px;
+    padding: 20px;
+    text-align: left;
 }
 .view{
       margin: 30px 0 30px 0;
@@ -195,5 +210,6 @@ ul {
       padding: 27px 10px 10px 10px;
       border-radius: 10px;
 }
+
 
 
