@@ -72,7 +72,11 @@
 	<delete id="delete">
 		DELETE FROM myhome WHERE bno=#{bno}
 	</delete>
-
+	
+	<select id="getProfile" resultType="string">
+		SELECT profile FROM users
+		WHERE nick_name=#{writer}
+	</select>
 
 	
 </mapper>

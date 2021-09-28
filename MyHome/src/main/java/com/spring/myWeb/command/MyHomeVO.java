@@ -68,8 +68,8 @@ create sequence myhome_seq
 @AllArgsConstructor
 public class MyHomeVO {
 	
-	private int bno, likeCnt, viewCnt, scrapCnt;
-	private String writer, title, content, thumbImg, img1, img2, img3, img4, img5, img6, img7, img8, img9, img10;
+	private int bno, likeCnt, viewCnt, scrapCnt, userNum;
+	private String writer, title, content, thumbImg, profile, img1, img2, img3, img4, img5, img6, img7, img8, img9, img10;
 	private Timestamp regDate, updateDate;	
 	private int sort;
 	private String homeForm, money, homeSize, place

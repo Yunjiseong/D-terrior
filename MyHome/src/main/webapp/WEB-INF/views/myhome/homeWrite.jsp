@@ -3,6 +3,8 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 
+<%--게시글쓰기 네이버 게시판 API 이용하기! (커서 위치에 사진 삽입) --%>
+
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -255,7 +257,7 @@
             <div class="mb-3 row">
                <label  class="col-md-3 col-form-label">썸네일 이미지 *</label>
                <div class="col-md-9">
-                   <input class="form-control" type="file" accept="image/png,image/jpeg,image/jpg" name="thumbImg">
+                   <input class="form-control" type="file" accept="image/png,image/jpeg,image/jpg" name="file">
                    <div class="alert alert-secondary" role="alert" id="thumbPlace">
 	                  <img alt="thumb" src="" id="thumb" style="display: none;">
 	                  <ul id="thumbText">
@@ -269,7 +271,7 @@
                </div>
            </div>
           
-           <input type="hidden" name="writer" value="지성">             
+           <input type="hidden" name="writer" value="jiseong"> <!-- 세션에서 얻어온 nick 넣어주기 -->            
            <table class="table">
               <tbody class="t-control">    
                   <tr>
@@ -378,7 +380,7 @@
 			}
 		}
 		
-		$('input[name=thumbImg]').change(function() {
+		$('input[name=file]').change(function() {
 			preView(this);			
 		});
 	

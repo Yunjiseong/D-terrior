@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.spring.myWeb.command.MyHomeVO;
+import com.spring.myWeb.command.UserVO;
 import com.spring.myWeb.myhome.mapper.IMyHomeMapper;
 import com.spring.myWeb.myhome.util.PageVO;
 
@@ -50,6 +51,12 @@ public class MyHomeService implements IMyHomeService {
 	@Override
 	public void delete(int bno) {
 		mapper.delete(bno);
+	}
+	
+	//글쓴이 정보 불러오기
+	@Override
+	public String getProfile(String writer) {
+		return mapper.getProfile(writer);
 	}
 
 }

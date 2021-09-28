@@ -240,9 +240,7 @@
 		//3. 정렬 처리
 		$('#sorting').on('change', 'select',  function() {
 			getList(1, true);			
-		});
-		
-		
+		});		
 		
 		
 		

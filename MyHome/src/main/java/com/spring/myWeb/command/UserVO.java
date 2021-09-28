@@ -15,6 +15,7 @@ public class UserVO {
 	id VARCHAR2(100),
 	pw VARCHAR2(50) NOT NULL,
 	nick_name VARCHAR2(50) NOT NULL,
+	userNum number(10, 0) primary key,
 	phone1 VARCHAR2(20) NOT NULL,
 	phone2 VARCHAR2(20) NOT NULL,
 	phone3 VARCHAR2(20) NOT NULL,
@@ -26,7 +27,7 @@ public class UserVO {
 	major VARCHAR2(300),
 	profile VARCHAR2(300),
 	reg_date DATE DEFAULT SYSDATE,
-	scrap VARCHAR2(500)
+	scrap VARCHAR2(500)	
 	);
 	 */
 
@@ -45,5 +46,6 @@ public class UserVO {
 		private String profile;
 		private Timestamp regDate;
 		private String scrap;
+		private int userNum;
 
 }

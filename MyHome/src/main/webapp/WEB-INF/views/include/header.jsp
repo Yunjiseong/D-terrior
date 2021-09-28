@@ -8,32 +8,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>D'terrior</title>
 	
-	<%-- js, css --%>
-	<link href="${pageContext.request.contextPath }/resources/css/header.css" rel="stylesheet">		
-    <link href="${pageContext.request.contextPath}/resources/css/bootstrap.css" rel="stylesheet">
-    <script src="${pageContext.request.contextPath}/resources/js/jquery.js"></script>
-    <script src="${pageContext.request.contextPath}/resources/js/bootstrap.js"></script>    
-    <link href="${pageContext.request.contextPath}/resources/css/style.css" rel="stylesheet">
-    <link href="${pageContext.request.contextPath}/resources/css/indexcss.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.rawgit.com/twbs/bootstrap/v4-dev/dist/css/bootstrap.css">
-    
-    <%-- 검색창 돋보기 --%>
-	<link rel="stylesheet" href="https://cdn.linearicons.com/free/1.0.0/icon-font.min.css">
-	
-	<%-- 카테고리 --%>
-	<script src="https://kit.fontawesome.com/86e4aadf8c.js" crossorigin="anonymous"></script>	
-    <script src="https://use.fontawesome.com/releases/v5.19.3/js/all.js" crossorigin="anonymous"></script>
-    
-	<%-- font --%>
-	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2105_2@1.0/Cafe24SsurroundAir.woff">
-    <script src="https://use.fontawesome.com/releases/v5.15.3/js/all.js" crossorigin="anonymous"></script>
-    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css" />
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2105_2@1.0/Cafe24SsurroundAir.woff">
-	<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
-	
-	<%-- Favicon --%>
-    <link rel="icon" type="image/x-icon" href="img/favicon-16x160.jpg" />
+	 <!--css-->
+	  <link href="${pageContext.request.contextPath }/resources/css/bootstrap.css" rel="stylesheet">
+	  <link href="${pageContext.request.contextPath }/resources/css/header.css" rel="stylesheet">
+	  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+      <link href="${pageContext.request.contextPath }/resources/css/footer.css" rel="stylesheet">    
+      <link href="${pageContext.request.contextPath }/resources/css/indexcss.css" rel="stylesheet">
+	  <!--font-->
+	  <link rel="stylesheet" href="https://cdn.linearicons.com/free/1.0.0/icon-font.min.css">
+	  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2105_2@1.0/Cafe24SsurroundAir.woff">
+	  <!--script-->
+	  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+	  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+	  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+	  <script src="https://kit.fontawesome.com/86e4aadf8c.js" crossorigin="anonymous"></script>
+	  	  
+      <!-- Favicon-->
+      <link rel="icon" type="image/x-icon" href="${pageContext.request.contextPath }/resources/img/favicon-14x160.jpg" />
+      
+      <!-- Font Awesome icons (free version)-->
+     <script src="https://use.fontawesome.com/releases/v5.19.3/js/all.js" crossorigin="anonymous"></script>
+     
+      <!-- Google fonts-->
+      <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
+      <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css" />
+      <link rel="stylesheet" href="https://cdn.rawgit.com/twbs/bootstrap/v4-dev/dist/css/bootstrap.css">
        
 	
     
@@ -117,54 +116,60 @@
 <title>D'terrior</title>
 </head>
  <body>
- <nav id="total-nav">
-  <nav class="navbar navbar-expand-md fixed-top" 
-    style="background-color: rgb(255, 255, 255); padding-left: 18em;padding-right: 15em;min-width: max-content;">
+  <nav class="navbar navbar-expand-lg navbar-header fixed-top " id="nav-main"
+        style="background-color: rgb(255, 255, 255);  width: 100%;">
+        <div class="container">
+            <a class="navbar-brand" href="#"><img class="navbar-brand " href="#" img src="${pageContext.request.contextPath }/resources/img/logo2.jpg"></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbarSupportedContent"
+              style="font-family:'Cafe24SsurroundAir', sans-serif; font-size: 1.2em; ">
+              <ul class="navbar-nav mr-auto vi1">
+                <li class="nav-item active " id="id1">
+                  <a class="nav-link" href="#" style="color: black; ">커뮤니티</a>
+                </li>
+                <li class="nav-item vi2" id="id2">
+                  <a class="nav-link" href="#" style="color: black;padding-left: 2rem;">스토어</a>
+                </li>
+              </ul>
+            </div>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <form class="form-inline my-2 my-lg-0" role="search">
+                <div class="input-group">
+                  <input type="text" class="form-control" placeholder="Search" style="padding-right: 2rem;">
+                  <div class="input-group-btn " style="align-items: center;">
+                    <button type="submit" class="btn btn-info"><span class="lnr lnr-magnifier"></span></button>
+                  </div>
+                </div>
+              </form>
+            </div>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent"
+              style="font-family:'Cafe24SsurroundAir', sans-serif; font-size: 1.2em; ">
+              <ul class="navbar-nav">
+                <li class="nav-item vi3">
+                  <a class="nav-link" href="#" style="color: black;"> 로그인</a>
+                </li>
 
-    <img class="navbar-brand col-auto container" href="#" img src="${pageContext.request.contextPath}/resources/img/logo2.jpg">
+                <li class="nav-item vi4">
+                  <a class="nav-link" href="#" style="color: black;">회원가입</a>
+                </li>
+                <li class="nav-item vi5">
+                  <a class="nav-link " href="#" style="color: black;">고객센터</a>
+                </li>
 
-    <div class="collapse navbar-collapse container col-auto" id="navbarResponsive"id="nav-main"
-      style="font-family:'Cafe24SsurroundAir', sans-serif; font-size: 1.2em; ">
-      <ul class="navbar-nav ml-auto ">
-        <li class="nav-item " id="id1">
-          <a class="nav-link" href="#" >커뮤니티</a>
-        </li>
-        <li class="nav-item " id="id2">
-          <a class="nav-link" href="#" style="padding-left: 2rem;">스토어</a>
-        </li>
-      </ul>
-    </div>
-    <div class="collapse navbar-collapse container col-auto" id="navbarResponsive" style="padding-left:6rem;">
-      <form class=" " role="search">
-        <div class="input-group">
-          <input type="text" class="form-control" placeholder="Search" style="padding-right: 2rem;">
-          <div class="input-group-btn " style="align-items: center;">
-            <button type="submit" class="btn btn-info"><span class="lnr lnr-magnifier"></span></button>
-          </div>
+              </ul>
+            </div>
+          
+
         </div>
-      </form>
-    </div>
-    <div class="container" style="font-family:'Cafe24SsurroundAir', sans-serif; font-size: 1.2em; ">
-      <ul class="navbar-nav ml-auto col-auto">
-        <li class="nav-item ">
-          <a class="nav-link" href="#" style=""> 로그인</a>
-        </li>
+      </nav>
 
-        <li class="nav-item ">
-          <a class="nav-link" href="#" style="">회원가입</a>
-        </li>
-        <li class="nav-item ">
-          <a class="nav-link " href="#" style="">고객센터</a>
-        </li>
-
-      </ul>
-    </div>
-
-
-  </nav>
+  
   <nav class="navbar navbar-expand-lg  bg acup nav-head" id="community"
     style="min-width: max-content;background-color: white;  font-family:'Cafe24SsurroundAir', sans-serif; font-size: 0.95em ;">
-    <div class="container ">
+    <div class="container">
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav col-auto nav-item2">
           <a class="nav-link" href="#">Home</a>
@@ -188,29 +193,28 @@
     </div>
     </div>
   </nav>
+  <div class="header-categorys col-auto " id="header-cate"
+  onmouseleave="document.getElementById('header-cate').style.display = 'none';">
+  <ul style="font-family: 'Cafe24SsurroundAir','notosans';">
+    <li class="category-item col-lg-auto"><a href="#" style="color: black;">
+        <i class="fas fa-couch fa-2x"></i><br>가구</a></li>
+    <li class="category-item col-lg-auto"><a href="#" style="color: black;">
+        <i class="fas fa-bed fa-2x"></i><br>패브릭</a></li>
+    <li class="category-item col-lg-auto"><a href="#" style="color: black;">
+        <i class="fas fa-tv fa-2x"></i><br>가전</a></li>
+    <li class="category-item col-lg-auto"><a href="#" style="color: black;">
+        <i class="fas fa-sink fa-2x"></i><br>주방용품</a></li>
+    <li class="category-item col-lg-auto"><a href="#" style="color: black;">
+        <i class="fas fa-laptop-house fa-2x"></i><br>생활용품</a></li>
+    <li class="category-item col-lg-auto"><a href="#" style="color: black;">
+        <i class="fas fa-box fa-2x"></i><br>수납</a></li>
+    <li class="category-item col-lg-auto"><a href="#" style="color: black;">
+        <i class="fas fa-hiking fa-2x"></i><br>캠핑용품</a></li>
+    <li class="category-item col-lg-auto"><a href="#" style="color: black;">
+        <i class="fas fa-dog fa-2x"></i><br>애완운동</a></li>
+  </ul>
+</div>
 
-  <div class="header-categorys col-auto nav-head2" id="header-cate"
-    onmouseleave="document.getElementById('header-cate').style.display = 'none';">
-    <ul style="font-family:'Cafe24SsurroundAir', sans-serif; ">
-      <li class="category-item "><a href="#" style="color: black;">
-          <i class="fas fa-couch fa-2x"></i><br>가구</a></li>
-      <li class="category-item "><a href="#" style="color: black;">
-          <i class="fas fa-bed fa-2x"></i><br>패브릭</a></li>
-      <li class="category-item "><a href="#" style="color: black;">
-          <i class="fas fa-tv fa-2x"></i><br>가전</a></li>
-      <li class="category-item "><a href="#" style="color: black;">
-          <i class="fas fa-sink fa-2x"></i><br>주방용품</a></li>
-      <li class="category-item "><a href="#" style="color: black;">
-          <i class="fas fa-laptop-house fa-2x"></i><br>생활용품</a></li>
-      <li class="category-item "><a href="#" style="color: black;">
-          <i class="fas fa-box fa-2x"></i><br>수납</a></li>
-      <li class="category-item "><a href="#" style="color: black;">
-          <i class="fas fa-hiking fa-2x"></i><br>캠핑용품</a></li>
-      <li class="category-item "><a href="#" style="color: black;">
-          <i class="fas fa-dog fa-2x"></i><br>애완운동</a></li>
-    </ul>
-  </div>
-</nav>
 
 </body>
 </html>
