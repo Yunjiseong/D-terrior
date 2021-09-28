@@ -149,11 +149,11 @@ ul {
   }
   .info{
     margin: 30px 0 30px 0;
-      background-color: lightskyblue;
+      background-color: rgb(246, 246, 246);
       width: 48%;
       position: relative;
       left: 25%;
-      border: 2px solid lightgray ;
+      border: 2px solid rgb(246, 246, 246);
       padding: 10px;
       border-radius: 10px;
   }
@@ -187,12 +187,13 @@ ul {
 }
 .view{
       margin: 30px 0 30px 0;
-      background-color: lightskyblue;
-      width: 30%;
+      background-color: rgb(246, 246, 246);
+      width: 40%;
       position: relative;
-      left: 30%;
-      border: 2px solid lightgray ;
-      padding: 10px;
+      left: 25%;
+      border: 2px solid rgb(246, 246, 246) ;
+      padding: 27px 10px 10px 10px;
       border-radius: 10px;
-
 }
+
+
