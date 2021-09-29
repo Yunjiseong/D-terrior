@@ -12,7 +12,7 @@
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-<script src="https://kit.fontawesome.com/86e4aadf8c.js" crossorigin="anonymous"></script>
+
 <style>   
 
     #main{
@@ -163,40 +163,6 @@ ul {
   .inwrite{
       width: 100%;
   }
-  .info{
-    margin: 30px 0 30px 0;
-      background-color: lightskyblue;
-      width: 45%;
-      position: relative;
-      left: 25%;
-  }
-  .boast_write{  
-      position: relative;
-  }
-  .boast_write .ico{
-    position:absolute;
-    bottom: 300px;
-     left:450px;
-     display: none;
-  }
-  .clearfix::after {
-    display: block;
-    clear: both;
-    content: "";
-}
-.boast_write .Exp{
-    position:absolute;
-    bottom: 300px;
-     left:470px;
-     display: none;
-     border: black solid 1px;
-     width: 200px;
-     height: auto;
-     background-color: rgba(254, 253, 253, 0.2);;
-  }
-.exptxt{
-    font-size: 12px;
-}
 
 
 </style>
@@ -215,7 +181,10 @@ ul {
             <small class="text-muted"> 아이디1</small> <small class="text-dete">2021년 9월 24일</small></a>
         </div>
         <div class="main-info">
-    
+            <div class="info">
+                아파트 || 24평 || 거실 리모델링 || 2400만원
+                 
+            </div>
     
             <hr class="my-2">
     
@@ -224,9 +193,6 @@ ul {
                 &nbsp;&nbsp;&nbsp; <span class="index1">작업</span> <span class="index2">전문가</span> 
                 &nbsp;&nbsp;&nbsp; <span class="index1">장소</span> <span class="index2">거실 리모델링</span>
                 &nbsp;&nbsp;&nbsp; <span class="index1">가족형태</span> <span class="index2">신혼부부</span>
-                &nbsp;&nbsp;&nbsp; <span class="index1">종류</span> <span class="index2">아파트</span>
-                &nbsp;&nbsp;&nbsp; <span class="index1">평수</span> <span class="index2">24</span>
-                &nbsp;&nbsp;&nbsp; <span class="index1">견적</span> <span class="index2">2400만원</span>
             </div>
         </div>
 
@@ -237,10 +203,6 @@ ul {
                    <p>우리집은 이렇게 생겻네요~</p>
                    <img src="../img/interior11.png" class="inimg" alt="인테리어">
                    <p>위에 집보다 우리집이 더 인테리어 잘했죠?</p>
-                   <i class="fas fa-exclamation fa-1x ico"></i>
-                   <div class="Exp"> <span class="exptxt">이침대는 말이죠</span> 
-                    <hr> <span class="exptxt">000,000원이에요</span>
-                </div>
                    
                   </div>
 
@@ -342,19 +304,4 @@ ul {
     
        
 </body>
-<script>
-$(document).ready(function(){ 
-	$('.inimg').hover(function(){ 
-		$('.ico').toggle(); 
-	});
-});
-$(document).ready(function(){ 
-	$('.ico').hover(function(){ 
-		$('.Exp').toggle(); 
-	});
-});
-</script>
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </html>

@@ -43,9 +43,6 @@
     .code {
       margin-top: 10px;
     }
-    .code1 {
-      margin-top: 30px;
-    }
 
     .checkcss {
       margin: 5px;
@@ -68,9 +65,18 @@
           </div>
           <div class="col-md-6 mb-3"> <label for="email-code">인증코드</label> <input type="text" class="form-control"
               id="email-code" placeholder="" value="" required>
-            <button class="btn btn-info code" type="submit">인증확인</button>
+            <button class="btn btn-primary code" type="submit">인증확인</button>
           </div>
-    
+          <div class="row">
+            <div class="col-md-6 mb-3"> <label for="name">이름</label> <input type="text" class="form-control" id="name"
+                placeholder="" value="" required>
+              <div class="invalid-feedback"> 이름을 입력해주세요. </div>
+            </div>
+            <div class="col-md-6 mb-3"> <label for="nickname">닉네임</label> <input type="text" class="form-control"
+                id="nickname" placeholder="" value="" required>
+              <div class="invalid-feedback"> 닉네임을 입력해주세요. </div>
+            </div>
+          </div>
           <div class="mb-3"> <label for="password">비밀번호</label> <input type="password" class="form-control" id="pw"
               placeholder="비밀번호를 적어주세요" required>
             <div class="invalid-feedback"> 비밀번호.
@@ -78,16 +84,6 @@
             <div class="mb-3"> <label for="passwordCH">비밀번호확인</label> <input type="password" class="form-control"
                 id="pw" placeholder="비밀번호를 다시 한번 적어주세요" required>
               <div class="invalid-feedback"> 비밀번호 확인해주세요.
-              </div>
-              <div class="row"> 
-                <div class="col-md-6 mb-3"> <label for="nickname">닉네임</label> <input type="text" class="form-control"
-                    id="nickname" placeholder="" value="" required>
-                  <div class="invalid-feedback"> 닉네임을 입력해주세요. </div>
-                </div>
-                <div class="col-md-6 mb-3"> 
-                  <button class="btn btn-info code1">중복확인</button>
-                <div class="invalid-feedback"> 중복된 닉네임 입니다. </div>
-              </div>
               </div>
               <div class="mb-3"><label for="phoene">전화번호</label> <br>
                 <select id="mPhone1" name="mPhone1">
@@ -124,7 +120,7 @@
 
                 </div>
 
-                <div class="mb-4"></div> <button class="btn btn-info btn-lg btn-block" type="submit">가입 완료</button>
+                <div class="mb-4"></div> <button class="btn btn-primary btn-lg btn-block" type="submit">가입 완료</button>
         </form>
       </div>
     </div>

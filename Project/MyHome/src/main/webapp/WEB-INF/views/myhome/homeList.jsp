@@ -16,7 +16,7 @@
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/bootstrap.css">
     <link href="${pageContext.request.contextPath}/resources/css/style.css" rel="stylesheet">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="${pageContext.request.contextPath}/resources/js/jquery.js"></script>
     
     <style>
       .bd-placeholder-img {
@@ -116,15 +116,15 @@
     <div class="container">      
       <div class="control-list">  
 
-		<form action="<c:url value='/myhome/homeList' />" method="post">
+		<div id="sorting">
 			<select class="input-box" name="sort"> 		     
-	            <option value selected disabled>정렬</option>
+	            <option value selected>정렬</option>
 	            <option value="1">인기순</option>
 	            <option value="2">최신순</option>
 	        </select>    
 	        
 	        <select class="input-box" name="homeForm">          
-	            <option value selected disabled>주거형태</option>
+	            <option value selected>주거형태</option>
 	            <option>아파트</option>
 	            <option>빌라</option>
 	            <option>오피스텔</option>
@@ -133,7 +133,7 @@
 	      
 	        
 	        <select class="input-box" name="homeSize">          
-	            <option selected disabled>평수</option>
+	            <option value selected>평수</option>
 	            <option>10평 미만</option>
 	            <option>10~15평</option>
 	            <option>16~20평</option>
@@ -146,7 +146,7 @@
 	        </select> 
 	        
 	        <select class="input-box" name="money">          
-	            <option selected disabled>예산</option>
+	            <option value selected>예산</option>
 	            <option>500만원 미만</option>
 	            <option>500~1000만원</option>
 	            <option>1000~1500만원</option>
@@ -156,62 +156,22 @@
 	            <option>4000~5000만원</option>
 	            <option>5000만원 이상</option>
 	        </select>         
-		</form>     
+		</div>     
          
       </div>
 	<br>
 	<div id="write-btn"><button type="button" id="writeBtn" class="btn btn-info" onclick="location.href='<c:url value="/myhome/homeWrite" />'">글쓰기</button></div>
+	
+	
 	<!-- 글 목록 -->
-      <div id="total">전체 ${fn:length(myhome)}</div>
-      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-	      <c:forEach var="num" items="${myhome}">
-	      	<div class="col-lg-4 col-sm-4">
-	          <div class="card">
-	            <a href='<c:url value="/myhome/homeDetail?bno=${num.bno}" />'>
-	              <img class="img" src='<c:url value="/resources/img/interior1.png" />' alt="사진">
-	              <div class="card-body">
-	                <p class="card-text">${num.title}</p>
-	                  <a href="#" class="id-link"><img class="profile" src='<c:url value="/resources/img/interior1.png" />' alt="사진"><small class="text-muted"> ${num.writer}</small></a>
-	                  <small class="text-muted">스크랩 ${num.scrapCnt} · 조회 ${num.viewCnt}</small> 
-	              </div>
-	            </a>  
-	          </div>
-	        </div>
-	      </c:forEach> 
-      </div>     
-        
+	  <div id="total"></div>	      
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3" id="divContent">
+	      
+	      
+	      
+      </div>   
       
-    <!--페이지-->
-    <%-- 
-    <form action="<c:url value='/myhome/homeList' />" name="pageForm" method="post">
-           <div class="text-center">
-           <hr>
-                             
-           <ul class="pagination pagination-sm" id="pagination">
-              <c:if test="${pc.prev}">
-              		<li><a href="#" data-pageNum="${pc.beginPage-1}">이전</a></li>
-              </c:if>
-              
-              <c:forEach var="num" begin="${pc.beginPage}" end="${pc.endPage}">
-               <li class="${pc.paging.nowPage == num ? 'active' : ''}"><a href="#" data-pageNum="${num}">${num}</a></li>
-              </c:forEach>
-               
-               <c:if test="${pc.next}">
-               	<li><a href="#" data-pageNum="${pc.endPage+1}">다음</a></li>
-               </c:if>                      
-           </ul>
-           
-           <!-- 페이지 관련 버튼을 클릭시 숨겨서 보낼 값 -->
-           <input type="hidden" name="nowPage" value="${pc.paging.nowPage}">
-           <input type="hidden" name="countPerPage" value="${pc.paging.countPerPage}">
-           <input type="hidden" name="homeForm" value="${pc.paging.homeForm}">
-           <input type="hidden" name="money" value="${pc.paging.money}">
-           <input type="hidden" name="homeSize" value="${pc.paging.homeSize}">
-                      
-           
-           </div>
-    </form>
-     --%>
+    
     </div>
   </div>
 
@@ -219,9 +179,68 @@
 
 <script>
 	$(function() { //start jquery
-		$('select[name=sort]').click(function() {
+		
+		
+		let str = '';
+		getList(1, true);
+		
+		//1. 리스트 처리
+		function getList(page, reset) {
+			if(reset === true)
+				str = '';
 			
-		});
+			const sort = $('select[name=sort] option:selected').val();
+			const homeForm = $('select[name=homeForm] option:selected').val();
+			const homeSize = $('select[name=homeSize] option:selected').val();
+			const money = $('select[name=money] option:selected').val();
+			
+			$.getJSON(
+				'<c:url value="/myhome/getList?nowPage=' + page + '&homeForm=' + homeForm + '&homeSize=' + homeSize + '&money=' + money + '" />',
+				function(data) { //글 목록, 게시글 총 수를 map으로 포장해서 전달함.
+					console.log(JSON.stringify(data));	
+					const list = data.list;
+					const total = data.total;
+					
+					$('#total').html('전체 ' + total);
+					
+					for(let i=0;i<list.length;i++){
+						str += '<div class="col-lg-4 col-sm-4">';
+						str += '<div class="card">';
+						str += '<a href="${pageContext.request.contextPath}/myhome/homeDetail?bno=' + list[i].bno + '" >';
+						str += '<img class="img" src="${pageContext.request.contextPath}/resources/img/interior1.png" alt="사진">';
+						str += '<div class="card-body">';
+						str += '<p class="card-text">' + list[i].title + '</p>'
+						str += '<a href="#" class="id-link"><img class="profile" src="${pageContext.request.contextPath}/resources/img/interior1.png" alt="사진"><small class="text-muted">' + list[i].writer + '</small></a>';
+						str += '<small class="text-muted">스크랩 ' + list[i].scrapCnt + ' · 조회 ' + list[i].viewCnt + '</small>';
+						str += '</div>';
+						str += '</a>';
+						str += '</div>';
+						str += '</div>';
+					}
+						$('#divContent').html(str);
+				}
+			
+			) //end getJSON
+		}; //리스트 처리 끝
+		
+		
+		//2. 페이징 처리
+		let page = 1;
+		$(window).scroll(function() {
+			console.log($(window).scrollTop());
+			console.log($(document).height());
+			console.log($(window).height());
+			if($(window).scrollTop() >= ($(document).height() - $(window).height())*0.8){
+				console.log(++page);
+				getList(++page, false);
+				
+			}			
+		}); //페이징 처리 끝
+		
+		//3. 정렬 처리
+		$('#sorting').on('change', 'select',  function() {
+			getList(1, true);			
+		});		
 		
 		
 		

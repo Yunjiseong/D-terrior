@@ -116,8 +116,8 @@ html {
           </label>
         </div>
  
-        <button id="#" class="btn btn-lg btn-primary btn-block" type="submit">로 그 인</button>
-        <button id="'#" class="btn btn-lg btn-primary btn-block btn-open-popup " type="submit">회원가입</button>
+        <button href="<c:url value='/user/userLoginPage' />" id="#" class="btn btn-lg btn-primary btn-block" type="submit">로 그 인</button>
+        <button id="'#" class="btn btn-lg btn-primary btn-block btn-open-popup ">회원가입</button>
       </form>
 		</div>
 	</div>
@@ -129,10 +129,10 @@ html {
 
     <ul>
       <li>
-    <button id="#" class="btn-primary btn-square" type="submit">일반회원</button>
+    <a href="normalJoinPage" id="#" class="btn-primary btn-square" type="submit">일반회원</a>
   </li>
   <li>
-    <button id="'#" class="btn-primary btn-square" type="submit">전문가회원</button>
+    <a href="proJoinPage" id="'#" class="btn-primary btn-square" type="submit">전문가회원</a>
   </li>
 
 

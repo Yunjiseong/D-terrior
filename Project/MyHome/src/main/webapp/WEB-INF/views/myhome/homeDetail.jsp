@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ page import="java.net.URLEncoder" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -70,13 +71,13 @@
 
      }
      .userimg {
-	    position: absolute;
-	    width: 30px;
-	    height: 30px;
-	    top: 2px;
-	    margin-left: 10px;
-	    border-radius: 100%;
-	    background-color: #dbdbdb;
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    top: 2px;
+    margin-left: 10px;
+    border-radius: 100%;
+    background-color: #dbdbdb;
 	}
 	
 	.reply-wrap {
@@ -147,7 +148,7 @@
 	    text-align: center;
 	}
 	#before-title{
-	    text-align: left;
+	    text-align: center;
 	}
 	.pagination{
 	    margin-top: 20px;
@@ -156,39 +157,73 @@
 	    width: 300px;
 	    margin-left: auto;
 	    margin-right: auto;
+  	}
+  .inwrite{
+      width: 100%;
 	  }
-	  .inwrite{
-	      width: 100%;
+	  .info{
+	    margin: 30px 0 30px 0;
+	      background-color: lightskyblue;
+	      width: 45%;
+	      position: relative;
+	      left: 25%;
 	  }
+	  .boast_write{  
+	      position: relative;
+	  }
+	  .boast_write .ico{
+	    position:absolute;
+	    bottom: 300px;
+	     left:450px;
+	     display: none;
+	  }
+	  .clearfix::after {
+	    display: block;
+	    clear: both;
+	    content: "";
+	}
+	.boast_write .Exp{
+	    position:absolute;
+	    bottom: 300px;
+	     left:470px;
+	     display: none;
+	     border: black solid 1px;
+	     width: 200px;
+	     height: auto;
+	     background-color: rgba(254, 253, 253, 0.2);;
+	  }
+.exptxt{
+    font-size: 12px;
+}
 
 </style>
 </head>
 
 <body>
     <div class="main">
-        <img id="main" src="${pageContext.request.contextPath}/resources/img/interior10.png" alt="메인사진">
+    <!-- ${pageContext.request.contextPath}/myhome/display?userNum=?&fileName=${home.thumbImg} -->
+        <img id="main" src="#" alt="메인사진">
     </div>
     
     <div class="contain">    
         <div id="before-title">내집 뽐내기</div>
-        <div id="title">신혼집 라이프를 심플하게~~</div>
+        <div id="title">${home.title}</div>
         <div class="title-profile">
-        <a href="#" class="id-link"><img class="profile" src='${pageContext.request.contextPath}/resources/img/interior1.png' alt="사진">
-            <small class="text-muted"> 아이디1</small> <small class="text-dete">2021년 9월 24일</small></a>
+        <a href="#" class="id-link"><img class="profile" src='${home.profile}' alt="사진">
+            <small class="text-muted"> ${home.writer}</small> <small class="text-dete">${home.regDate}</small></a>
         </div>
         <div class="main-info">
-            <div class="info">
-                아파트 || 24평 || 거실 리모델링 || 2400만원
-                 
-            </div>
+    
     
             <hr class="my-2">
     
             <div class="info">       
-                <span class="index1">공간</span> <span class="index2">아파트</span> 
-                &nbsp;&nbsp;&nbsp; <span class="index1">작업</span> <span class="index2">전문가</span> 
-                &nbsp;&nbsp;&nbsp; <span class="index1">장소</span> <span class="index2">거실 리모델링</span>
-                &nbsp;&nbsp;&nbsp; <span class="index1">가족형태</span> <span class="index2">신혼부부</span>
+                <span class="index1">공간</span> <span class="index2">${home.homeForm}</span> 
+                &nbsp;&nbsp;&nbsp; <span class="index1">작업</span> <span class="index2">${home.worker}</span> 
+                &nbsp;&nbsp;&nbsp; <span class="index1">장소</span> <span class="index2">${home.place}</span>
+                &nbsp;&nbsp;&nbsp; <span class="index1">가족형태</span> <span class="index2">${home.family}</span>
+                &nbsp;&nbsp;&nbsp; <span class="index1">평수</span> <span class="index2">${home.homeSize}</span>
+                &nbsp;&nbsp;&nbsp; <span class="index1">견적</span> <span class="index2">${home.money}</span>
             </div>
         </div>
 
@@ -196,16 +231,20 @@
             
                 <div contentEditable="false" class="col-md-10 boast_inwrite" readonly="readonly">
                    <img src="${pageContext.request.contextPath}/resources/img/interior10.png" class="inimg" alt="인테리어">
-                   <p>우리집은 이렇게 생겻네요~</p>
+                   <p>${home.content}</p>
                    <img src="${pageContext.request.contextPath}/resources/img/interior11.png" class="inimg" alt="인테리어">
                    <p>위에 집보다 우리집이 더 인테리어 잘했죠?</p>
+                   <i class="fas fa-exclamation fa-1x ico"></i>
+                   <div class="Exp"> <span class="exptxt">이침대는 말이죠</span> 
+                    <hr> <span class="exptxt">000,000원이에요</span>
+                </div>
                    
                   </div>
 
         </div>
 
         <div class="view">
-          <p class="view-count">좋아요 ${home.likeCnt} 스크랩${home.scrapCnt} 조회${home.viewCnt}</p>  
+          <p class="view-count">좋아요${home.likeCnt} 스크랩${home.scrapCnt} 댓글?? 조회${home.viewCnt}</p>  
         </div>
 
          <!--댓글-->
@@ -218,8 +257,8 @@
                 <div class="reply-content">
                     <div class="reply-group clearfix">
                        
-                        <textarea class="form-control" rows="3" placeholder="댓글을 작성해주세요"></textarea>
-                        <button class="btn btn-info">등록</button>
+                        <textarea class="form-control" rows="3" placeholder="댓글을 작성해주세요" id="reply-content"></textarea>
+                        <button class="btn btn-info" id="regBtn">등록</button>
                         <button class="btn btn-info"><svg width="24" height="20" viewBox="0 0 24 20"
                                 preserveAspectRatio="xMidYMid meet">
                                 <path fill="#292929" fill-rule="nonzero"
@@ -230,7 +269,8 @@
                 </div>
 
             </div>
-
+			<div id="reply">
+             <%-- 댓글 영역
             <div class="col-xs-12 col-md-12 reply-wrap">
                 <div class="reply-image">
                     <img class="userimg" src="${pageContext.request.contextPath}/resources/img/icon.png" alt="prof">
@@ -248,13 +288,16 @@
                     <p>여기는 댓글 영역</p>
                 </div>
             </div>
+              --%> 
+        </div>
         </div>
 
         
 
     </div>
     <nav class="pagination-sm pag">
-        <ul class="pagination justify-content: center">
+        <ul class="pagination justify-content: center" id="replyBtn">
+            <%-- 페이지 버튼 영역
             <li class="page-item">
                 <a class="page-link" href="#">
                     이전
@@ -264,37 +307,141 @@
                 <a class="page-link" href="#">
                     1
                 </a>
-            </li>
-            <li class="page-item">
-                <a class="page-link" href="#">
-                    2
-                </a>
-            </li>
-            <li class="page-item">
-                <a class="page-link" href="#">
-                    3
-                </a>
-            </li>
-            <li class="page-item">
-                <a class="page-link" href="#">
-                    4
-                </a>
-            </li>
-            <li class="page-item">
-                <a class="page-link" href="#">
-                    5
-                </a>
-            </li>
+            </li>           
             <li class="page-item">
                 <a class="page-link" href="#">
                     다음
                 </a>
             </li>
+          --%>
         </ul>
     </nav>
        
-    </div>
-    
-       
+    </div>       
 </body>
+<script>
+	$(document).ready(function(){ 
+		$('.inimg').hover(function(){ 
+			$('.ico').toggle(); 
+		});
+		
+		$('.ico').hover(function(){ 
+			$('.Exp').toggle(); 
+		});		
+		
+		
+	//댓글 등록 처리
+	$('#regBtn').click(function() {
+		const content = $('#reply-content').val();
+		const bno = '${home.bno}';
+		const writer = '${home.writer}';
+		
+		$.ajax({
+			url: '<c:url value="/homeReply/regist" />', 
+			type: "post",
+			data: JSON.stringify({
+				"bno": bno,	
+				"writer" : writer,
+				"content": content				
+			}),
+			dataType: "text",
+			headers: {
+				"Content-Type" : "application/json"
+			},
+			success: function(result) {
+				console.log("통신 성공");
+				if(result === 'success'){
+					$('#reply-content').val('');
+					getList(1);					
+				}
+			},
+			error: function() {
+				console.log('통신 실패. 관리자에게 문의하세요.');
+			}		
+			
+		}); //end ajax
+		
+	});
+	
+	let strAdd = '';
+	let strBtn = '';
+	getList(1);
+	
+	//댓글 목록 처리
+	function getList(pageNum) {		
+		$.getJSON(
+			'<c:url value="/homeReply/getList/' + ${home.bno} + '/' + pageNum + '" />',
+			function(datas) {
+				const list = datas.list;
+				const pc = datas.pc;
+				strAdd = '';
+				
+				console.log('리스트: ' + list);
+				console.log('pc: ' + pc);
+				
+				//목록 처리
+				for(let i=0;i<list.length;i++){
+					strAdd += '<div class="col-xs-12 col-md-12 reply-wrap" id="reply">';
+					strAdd += '<div class="reply-image">';
+					strAdd += '<img class="userimg" src="${pageContext.request.contextPath}/resources/img/icon.png" alt="prof">';
+					strAdd += '</div>';
+					strAdd += '<div class="reply-content">';
+					strAdd += '<div class="reply-group">';
+					strAdd += '<strong class="left">글쓴이</strong>'; //세션 nickname 넣어주기
+					strAdd += '<small class="left">2021/12/12</small>';
+					strAdd += '<div class="btn-group-sm" role="group">';
+					strAdd += '<button type="button" class="btn btn-info">삭제</button>';
+					strAdd += '<button type="button" class="btn btn-info">수정</button>';
+					strAdd += '</div>';
+					strAdd += '</div>';
+					strAdd += '<p>' + list[i].content + '</p>';
+					strAdd += '</div>';
+					strAdd += '</div>';
+				}
+				$('#reply').html(strAdd);
+				
+				//페이지버튼 처리
+				strBtn = '';
+				if(pc.prev){
+					strBtn += '<li class="page-item">';
+					strBtn += '<button class="page-link" id="' + (pc.beginPage-1) + '" >';
+					strBtn += '이전';
+					strBtn += '</button>';
+					strBtn += '</li>';
+				}
+				for(let j=pc.beginPage;j<=pc.endPage;j++){
+					strBtn += '<li class="page-item">';
+					strBtn += '<button class="page-link" id="' + j + '" >';
+					strBtn += j;
+					strBtn += '</button>';
+					strBtn += '</li>';
+				}
+				if(pc.next){
+					strBtn += '<li class="page-item">';
+					strBtn += '<button class="page-link" id="' + (pc.endPage+1) + '" >';
+					strBtn += '이전';
+					strBtn += '</button>';
+					strBtn += '</li>';
+				}
+				$('#replyBtn').html(strBtn);
+				
+			}
+			
+		); //end getJSON
+	}
+	
+	
+		
+	//댓글 페이지버튼 클릭 이벤트
+	$('#replyBtn').on('click', 'button', function() {
+		getList($(this).attr('id'));
+	});
+		
+		
+		
+		
+	}); //end jquery
+
+</script>	
 </html>
+

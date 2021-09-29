@@ -148,16 +148,16 @@ body {
 
 							<div class="row">
 								<div class="col-md-8 mb-3">
-									<label for="Attention">전문분야 </label>
+									<label for="Attention">전문분야</label>
 									<<div class=invalid-checkbox>
-                                      <label><input class="checkcss" type="checkbox" name="major" value="major1"> 시공</label>
-                                      <label><input class="checkcss" type="checkbox" name="major" value="major2"> 타일</label><br>
-                                      <label><input class="checkcss" type="checkbox" name="major" value="major3"> 건축자재</label>
-                                      <label><input class="checkcss" type="checkbox" name="major" value="major4"> 건축설비</label><br>
-                                      <label><input class="checkcss" type="checkbox" name="major" value="major5"> 창호/샷시</label>
-                                      <label><input class="checkcss" type="checkbox" name="major" value="major6"> 도배</label><br>
-                                      <label><input class="checkcss" type="checkbox" name="major" value="major7"> 창틀</label>
-                                      <label><input class="checkcss" type="checkbox" name="major" value="major8"> 페인트</label>
+                                      <label><input class="checkcss" type="checkbox" name="major" value="major1"> 시공 </label>
+                                      <label><input class="checkcss" type="checkbox" name="major" value="major2"> 타일 </label><br>
+                                      <label><input class="checkcss" type="checkbox" name="major" value="major3"> 건축자재 </label>
+                                      <label><input class="checkcss" type="checkbox" name="major" value="major4"> 건축설비 </label><br>
+                                      <label><input class="checkcss" type="checkbox" name="major" value="major5"> 창호/샷시 </label>
+                                      <label><input class="checkcss" type="checkbox" name="major" value="major6"> 도배 </label><br>
+                                      <label><input class="checkcss" type="checkbox" name="major" value="major7"> 창틀 </label>
+                                      <label><input class="checkcss" type="checkbox" name="major" value="major8"> 페인트 </label>
                                     </div>
                                     <div class="col-md-8 mb-3"><label>증빙서류</label>
                                         <input type="file" name="file" multiple>

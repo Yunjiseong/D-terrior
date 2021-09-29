@@ -153,19 +153,19 @@ body {
 										<label><input class="checkcss" type="checkbox"
 											name="interest" value="intr1">가구</label> <label><input
 											class="checkcss" type="checkbox" name="interest"
-											value="intr2"> 패브릭</label><br> <label><input
+											value="intr2"> 패브릭 </label><br> <label><input
 											class="checkcss" type="checkbox" name="interest"
-											value="intr3"> 조명</label> <label><input
+											value="intr3"> 조명 </label> <label><input
 											class="checkcss" type="checkbox" name="interest"
-											value="intr4"> 장식/소품</label><br> <label><input
+											value="intr4"> 장식/소품 </label><br> <label><input
 											class="checkcss" type="checkbox" name="interest"
-											value="intr5"> 가전</label> <label><input
+											value="intr5"> 가전 </label> <label><input
 											class="checkcss" type="checkbox" name="interest"
-											value="intr6"> 생필품</label><br> <label><input
+											value="intr6"> 생필품 </label><br> <label><input
 											class="checkcss" type="checkbox" name="interest"
-											value="intr7"> 캠핑용품</label> <label><input
+											value="intr7"> 캠핑용품 </label> <label><input
 											class="checkcss" type="checkbox" name="interest"
-											value="intr8"> 주방용품</label>
+											value="intr8"> 주방용품 </label>
 									</div>
 								</div>
 								<div class="mb-4"></div>

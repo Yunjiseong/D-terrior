@@ -24,9 +24,6 @@ public interface IUserMapper {
 		
 		//아이디 중복체크
 		int idCheck(String id);
-		
-		//닉네임 중복체크
-		int nickCheck(String nickName);
 	
 
 }

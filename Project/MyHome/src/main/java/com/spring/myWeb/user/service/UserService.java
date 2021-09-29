@@ -44,19 +44,10 @@ public class UserService implements IUserService {
 	public void userDelete(@Param("id")String id, @Param("pw")String pw) {
 		mapper.userDelete(id, pw);
 	}
-	
-	//아이디중복체크
+
 	@Override
 	public int idCheck(String id) {
 		return mapper.idCheck(id);
 	}
-
-	//닉네임중복체크
-	@Override
-	public int nickCheck(String nickName) {
-		return mapper.nickCheck(nickName);
-	}
-	
-	
 
 }

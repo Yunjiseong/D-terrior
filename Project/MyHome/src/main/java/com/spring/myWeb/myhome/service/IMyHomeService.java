@@ -3,6 +3,7 @@ package com.spring.myWeb.myhome.service;
 import java.util.List;
 
 import com.spring.myWeb.command.MyHomeVO;
+import com.spring.myWeb.command.UserVO;
 import com.spring.myWeb.myhome.util.PageVO;
 
 public interface IMyHomeService {
@@ -24,5 +25,8 @@ public interface IMyHomeService {
 	
 	//글 삭제
 	void delete(int bno); 
+	
+	//프로필
+	String getProfile(String writer);
 	
 }
