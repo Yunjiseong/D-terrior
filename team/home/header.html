@@ -24,7 +24,7 @@
       $('#id1').mouseover(function () {
         $('#store').removeClass('acup');
         $('#community').addClass('acup');
-        
+
       }); //커뮤니티 마우스 이벤트   
       $('#id2').mouseover(function () {
         $('#community').removeClass('acup');
@@ -35,16 +35,18 @@
         $('#store').removeClass('acup');
         $('#header-cate').removeClass('acup');
       }); //네비바 리브이벤트
-      
-      
-      $('#header-category').mouseover(function() {
-        $('#header-cate').addClass('acup')});
-        //카테고리버튼 마우스 이벤트
-      
-      $('#header-cate').mouseleave(function() {
-        $('#header-cate').removeClass('acup')});
-        //카테고리 리브이벤트
-      
+
+
+      $('#header-category').mouseover(function () {
+        $('#header-cate').addClass('acup')
+      });
+      //카테고리버튼 마우스 이벤트
+
+      $('#header-cate').mouseleave(function () {
+        $('#header-cate').removeClass('acup')
+      });
+      //카테고리 리브이벤트
+
     }); //end jquery
   </script>
 </head>
@@ -53,113 +55,119 @@
 <body>
 
   <nav id="total-nav">
-    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top" style="background-color: rgb(255, 255, 255);font-family: 'Cafe24SsurroundAir';">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top"
+      style="background-color: rgb(255, 255, 255);font-family: 'Cafe24SsurroundAir';">
       <div class="collapse navbar-collapse " id="navbarSupportedContent"></div>
       <a class=" navbar-brand" href="#"><img src="../img/logo2.jpg"></a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-      
+
 
       <div class="collapse navbar-collapse " id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
-          <li class="nav-item active" id="id1"style="padding-left: 3em;">
+        <ul class="navbar-nav mr-auto nav-item2">
+          <li class="nav-item active" id="id1">
             <a class="nav-link" href="#">커뮤니티 </a>
           </li>
-          <li class="nav-item active"id="id2" style="padding-left: 3em;">
+          <li class="nav-item active" id="id2">
             <a class="nav-link" href="#">스토어</a>
           </li>
-          
-        </ul> 
-      </div>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <form class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success lnr lnr-magnifier my-2 my-sm-0" type="submit"></button>
-          </form>
-        </div>
-        <div class="collapse navbar-collapse " id="navbarSupportedContent">
-          <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-              <a class="nav-link" href="#">로그인 </a>
-            </li>
-            <li class="nav-item active">
-              <a class="nav-link" href="#">회원가입</a>
-            </li>
-            <li class="nav-item active">
-              <a class="nav-link" href="#">고객센터</a>
-            </li>
-            
-          </ul>
-        </nav>
-        <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top2" id="community" style="background-color: rgb(255, 255, 255);font-family: 'Cafe24SsurroundAir';">
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          
-         
-          <div class="collapse navbar-collapse container" id="navbarNavAltMarkup">
-            <ul class="navbar-nav mr-auto nav-item2">
-              <li class="nav-item active ">
-                <a class="nav-link" href="#">Home </a>
-              </li>
-              <li class="nav-item active">
-                <a class="nav-link" href="#">내집뽐내기</a>
-              </li>
-              <li class="nav-item active">
-                <a class="nav-link" href="#">질문과답변</a>
-              </li>
-              <li class="nav-item active">
-                <a class="nav-link" href="#">이벤트</a>
-              </li>
-              
-              
-            </ul>
-          </div>
-        </nav>
-        <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top2" id="store" style="background-color: rgb(255, 255, 255);font-family: 'Cafe24SsurroundAir';">
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          
-          <div class="collapse navbar-collapse container" id="navbarNavAltMarkup">
-            <ul class="navbar-nav mr-auto nav-item2">
-              <li class="nav-item active ">
-                <a class="nav-link" href="#">베스트</a>
-              </li>
-              <li class="nav-item active">
-                <a class="nav-link" href="#">전문가의손길</a>
-              </li>
-              <li class="nav-item active">
-                <a class="nav-link" href="#" id="header-category">카테고리</a>
-              </li>
-              
-              
-              
-            </ul>
-        </div>
-        </nav>
-        
-        <div class="header-categorys col-auto container " id="header-cate">
-        <ul style="font-family: 'Cafe24SsurroundAir','notosans';">
-        <li class="category-item col-lg-auto"><a href="#" style="color: black;">
-          <i class="fas fa-couch fa-2x"></i><br>가구</a></li>
-        <li class="category-item col-lg-auto"><a href="#" style="color: black;">
-          <i class="fas fa-bed fa-2x"></i><br>패브릭</a></li>
-        <li class="category-item col-lg-auto"><a href="#" style="color: black;">
-          <i class="fas fa-tv fa-2x"></i><br>가전</a></li>
-        <li class="category-item col-lg-auto"><a href="#" style="color: black;">
-          <i class="fas fa-sink fa-2x"></i><br>주방용품</a></li>
-        <li class="category-item col-lg-auto"><a href="#" style="color: black;">
-          <i class="fas fa-laptop-house fa-2x"></i><br>생활용품</a></li>
-        <li class="category-item col-lg-auto"><a href="#" style="color: black;">
-          <i class="fas fa-box fa-2x"></i><br>수납</a></li>
-        <li class="category-item col-lg-auto"><a href="#" style="color: black;">
-          <i class="fas fa-hiking fa-2x"></i><br>캠핑용품</a></li>
-        <li class="category-item col-lg-auto"><a href="#" style="color: black;">
-          <i class="fas fa-dog fa-2x"></i><br>애완운동</a></li>
+
         </ul>
-        </div>
+      </div>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <form class="form-inline my-2 my-lg-0">
+          <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success lnr lnr-magnifier my-2 my-sm-0" type="submit"></button>
+        </form>
+      </div>
+      <div class="collapse navbar-collapse " id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto nav-item2">
+          <li class="nav-item active">
+            <a class="nav-link" href="#">로그인 </a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="#">회원가입</a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="#">고객센터</a>
+          </li>
+
+        </ul>
+    </nav>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top2" id="community"
+      style="background-color: rgb(255, 255, 255);font-family: 'Cafe24SsurroundAir';">
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+
+      <div class="collapse navbar-collapse container" id="navbarNavAltMarkup">
+        <ul class="navbar-nav mr-auto nav-item2">
+          <li class="nav-item active ">
+            <a class="nav-link" href="#">Home </a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="#">내집뽐내기</a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="#">질문과답변</a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="#">이벤트</a>
+          </li>
+
+
+        </ul>
+      </div>
+    </nav>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top2" id="store"
+      style="background-color: rgb(255, 255, 255);font-family: 'Cafe24SsurroundAir';">
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse container" id="navbarNavAltMarkup">
+        <ul class="navbar-nav mr-auto nav-item2">
+          <li class="nav-item active ">
+            <a class="nav-link" href="#">베스트</a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="#">전문가의손길</a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="#" id="header-category">카테고리</a>
+          </li>
+
+
+
+        </ul>
+      </div>
+    </nav>
+
+    <div class="header-categorys col-auto container " id="header-cate">
+      <ul style="font-family: 'Cafe24SsurroundAir','notosans';">
+        <li class="category-item col-lg-auto"><a href="#" style="color: black;">
+            <i class="fas fa-couch fa-2x"></i><br>가구</a></li>
+        <li class="category-item col-lg-auto"><a href="#" style="color: black;">
+            <i class="fas fa-bed fa-2x"></i><br>패브릭</a></li>
+        <li class="category-item col-lg-auto"><a href="#" style="color: black;">
+            <i class="fas fa-tv fa-2x"></i><br>가전</a></li>
+        <li class="category-item col-lg-auto"><a href="#" style="color: black;">
+            <i class="fas fa-sink fa-2x"></i><br>주방용품</a></li>
+        <li class="category-item col-lg-auto"><a href="#" style="color: black;">
+            <i class="fas fa-laptop-house fa-2x"></i><br>생활용품</a></li>
+        <li class="category-item col-lg-auto"><a href="#" style="color: black;">
+            <i class="fas fa-box fa-2x"></i><br>수납</a></li>
+        <li class="category-item col-lg-auto"><a href="#" style="color: black;">
+            <i class="fas fa-hiking fa-2x"></i><br>캠핑용품</a></li>
+        <li class="category-item col-lg-auto"><a href="#" style="color: black;">
+            <i class="fas fa-dog fa-2x"></i><br>애완운동</a></li>
+      </ul>
+    </div>
   </nav>
 </body>
 
