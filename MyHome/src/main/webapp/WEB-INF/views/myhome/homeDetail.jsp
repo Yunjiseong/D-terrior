@@ -9,55 +9,58 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/Boast_view.css">
+
+
 <style>   
- #ngside {
-    position: fixed;
-    right: 100px;
-    bottom: 0;
-    top: 500px;
-    padding: 0;
-    width: 300px;
-    height: 100%;
-    background-color: rgb(251, 251, 251 ,0.1);
-    cursor: default;
-}
-
-@media (max-width: 1817px) {
-    #ngside {
-        display: none;
-    }
-}
-
-a {
-    color: black;
-}
-
-.fill-heart {
-    display: none;
-}
-.fill-scrap{
-    display: none;
-}
-#ngside > ul >li{
-    list-style: none;
-    margin:0 0px 30px 40px;
-}
-.icos{
-    text-align: center;
-}
-.fa-bookmark{
-    margin: 5px;
-}
-.expimg{
-    position: relative;
-    width: 60px;
-    height: 100px;
-    bottom: 30px;
-}
-.btso {
-    position: relative;
-    bottom: 25px;
-}
+	 #ngside {
+	    position: fixed;
+	    right: 100px;
+	    bottom: 0;
+	    top: 500px;
+	    padding: 0;
+	    width: 300px;
+	    height: 100%;
+	    background-color: rgb(251, 251, 251 ,0.1);
+	    cursor: default;
+	}
+	
+	@media (max-width: 1817px) {
+	    #ngside {
+	        display: none;
+	    }
+	}
+	
+	a {
+	    color: black;
+	}
+	
+	.fill-heart {
+	    display: none;
+	}
+	.fill-scrap{
+	    display: none;
+	}
+	#ngside > ul >li{
+	    list-style: none;
+	    margin:0 0px 30px 40px;
+	}
+	.icos{
+	    text-align: center;
+	}
+	.fa-bookmark{
+	    margin: 5px;
+	}
+	.expimg{
+	    position: relative;
+	    width: 60px;
+	    height: 100px;
+	    bottom: 30px;
+	}
+	.btso {
+	    position: relative;
+	    bottom: 25px;
+	}
 
 </style>
 </head>

@@ -69,146 +69,146 @@
 
      }
      .userimg {
-    position: absolute;
-    width: 30px;
-    height: 30px;
-    top: 2px;
-    margin-left: 10px;
-    border-radius: 100%;
-    background-color: #dbdbdb;
-}
-
-.reply-wrap {
-    background: #f5f5f5;
-    padding: 15px;
-    border: 1px solid #ddd;
-    position: relative;
-}
-
-.reply-wrap .reply-image {
-    position: absolute;
-    left: 15px;
-    top: 15px;
-
-}
-
-.reply-wrap .reply-content {
-    padding-left: 60px;
-}
-
-.reply-content textarea {
-    resize: none;
-    width: 100%;
-    margin-bottom: 10px;
-}
-
-.reply-input > .form-control {
-    width: 200px;
-    margin-bottom: 5px;
-}
-
-.reply-input {
-    float: left;
-}
-
-.reply-group button {
-    float: right;
-}
-
-.reply-group small {
-    margin-left: 10px;
-    height: 20px;
-    line-height: 20px;
-}
-
-.reply-group a {
-    text-decoration: none;
-    color: #777;
-    float: right;
-}
-.btcon{
-    float: right;
-    margin-bottom: 20px;
-}
-.info{
-     text-align: center;
-}
-.title{
-    text-align: center;
-}
-.text-muted{
-    text-align: center;
-}
-.text-dete{
-    text-align: center;
-}
-.title-profile{
-    text-align: center;
-}
-#before-title{
-    text-align: center;
-}
-.pagination{
-    margin-top: 20px;
-}
-.sideul {
-    width: 300px;
-    margin-left: auto;
-    margin-right: auto;
-  }
-  .inwrite{
-      width: 100%;
-  }
-  .info{
-    margin: 30px 0 30px 0;
-      background-color: rgb(246, 246, 246);
-      width: 48%;
-      height: auto;
-      position: relative;
-      left: 25%;
-      border: 2px solid rgb(246, 246, 246);
-      padding: 10px;
-      border-radius: 10px;
-  }
-  .boast_write{  
-      position: relative;
-  }
-  .boast_write .ico{
-    position:absolute;
-    bottom: 300px;
-     left:450px;
-     display: none;
-  }
-  .clearfix::after {
-    display: block;
-    clear: both;
-    content: "";
-}
-.boast_write .Exp{
-    position:absolute;
-    bottom: 300px;
-     left:470px;
-     display: none;
-     border: black solid 1px;
-     width: 220px;
-     height: 130px;
-     background-color: rgba(254, 253, 253, 0.8);;
-     padding: 10px;
-  }
-.exptxt{
-    font-size: 12px;
-    padding: 20px;
-    text-align: left;
-}
-.view{
-      margin: 30px 0 30px 0;
-      background-color: rgb(246, 246, 246);
-      width: 40%;
-      position: relative;
-      left: 25%;
-      border: 2px solid rgb(246, 246, 246) ;
-      padding: 27px 10px 10px 10px;
-      border-radius: 10px;
-}
+	    position: absolute;
+	    width: 30px;
+	    height: 30px;
+	    top: 2px;
+	    margin-left: 10px;
+	    border-radius: 100%;
+	    background-color: #dbdbdb;
+	}
+	
+	.reply-wrap {
+	    background: #f5f5f5;
+	    padding: 15px;
+	    border: 1px solid #ddd;
+	    position: relative;
+	}
+	
+	.reply-wrap .reply-image {
+	    position: absolute;
+	    left: 15px;
+	    top: 15px;
+	
+	}
+	
+	.reply-wrap .reply-content {
+	    padding-left: 60px;
+	}
+	
+	.reply-content textarea {
+	    resize: none;
+	    width: 100%;
+	    margin-bottom: 10px;
+	}
+	
+	.reply-input > .form-control {
+	    width: 200px;
+	    margin-bottom: 5px;
+	}
+	
+	.reply-input {
+	    float: left;
+	}
+	
+	.reply-group button {
+	    float: right;
+	}
+	
+	.reply-group small {
+	    margin-left: 10px;
+	    height: 20px;
+	    line-height: 20px;
+	}
+	
+	.reply-group a {
+	    text-decoration: none;
+	    color: #777;
+	    float: right;
+	}
+	.btcon{
+	    float: right;
+	    margin-bottom: 20px;
+	}
+	.info{
+	     text-align: center;
+	}
+	.title{
+	    text-align: center;
+	}
+	.text-muted{
+	    text-align: center;
+	}
+	.text-dete{
+	    text-align: center;
+	}
+	.title-profile{
+	    text-align: center;
+	}
+	#before-title{
+	    text-align: center;
+	}
+	.pagination{
+	    margin-top: 20px;
+	}
+	.sideul {
+	    width: 300px;
+	    margin-left: auto;
+	    margin-right: auto;
+	  }
+	  .inwrite{
+	      width: 100%;
+	  }
+	  .info{
+	    margin: 30px 0 30px 0;
+	      background-color: rgb(246, 246, 246);
+	      width: 48%;
+	      height: auto;
+	      position: relative;
+	      left: 25%;
+	      border: 2px solid rgb(246, 246, 246);
+	      padding: 10px;
+	      border-radius: 10px;
+	  }
+	  .boast_write{  
+	      position: relative;
+	  }
+	  .boast_write .ico{
+	    position:absolute;
+	    bottom: 300px;
+	     left:450px;
+	     display: none;
+	  }
+	  .clearfix::after {
+	    display: block;
+	    clear: both;
+	    content: "";
+	}
+	.boast_write .Exp{
+	    position:absolute;
+	    bottom: 300px;
+	     left:470px;
+	     display: none;
+	     border: black solid 1px;
+	     width: 220px;
+	     height: 130px;
+	     background-color: rgba(254, 253, 253, 0.8);;
+	     padding: 10px;
+	  }
+	.exptxt{
+	    font-size: 12px;
+	    padding: 20px;
+	    text-align: left;
+	}
+	.view{
+	      margin: 30px 0 30px 0;
+	      background-color: rgb(246, 246, 246);
+	      width: 40%;
+	      position: relative;
+	      left: 25%;
+	      border: 2px solid rgb(246, 246, 246) ;
+	      padding: 27px 10px 10px 10px;
+	      border-radius: 10px;
+	}
 
 
