@@ -4,13 +4,13 @@
 }
 
 #community{
-    
+    display: none;
     background-color: white;
     font-size: 25px; font-style: inherit;
      margin-top: 80px;
 }
 #store{
-    
+    display: none;
     background-color: white;
     font-size: 25px; font-style: inherit;
      margin-top: 80px;
@@ -20,7 +20,7 @@
     font-size: 1rem;
 }
 #header-cate{
-    
+    display: none;
     max-width: 1366px;
     text-align: center;
     height: auto;
@@ -67,12 +67,13 @@ body, html {
   background-color: rgba(0,0,0,0);
 }
 .nav-item2{
-  margin-left: 2.5em;
+  
+  font-size: 0.65em;
 }
-
-
-
-
-  
-  
-  
+.fixed-top2 {
+  position: fixed;
+  top: 0;
+  right: 0;
+  margin-left: 2.5em;
+  z-index: 1030;
+}
