@@ -207,7 +207,7 @@
        <br>
 
        <h4 class="mb-3">필수 정보 입력</h4>  
-       <form action='<c:url value="/myhome/homeUpdate" />' method="post" id="ModiForm" enctype="multipart/form-data"> 
+       <form action='<c:url value="/myhome/homeUpdate" />' method="post" id="modiForm" enctype="multipart/form-data"> 
        
            <div class="mb-3 row">
                <label  class="col-md-3 col-form-label">주거 형태 *</label>
@@ -413,6 +413,8 @@
 	                  <button type="button" class="btn btn-lg btn-info" id="subBtn">등록하기</button>
 	              </div>
 	          </div>
+	          
+	          <input type="hidden" name="bno" value="${home.bno}">
           </form>
           
 
@@ -471,8 +473,7 @@ $(function() { //start jquery
 			return;	
 		}
 		else{
-			alert('글이 등록되었습니다.');
-			$('#writeForm').submit();	
+			$('#modiForm').submit();	
 		}
 		
 	});

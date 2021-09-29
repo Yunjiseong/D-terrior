@@ -9,6 +9,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 
+import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -168,9 +169,49 @@ public class MyHomeController {
 
 	//내집뽐내기 글 수정
 	@PostMapping("/homeUpdate")
-	public String homeUpdate(MyHomeVO vo, RedirectAttributes ra) {
-		System.out.println("/myhome/homeUpdate: POST");
-		ra.addFlashAttribute("msg", "updateSuccess");
+	public String homeUpdate(MyHomeVO vo, @RequestParam("file") MultipartFile file, RedirectAttributes ra) {
+		System.out.println("/myhome/homeUpdate: POST");		
+		
+		try {
+//			int userNum = ((UserVO)session.getAttribute("user")).getUserNum();
+			int userNum = 720;
+
+			//업로드 경로 설정
+			String fileRealName = file.getOriginalFilename();
+			String fileExtension = fileRealName.substring(fileRealName.lastIndexOf("."));
+			String path = "C:\\home\\myhome\\upload\\" + userNum;
+
+			//폴더 생성
+			File folder = new File(path);
+			if(!folder.exists())
+				folder.mkdirs();		
+
+			//날짜객체 생성
+			Date date = new Date();
+			SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd");
+			String fileDate = sdf.format(date);
+
+			//파일명 난수화
+			UUID uuid = UUID.randomUUID();
+			String codeName = uuid.toString().split("-")[0];
+			String fileName = codeName + "_" + fileDate + fileExtension;
+
+			//파일 저장
+			File saveFile = new File(path + "\\" + fileName);			
+			file.transferTo(saveFile);	
+
+			//DB에 저장
+			vo.setThumbImg(fileName);
+			System.out.println("이미지 경로: " + userNum + "/" + fileName);
+			service.update(vo);
+			
+			System.out.println("vo: " + vo);	
+			
+			ra.addFlashAttribute("msg", "updateSuccess");
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 
 		return "redirect:/myhome/homeDetail?bno=" + vo.getBno();
 	}
@@ -179,6 +220,8 @@ public class MyHomeController {
 	@GetMapping("/homeDelete")
 	public String homeDelete(int bno, RedirectAttributes ra) {
 		System.out.println("/myhome/homeDelete: GET");
+		
+		service.delete(bno);
 		ra.addFlashAttribute("msg", "deleteSuccess");
 
 		return "redirect:/myhome/homeList";
