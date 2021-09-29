@@ -4,13 +4,13 @@
 }
 
 #community{
-    display: none;
+    
     background-color: white;
     font-size: 25px; font-style: inherit;
      margin-top: 80px;
 }
 #store{
-    display: none;
+    
     background-color: white;
     font-size: 25px; font-style: inherit;
      margin-top: 80px;
@@ -20,12 +20,12 @@
     font-size: 1rem;
 }
 #header-cate{
-    display: none;
+    
     max-width: 1366px;
     text-align: center;
     height: auto;
     position: relative;
-    left: 300px;
+    
 }
 .category-list ul li:first-child {
     margin-left: 0;
@@ -50,43 +50,6 @@
     font-weight: normal;
     font-style: normal;
   }
-  .nav-head {
-    position: relative;
-      left: 235px;
-      color: #000;
-      }
-    .nav-head  a{
-        color: #000;
-
-    }
-  .nav-head2{
-      left: 230%;
-      color: rgba(0, 0, 0, 1);
-  }
-  .nav-item2{
-    color: rgba(0, 0, 0, 1);
-    
-  }
-  .category-item{
-      padding: 0 28px 0 27px;
-  }
-
-
-section {
-    margin-top: 75px;
-}
-
-header .container {
-    padding: 0;
-}
-
-.navbar {
-    margin-bottom: 0px;
-}
-
-.navbar-brand {
-    padding: 10px 15px;
-}
 * {
   /* 기본 선언: 마진, 패딩 0, 요소 크기를 border를 기준으로.*/
   padding: 0;
@@ -100,6 +63,14 @@ body, html {
   min-width: 320px;
 
 }
+.collapse{
+  background-color: rgba(0,0,0,0);
+}
+.nav-item2{
+  margin-left: 2.5em;
+}
+
+
 
 
   
