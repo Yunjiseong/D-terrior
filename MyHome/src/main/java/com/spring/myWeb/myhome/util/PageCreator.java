@@ -25,10 +25,14 @@ public class PageCreator {
 	
 	//페이지 변수 계산
 	private void calcPage() {
-		beginPage = (int) Math.floor((double) paging.getNowPage() / buttonNum) * buttonNum + 1;
-		endPage = beginPage + buttonNum - 1;
+		endPage = (int) Math.ceil((double) paging.getNowPage() / buttonNum) * buttonNum;
+		beginPage = endPage - buttonNum + 1;
 		prev = beginPage == 1 ? false : true;
-		next = paging.getCountPerPage() * endPage >= totalArticle ? false : true;		
+		next = paging.getCountPerPage() * endPage >= totalArticle ? false : true;	
+		
+		if(!next) {
+			endPage =(int) Math.ceil((double) totalArticle / paging.getCountPerPage());
+		}
 	}
 	
 

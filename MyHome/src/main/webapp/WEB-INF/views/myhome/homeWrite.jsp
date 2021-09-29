@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@include file = "../include/header.jsp" %> 
 <!DOCTYPE html>
 
 <%--게시글쓰기 네이버 게시판 API 이용하기! (커서 위치에 사진 삽입) --%>
@@ -349,8 +350,10 @@
 				$('textarea[name=content]').focus();
 				return;	
 			}
-			else
-				$('#writeForm').submit();		
+			else{
+				alert('글이 등록되었습니다.');
+				$('#writeForm').submit();	
+			}
 			
 		});
 			
@@ -390,4 +393,6 @@
 	}); //end jquery
 		
 </script>
+
+<%@include file = "../include/footer.jsp" %> 
 

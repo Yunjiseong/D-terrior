@@ -1,31 +1,27 @@
 package com.spring.myWeb.controller;
 
 import java.io.File;
-import java.net.URI;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 import java.util.UUID;
 
-import javax.servlet.ServletContext;
-import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.core.io.ClassPathResource;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.spring.myWeb.command.QuizVO;
-import com.spring.myWeb.quiz.mapper.IAnswerMapper;
+import com.spring.myWeb.command.UserVO;
 import com.spring.myWeb.quiz.service.IQuizService;
 import com.spring.myWeb.quiz.util.QuizPageCreator;
 import com.spring.myWeb.quiz.util.QuizPageVO;
@@ -65,7 +61,14 @@ public class QuizController {
 		System.out.println("/quiz/detail: GET");
 		
 		service.updateCnt(quizNum);
-		model.addAttribute("article", service.getDetail(quizNum));
+		
+		QuizVO quiz = service.getDetail(quizNum);
+		String content = quiz.getContent();
+		content.replaceAll("div", "br");
+		content.replaceAll("/div", " ");
+		System.out.println("글 내용: " + content);
+		quiz.setContent(content);
+		model.addAttribute("article", quiz);
 		return "quiz/quizDetail";
 	}
 
@@ -73,22 +76,22 @@ public class QuizController {
 	@GetMapping("/quizRegist")
 	public void regist() {
 		System.out.println("/quiz/quizRegist: GET");
-
 	}
 
 	// 질문 등록 요청
 	@PostMapping("/quizRegist")
 	public String insert(@RequestParam("file") MultipartFile file, QuizVO article,
-							RedirectAttributes ra) {
+							HttpSession session, RedirectAttributes ra) {
 		System.out.println("/quiz/quizRegist: POST");
 
 		try {
-			String writer = "suyeon"; // session.id
+			int userNum = ((UserVO)session.getAttribute("user")).getUserNum();
+			String writer = article.getWriter();// session.id
 			String content = article.getContent();
 			String title = article.getTitle();
 			String type = article.getType();
 			String fileLoca = "";
-			
+
 			// 파일 저장 경로
 			//※경로를 resources로 잡르면 was 재실행 시 워크 스페이스 내용으로 바뀌면서 파일 자동 삭제 됨
 //			String resource = servletContext.getRealPath("/resources"); 
@@ -103,7 +106,7 @@ public class QuizController {
 			if(!file.isEmpty()) { // 업로드 파일이 있는 경우
 				
 				// 저장할 폴더 경로
-				String uploadPath = path + "\\" + writer;
+				String uploadPath = path + "\\" + userNum;
 				
 				File folder = new File(uploadPath);
 				if (!folder.exists()) {
@@ -132,7 +135,7 @@ public class QuizController {
 				file.transferTo(saveFile);
 				
 				// sql에 저장할 파일 경로
-				fileLoca = writer + "/" + fileName;
+				fileLoca = userNum + "/" + fileName;
 				
 			}
 			

@@ -12,7 +12,7 @@ import lombok.ToString;
 public class MyHomeReplyVO {
 	
 	private int bno, rno;
-	private String writer, content;
+	private String writer, content, profile;
 	private Timestamp regDate, updateDate;
 	
 	

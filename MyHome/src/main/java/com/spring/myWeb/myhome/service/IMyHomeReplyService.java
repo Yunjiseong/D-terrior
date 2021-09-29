@@ -17,7 +17,7 @@ public interface IMyHomeReplyService {
 	void update(MyHomeReplyVO vo);
 	
 	//댓글 삭제
-	void delete(int bno, int rno);
+	void delete(int rno);
 	
 	//댓글 총 갯수
 	int getTotalReply(int bno);

@@ -31,8 +31,8 @@ public class MyHomeReplyService implements IMyHomeReplyService {
 	}
 
 	@Override
-	public void delete(int bno, int rno) {
-		mapper.delete(bno, rno);
+	public void delete(int rno) {
+		mapper.delete(rno);
 	}
 
 	@Override

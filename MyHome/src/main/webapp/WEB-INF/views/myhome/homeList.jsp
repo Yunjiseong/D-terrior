@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
+<%@include file = "../include/header.jsp" %>  
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,11 +13,7 @@
     <meta name="generator" content="Hugo 0.84.0">
 	<title>내집 뽐내기</title>
 	
-	<link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/album/">
-    <!-- Bootstrap core CSS -->
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/bootstrap.css">
-    <link href="${pageContext.request.contextPath}/resources/css/style.css" rel="stylesheet">
-    <script src="${pageContext.request.contextPath}/resources/js/jquery.js"></script>
+    
     
     <style>
       .bd-placeholder-img {
@@ -250,3 +247,4 @@
 
 </body>
 </html>
+<%@include file = "../include/footer.jsp" %> 

@@ -7,7 +7,7 @@
   
   <resultMap type="com.spring.myWeb.command.MyHomeReplyVO" id="replyMap">
   	<result column="regdate" property="regDate" />
-  	<result column="updatedate" property="updateDate" />
+  	<result column="updatedate" property="updateDate" />  	
   </resultMap>
   
   <insert id="regist">
@@ -20,9 +20,11 @@
 	 (
 	  SELECT ROWNUM rn, tbl.* FROM
 		  	(
-		  	SELECT * FROM myhomereply
-		  	WHERE bno=#{bno}
-		  	ORDER BY regdate DESC   	
+		  	SELECT a.*, b.profile 
+		  	FROM myhomereply a LEFT JOIN users b
+		  	ON a.writer = b.nick_name
+		  	WHERE a.bno=#{bno}
+		  	ORDER BY a.regdate DESC   	
 		  	) tbl
   	  )		  	
   	<![CDATA[
@@ -33,12 +35,12 @@
   
   <update id="update">
   	UPDATE myhomereply SET content=#{content}, updatedate=sysdate
-  	WHERE bno=#{bno} AND rno=#{rno}
+  	WHERE rno=#{rno}
   </update>
   
   <delete id="delete">
   	DELETE FROM myhomereply
-  	WHERE bno=#{bno} AND rno=#{rno}
+  	WHERE rno=#{rno}
   </delete>
   
   <select id="getTotalReply" resultType="int">

@@ -60,6 +60,23 @@ public class MyHomeReplyController {
 		return datas;		
 	}
 	
+	@PostMapping("/update")
+	public String update(@RequestBody MyHomeReplyVO vo) {
+		System.out.println("/homeReply/update: POST");
+		
+		service.update(vo);
+		
+		return "modSuccess";		
+	}
+	
+	@PostMapping("/delete")
+	public String delete(@RequestBody int rno) {
+		System.out.println("/homeReply/delete: POST");
+		service.delete(rno);
+		
+		return "delSuccess";
+	}
+	
 	
 	
 	

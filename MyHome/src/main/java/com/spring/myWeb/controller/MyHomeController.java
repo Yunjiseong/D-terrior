@@ -1,7 +1,6 @@
 package com.spring.myWeb.controller;
 
 import java.io.File;
-import java.io.IOException;
 import java.nio.file.Files;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -26,9 +25,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-
 import com.spring.myWeb.command.MyHomeVO;
-import com.spring.myWeb.command.UserVO;
 import com.spring.myWeb.myhome.service.IMyHomeService;
 import com.spring.myWeb.myhome.util.PageVO;
 
@@ -82,13 +79,13 @@ public class MyHomeController {
 
 		try {
 //			int userNum = ((UserVO)session.getAttribute("user")).getUserNum();
-			int userNum = 0720;
+			int userNum = 720;
 
 			//업로드 경로 설정
 			String fileRealName = file.getOriginalFilename();
 			long size = file.getSize();		
 			String fileExtension = fileRealName.substring(fileRealName.lastIndexOf("."));
-			String path = "C:\\home\\myhome\\upload\\" + Integer.toString(userNum);
+			String path = "C:\\home\\myhome\\upload\\" + userNum;
 
 			//폴더 생성
 			File folder = new File(path);
@@ -110,8 +107,8 @@ public class MyHomeController {
 			file.transferTo(saveFile);	
 
 			//DB에 저장
-			vo.setThumbImg(path + "\\" + fileName);
-			System.out.println("이미지 경로: " + path + "\\" + fileName);
+			vo.setThumbImg(fileName);
+			System.out.println("이미지 경로: " + userNum + "/" + fileName);
 			service.regist(vo);
 
 		} catch (Exception e) {
@@ -134,14 +131,12 @@ public class MyHomeController {
 	}
 
 	//사진 가져오는 메서드
-	@GetMapping("/display")
+	@GetMapping("/display")	
 	public ResponseEntity<byte[]> display(String userNum, String fileName) {
-		System.out.println("fileLoca: " + userNum);
-
-		fileName = fileName.substring(fileName.lastIndexOf("\\") + 1);		
-		System.out.println("변환 후 fileName: " + fileName);
-
-		File file = new File("C:\\home\\myhome\\upload\\" + userNum + "\\" + fileName);
+		String path = "C:\\home\\myhome\\upload\\";
+		System.out.println("fileLoca: " + fileName);
+		
+		File file = new File(path + userNum + "\\" + fileName);
 		System.out.println(file);
 
 		ResponseEntity<byte[]> result = null;
@@ -165,8 +160,10 @@ public class MyHomeController {
 
 	//내집뽐내기 글 수정페이지 이동
 	@GetMapping("/homeModify")
-	public void homeModify() {
+	public void homeModify(Model model, int bno) {
 		System.out.println("/myhome/homeModify: GET");
+		
+		model.addAttribute("home", service.getDetail(bno));
 	}
 
 	//내집뽐내기 글 수정

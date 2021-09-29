@@ -19,7 +19,7 @@ public interface IMyHomeReplyMapper {
 	void update(MyHomeReplyVO vo);
 	
 	//댓글 삭제
-	void delete(@Param("bno") int bno, @Param("rno") int rno);
+	void delete(int rno);
 	
 	//댓글 총 갯수
 	int getTotalReply(int bno);
