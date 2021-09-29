@@ -7,6 +7,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<script	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -41,7 +42,7 @@
  			<div class="col-md-3">
  				<div class="my_icon">
  					<c:choose>
- 						<c:when test="${userInfo.profile === null}">
+ 						<c:when test="${empty userInfo.profile }"	>
  							<img class="my" src='${pageContext.request.contextPath}/resources/img/mi_icon.webapp'>
  						</c:when>
  						<c:otherwise>

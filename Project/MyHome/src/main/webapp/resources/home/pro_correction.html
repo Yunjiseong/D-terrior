@@ -41,8 +41,8 @@
       width: 50%;
     }
 
-    .code {
-      margin-top: 10px;
+    .code1 {
+      margin-top: 30px;
     }
 
     .checkcss {
@@ -62,10 +62,16 @@
         <h4 class="mb-3">회원가입</h4>
         <form class="validation-form" novalidate>
           
-          <div class="mb-3"> <label for="nickname">닉네임</label> <input type="text" class="form-control"
-            id="nickname" placeholder="" value="" required>
-          <div class="invalid-feedback"> 닉네임을 입력해주세요. </div>
-        </div>  
+          <div class="row"> 
+            <div class="col-md-6 mb-3"> <label for="nickname">닉네임</label> <input type="text" class="form-control"
+                id="nickname" placeholder="" value="" required>
+              <div class="invalid-feedback"> 닉네임을 입력해주세요. </div>
+            </div>
+            <div class="col-md-6 mb-3"> 
+              <button class="btn btn-info code1">중복확인</button>
+            <div class="invalid-feedback"> 중복된 닉네임 입니다. </div>
+          </div>
+          </div>
             <div class="mb-3"> <label for="password">비밀번호</label> <input type="password" class="form-control" id="pw"
                 placeholder="비밀번호를 적어주세요" required>
               <div class="invalid-feedback"> 비밀번호 입력해주세요.
@@ -85,8 +91,8 @@
                 <option value="018">018</option>
                 <option value="019">019</option>
               </select>-
-              <input id="mPhone2" name="mPhone2" type="number" value="" size="4" maxlength="4" autocomplete="off">-
-              <input id="mPhone3" name="mPhone3" type="number" value="" size="4" maxlength="4" autocomplete="off">
+              <input id="mPhone2" name="mPhone2" type="text" value="" size="4" maxlength="4" autocomplete="off">-
+              <input id="mPhone3" name="mPhone3" type="text" value="" size="4" maxlength="4" autocomplete="off">
             </div>
           </div>
           <input class="ka-api" type="text" id="sample6_postcode" placeholder="우편번호">
@@ -94,6 +100,17 @@
           <input class="ka-api" type="text" id="sample6_address" placeholder="주소"><br>
           <input class="ka-api" type="text" id="sample6_detailAddress" placeholder="상세주소">
           <input class="ka-api" type="text" id="sample6_extraAddress" placeholder="참고항목" readonly>
+
+          <div class="user-img">
+            <div class="user-img user-title">프로필 이미지</div>
+            <div id="holder"></div>
+            <textarea rows="5" cols="80" name="contents">
+            </textarea><br>
+            <form  action="write.ref" method="post" enctype="multipart/form-data">
+              <input type="file" name="files">
+        </form>
+        </div>
+
           <div class="row">
             <div class="col-md-8 mb-3"> <label for="Attention">전문분야</label>
               <div class=invalid-checkbox>

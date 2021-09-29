@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="kr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>document</title>
+  <!--css-->
+  <link href="../css/bootstrap.css" rel="stylesheet">
+  <link href="../css/txt.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.linearicons.com/free/1.0.0/icon-font.min.css">
+  <link rel="stylesheet" href="https://cdn.rawgit.com/twbs/bootstrap/v4-dev/dist/css/bootstrap.css">
+  <!--font-->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2105_2@1.0/Cafe24SsurroundAir.woff">
+  <!--script-->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://kit.fontawesome.com/86e4aadf8c.js" crossorigin="anonymous"></script>
+  <script src="../js/bootstrap.js"></script>
+  <script>
+    $(document).ready(function () {
+      $('#community').removeClass('acup');
+      $('#store').removeClass('acup');
+      
+      
+      $('#id1').mouseover(function () {
+        $('#community').addClass('acup');
+        $('#store').removeClass('acup');
+      }); //커뮤니티 마우스 이벤트   
+      $('#id2').mouseover(function () {
+        $('#community').removeClass('acup');
+        $('#store').addClass('acup');
+      }); //스토어 마우스 이벤트 00000
+      $('#total-nav').mouseleave(function () {
+        $('#community').removeClass('acup');
+        $('#store').removeClass('acup');
+      }); //네비바 리브 이벤트
+    });
+  </script>
+
+<style>
+  a {
+    color: #000;
+  }
+</style>
+</head>
+
+
+<body>
+
+  <nav id="total-nav">
+    <nav class="navbar navbar-expand-md fixed-top row">
+      <div class="col-md-auto container"></div>
+      <div class="col-md-auto container"></div>
+      <div class="col-md-auto container"></div>
+      <div class="col-md-auto container"></div>
+      
+      <img class="navbar-brand col-auto container" href="#" img src="../img/logo2.jpg"
+        style="margin-right: 0rem;" >
+
+      <div class="collapse navbar-expand  container col-md-auto">
+        <ul class="navbar-nav ml-auto ">
+          <li class="nav-item " id="id1">
+            <a class="nav-link" href="#">커뮤니티</a>
+          </li>
+          <li class="nav-item " id="id2">
+            <a class="nav-link" href="#">스토어</a>
+          </li>
+        </ul>
+      </div>
+      <div class="col-md-auto container"></div>
+      <div class="col-md-auto container"></div>
+      <div class="collapse navbar-collapse  " id="navbarResponsive">
+        <form class="" role="search">
+          <div class="input-group col-lg-auto">
+            <input type="text" class="form-control" placeholder="Search">
+            <div class="input-group-btn " style="min-width: max-content; text-align:center;">
+              <button type="submit" class="btn btn-info" style="padding-top :0.6rem;padding-bottom:0.12em;"><span
+                  class="lnr lnr-magnifier"></span></button>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="container col-lg-auto"></div>
+      <div class="container col-lg-auto navbar-expand collapse navbar-collapse">
+        <ul class="navbar-nav  ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="#"> 로그인</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="#">회원가입</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">고객센터</a>
+          </li>
+
+        </ul>
+      </div>
+      <div class="col-md-auto container"></div>
+      <div class="col-md-auto container"></div>
+      <div class="col-md-auto container"></div>
+      <div class="col-md-auto container"></div>
+      <div class="col-md-auto container"></div>
+
+
+    </nav>
+    <nav class="navbar navbar-expand-lg acup" id="community">
+      
+      
+      
+      
+      <div class="collapse navbar-collapse col-lg-auto  " id="navbarNavAltMarkup" style="padding-left: 12em;">
+        <div class="navbar-nav "style="min-width: max-content;">
+          <a class="nav-linkd nav-link" href="#">Home</a>
+          <a class="nav-linkd nav-link" href="#">내집뽐내기</a>
+          <a class="nav-linkd nav-link" href="#">질문과답변</a>
+          <a class="nav-linkd nav-link" href="#">이벤트</a>
+        </div>
+      </div>
+      
+      
+    </nav> 
+    <nav class="navbar navbar-expand-lg acup" id="store">
+      
+
+      
+      <div class="collapse navbar-collapse col-lg-auto  " id="navbarNavAltMarkup"style="padding-left: 12em;">
+        <div class="navbar-nav " style="min-width: max-content;">
+          <a class="nav-linkd nav-link" href="#">베스트</a>
+          <a class="nav-linkd nav-link" href="#" id="header-category"
+            onmouseover="document.getElementById('header-cate').style.display = 'block';">카테고리</a>
+          <a class="nav-linkd nav-link" href="#">전문가의손길</a>
+        </div>
+      </div>
+      
+      
+    </nav>
+
+    <div class="header-categorys col-auto " id="header-cate"
+      onmouseleave="document.getElementById('header-cate').style.display = 'none';">
+      <ul style="font-family: 'Cafe24SsurroundAir','notosans';">
+        <li class="category-item col-lg-auto"><a href="#" style="color: black;">
+            <i class="fas fa-couch fa-2x"></i><br>가구</a></li>
+        <li class="category-item col-lg-auto"><a href="#" style="color: black;">
+            <i class="fas fa-bed fa-2x"></i><br>패브릭</a></li>
+        <li class="category-item col-lg-auto"><a href="#" style="color: black;">
+            <i class="fas fa-tv fa-2x"></i><br>가전</a></li>
+        <li class="category-item col-lg-auto"><a href="#" style="color: black;">
+            <i class="fas fa-sink fa-2x"></i><br>주방용품</a></li>
+        <li class="category-item col-lg-auto"><a href="#" style="color: black;">
+            <i class="fas fa-laptop-house fa-2x"></i><br>생활용품</a></li>
+        <li class="category-item col-lg-auto"><a href="#" style="color: black;">
+            <i class="fas fa-box fa-2x"></i><br>수납</a></li>
+        <li class="category-item col-lg-auto"><a href="#" style="color: black;">
+            <i class="fas fa-hiking fa-2x"></i><br>캠핑용품</a></li>
+        <li class="category-item col-lg-auto"><a href="#" style="color: black;">
+            <i class="fas fa-dog fa-2x"></i><br>애완운동</a></li>
+      </ul>
+    </div>
+  </nav>
+
+
+</body>
+
+
+
+</html>
