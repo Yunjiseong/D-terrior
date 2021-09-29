@@ -21,10 +21,10 @@ public class quizMapperTest {
 	
 	@Test
 	public void registTest() {
-		for(int i=1; i<=320; i++) {
+		for(int i=1; i<=33; i++) {
 			QuizVO vo = new QuizVO();
 			vo.setTitle("테스트 글" + i);
-			vo.setWriter("김테스트" + i);
+			vo.setWriter("abc12345");
 			vo.setContent("테스트 글 내용입니다" + i);
 			vo.setType("타입" + i);
 			vo.setFileLoca("");

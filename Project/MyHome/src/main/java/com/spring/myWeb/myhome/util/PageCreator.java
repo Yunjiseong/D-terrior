@@ -14,7 +14,7 @@ public class PageCreator {
 	private int totalArticle;
 	private boolean prev;
 	private boolean next;	
-	private final int buttonNum = 5;
+	private final int buttonNum = 10;
 	
 	//생성자로 초기값 셋팅
 	public PageCreator(PageVO paging, int totalArticle) {

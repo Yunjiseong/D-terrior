@@ -18,7 +18,6 @@
 
     <style>
         @import url("http://fonts.googleapis.com/earlyaccess/nanumgothic.css");
-
 html {
 		height: 100%;
 	}
@@ -52,35 +51,25 @@ html {
       position: absolute;
       top: 0;
       left: 0;
-
       width: 100%;
       height: 100%;
-
       display: none;
-
       background-color: rgba(0, 0, 0, 0.4);
     }
-
     .modal.show {
       display: block;
     }
-
     .modal_body {
       position: absolute;
       top: 50%;
       left: 50%;
-
       width: 400px;
       height: 600px;
-
       padding: 40px;
-
       text-align: center;
-
       background-color: rgb(255, 255, 255);
       border-radius: 10px;
       box-shadow: 0 2px 3px 0 rgba(34, 36, 38, 0.15);
-
       transform: translateX(-50%) translateY(-50%);
     }
     .image {
@@ -116,8 +105,8 @@ html {
           </label>
         </div>
  
-        <button href="<c:url value='/user/userLoginPage' />" id="#" class="btn btn-lg btn-primary btn-block" type="submit">로 그 인</button>
-        <button id="'#" class="btn btn-lg btn-primary btn-block btn-open-popup ">회원가입</button>
+        <button id="#" class="btn btn-lg btn-primary btn-block" type="submit">로 그 인</button>
+        <button id="'#" class="btn btn-lg btn-primary btn-block btn-open-popup " type="submit">회원가입</button>
       </form>
 		</div>
 	</div>
@@ -129,10 +118,10 @@ html {
 
     <ul>
       <li>
-    <a href="normalJoinPage" id="#" class="btn-primary btn-square" type="submit">일반회원</a>
+    <button id="#" class="btn-primary btn-square" type="submit">일반회원</button>
   </li>
   <li>
-    <a href="proJoinPage" id="'#" class="btn-primary btn-square" type="submit">전문가회원</a>
+    <button id="'#" class="btn-primary btn-square" type="submit">전문가회원</button>
   </li>
 
 
@@ -150,19 +139,15 @@ html {
     const body = document.querySelector('body');
     const modal = document.querySelector('.modal');
     const btnOpenPopup = document.querySelector('.btn-open-popup');
-
     btnOpenPopup.addEventListener('click', () => {
       modal.classList.toggle('show');
-
       if (modal.classList.contains('show')) {
         body.style.overflow = 'hidden';
       }
     });
-
     modal.addEventListener('click', (event) => {
       if (event.target === modal) {
         modal.classList.toggle('show');
-
         if (!modal.classList.contains('show')) {
           body.style.overflow = 'auto';
         }

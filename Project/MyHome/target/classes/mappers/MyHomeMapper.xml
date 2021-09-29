@@ -10,31 +10,25 @@
 		<result column="regdate" property="regDate" />
 		<result column="updatedate" property="updateDate"/>
 		<result column="like_cnt" property="likeCnt"/>
-		<result column="view_cnt" property="viewCnt"/>
-		<result column="scrap_cnt" property="scrapCnt"/>
 		<result column="homeform" property="homeForm"/>
 		<result column="homesize" property="homeSize"/>
-		<result column="thumb_img" property="thumbImg"/>
 	</resultMap>
 	
-	<sql id="order">		
-		<choose>
-			<when test="sort == 2">ORDER BY likeCnt DESC</when>
-			<otherwise>ORDER BY regdate DESC</otherwise>
-		</choose>
-		
+	<sql id="order">
+		<if test="sort == 1">ORDER BY regdate DESC</if>
+		<if test="sort == 2">ORDER BY likeCnt DESC</if>
 	</sql>	
 	
 	<sql id="search">
-		<if test="homeForm != ''">homeform = #{homeForm, jdbcType=VARCHAR} </if>
-		<if test="homeForm == ''">bno IS NOT NULL </if>
-		<if test="money != ''"> AND money = #{money, jdbcType=VARCHAR}</if>
-		<if test="homeSize != ''"> AND homesize = #{homeSize, jdbcType=VARCHAR}</if>
+		<if test="homeForm != null">homeform = #{homeForm} </if>
+		<if test="homeForm == null">bno IS NOT NULL </if>
+		<if test="money != null"> AND money = #{money}</if>
+		<if test="homeSize != null"> AND homesize = #{homeSize}</if>
 	</sql>
 	
 	<insert id="regist">
-		INSERT INTO myhome(bno, writer, title, content, thumb_img, homeform, money, homesize, place, direction, room, age, family, worker, region, img1, img2, img3, img4, img5, img6, img7, img8, img9, img10)
-		VALUES(myhome_seq.NEXTVAL, #{writer}, #{title}, #{content}, #{thumbImg, jdbcType=VARCHAR}, #{homeForm, jdbcType=VARCHAR}, #{money, jdbcType=VARCHAR}, #{homeSize, jdbcType=VARCHAR}, #{place, jdbcType=VARCHAR}, #{direction, jdbcType=VARCHAR}, #{room, jdbcType=VARCHAR}, #{age, jdbcType=VARCHAR}, #{family, jdbcType=VARCHAR}, #{worker, jdbcType=VARCHAR}, #{region, jdbcType=VARCHAR}, #{img1, jdbcType=VARCHAR}, #{img2, jdbcType=VARCHAR}, #{img3, jdbcType=VARCHAR}, #{img4, jdbcType=VARCHAR}, #{img5, jdbcType=VARCHAR}, #{img6, jdbcType=VARCHAR}, #{img7, jdbcType=VARCHAR}, #{img8, jdbcType=VARCHAR}, #{img9, jdbcType=VARCHAR}, #{img10, jdbcType=VARCHAR})
+		INSERT INTO myhome(bno, writer, title, content, homeform, money, homesize, place, direction, room, age, family, worker, region)
+		VALUES(myhome_seq.NEXTVAL, #{writer}, #{title}, #{content}, #{homeForm}, #{money}, #{homeSize}, #{place}, #{direction}, #{room}, #{age}, #{family}, #{worker}, #{region})
 	</insert>
 	
 	<select id="getList" resultMap="HomeMap">
@@ -44,13 +38,13 @@
 				(
 				SELECT * FROM myhome
 				WHERE <include refid="search" />
-				<include refid="order" />
 				) tbl
 			)
 		<![CDATA[
 		WHERE rn > (#{nowPage}-1) * #{countPerPage} 
 		AND rn <= #{nowPage} * #{countPerPage}
 		]]> 
+		<include refid="order" />
 	</select>
 	
 	<select id="getDetail" resultMap="HomeMap">
@@ -64,19 +58,9 @@
 	</select>
 	
 	<update id="update">
-		UPDATE myhome SET title=#{title}, content=#{content}, thumb_img=#{thumbImg, jdbcType=VARCHAR}, updatedate=sysdate, homeform = #{homeForm, jdbcType=VARCHAR}, money=#{money, jdbcType=VARCHAR}, homesize=#{homeSize, jdbcType=VARCHAR}, place=#{place, jdbcType=VARCHAR}
-		, direction=#{direction, jdbcType=VARCHAR}, room=#{room, jdbcType=VARCHAR}, age=#{age, jdbcType=VARCHAR}, family=#{family, jdbcType=VARCHAR}, worker=#{worker, jdbcType=VARCHAR}, region=#{region, jdbcType=VARCHAR}, img1=#{img1, jdbcType=VARCHAR}, img2=#{img2, jdbcType=VARCHAR}, img3=#{img3, jdbcType=VARCHAR}, img4=#{img4, jdbcType=VARCHAR}, img5=#{img5, jdbcType=VARCHAR}, img6=#{img6, jdbcType=VARCHAR}, img7=#{img7, jdbcType=VARCHAR}, img8=#{img8, jdbcType=VARCHAR}, img9=#{img9, jdbcType=VARCHAR}, img10=#{img10, jdbcType=VARCHAR}
-		WHERE bno=#{bno}
+		UPDATE myhome SET 
 	</update>
-	
-	<delete id="delete">
-		DELETE FROM myhome WHERE bno=#{bno}
-	</delete>
-	
-	<select id="getProfile" resultType="string">
-		SELECT profile FROM users
-		WHERE nick_name=#{writer}
-	</select>
+
 
 	
 </mapper>

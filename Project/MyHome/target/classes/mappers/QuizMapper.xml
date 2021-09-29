@@ -17,7 +17,8 @@
 		<if test="condition == 'title'">WHERE title LIKE '%'||#{keyword}||'%'</if>
 		<if test="condition == 'writer'">WHERE writer LIKE '%'||#{keyword}||'%'</if>
 		<if test="condition == 'content'">WHERE content LIKE '%'||#{keyword}||'%'</if>
-		<if test="condition == 'titleContent'">WHERE title LIKE #{keyword} OR content LIKE '%'||#{keyword}||'%'</if>
+		<if test="condition == 'titleContent'">WHERE title LIKE '%'||#{keyword}||'%' OR content LIKE '%'||#{keyword}||'%'</if>
+		<if test="condition == 'type'">WHERE type LIKE '%'||#{keyword}||'%'</if>
 	</sql>
 	
 	<insert id="regist">

@@ -3,8 +3,6 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 
-<%--게시글쓰기 네이버 게시판 API 이용하기! (커서 위치에 사진 삽입) --%>
-
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -52,26 +50,6 @@
   #work{
     margin-top: 6px;
   }
-  
-  #thumb{
-  	width: 100%;
-  	height: 100%;
-  	border-radius: 2%;
-  }
-  
-  #thumbPlace{
-  	height: 400px; 
-  	padding: 0;
-  	border-radius: 2%;
-  	text-align: center;
-  	vertical-align: middle;  	
-  }
-  
-  #thumbText{
-  	list-style: none;
-  	position: relative;
-  	top: 150px;
-  }
 </style>
 
 <!-- Custom styles for this template -->
@@ -87,10 +65,28 @@
        <br>
 
        <h4 class="mb-3">필수 정보 입력</h4>  
-       <form action='<c:url value="/myhome/homeWrite" />' method="post" id="writeForm" enctype="multipart/form-data"> 
-       
+       <form action='<c:url value="/myhome/homeWrite" />' method="post" id="writeForm"> 
+       <div class="mb-3 row">
+           <label  class="col-md-3 col-form-label">시공 영역</label>
+           <div class="col-md-9">
+            <select class="form-control" name="place">
+              <option selected disabled>선택해주세요.</option>
+              <option>전체</option>
+              <option>주방</option>
+              <option>화장실</option>
+              <option>조명</option>
+              <option>발코니확장</option>
+              <option>거실</option>
+              <option>방</option>
+              <option>중문</option>
+              <option>방문</option>
+              <option>폴딩도어</option>
+              <option>기타</option>
+          </select>
+           </div>
+       </div>
            <div class="mb-3 row">
-               <label  class="col-md-3 col-form-label">주거 형태 *</label>
+               <label  class="col-md-3 col-form-label">주거 형태</label>
                <div class="col-md-9">
                    <div class="input-group mb-3">
                        <select class="input-box form-control" name="homeForm">
@@ -104,7 +100,7 @@
                </div>
            </div>
            <div class="mb-3 row">
-               <label  class="col-md-3 col-form-label">평수 *</label>
+               <label  class="col-md-3 col-form-label">평수</label>
                <div class="col-md-9">
                    <div class="input-group mb-3">
                       <select class="form-control" name="homeSize">   
@@ -123,63 +119,20 @@
                </div>
            </div>   
            <div class="mb-3 row">
-              <label  class="col-md-3 col-form-label">예산 *</label>
-              <div class="col-md-9">
-                <select class="form-control" name="money">          
-                    <option selected disabled>선택해주세요.</option>
-                    <option>500만원 미만</option>
-                    <option>500~1000만원</option>
-                    <option>1000~1500만원</option>
-                    <option>1500~2000만원</option>
-                    <option>2000~3000만원</option>
-                    <option>3000~4000만원</option>
-                    <option>4000~5000만원</option>
-                    <option>5000만원 이상</option>
-                </select> 
-              </div>
-           </div>
-            
-           <div class="mb-3 row">
-	           <label  class="col-md-3 col-form-label">시공 영역 *</label>
-	           <div class="col-md-9">
-		            <select class="form-control" name="place">
-		              <option selected disabled>선택해주세요.</option>
-		              <option>전체</option>
-		              <option>주방</option>
-		              <option>화장실</option>
-		              <option>조명</option>
-		              <option>발코니확장</option>
-		              <option>거실</option>
-		              <option>방</option>
-		              <option>중문</option>
-		              <option>방문</option>
-		              <option>폴딩도어</option>
-		              <option>기타</option>
-		          </select>
-	           </div>
-       		</div>
-       		<div class="mb-3 row">
-              <label  class="col-md-3 col-form-label">가족형태 *</label>
-              <div class="col-md-9">
-                <select class="form-control" name="family">
-                    <option selected disabled>선택해주세요.</option>
-                    <option>싱글라이프</option>
-                    <option>신혼부부</option>
-                    <option>자녀가 있는 집</option>
-                    <option>부모님과 함께사는 집</option>
-                    <option>룸메이트와 사는 집</option>
-                    <option>기타</option>
-                </select>
-              </div>
-           </div> 
-           <div class="mb-3 row">
-              <label  class="col-md-3 col-form-label">작업자 *</label>
-              <div class="col-md-9" id="work">
-                <input type="radio" name="worker" value="셀프">셀프 &nbsp;&nbsp;&nbsp;
-                <input type="radio" name="worker" value="반셀프">반셀프 &nbsp;&nbsp;&nbsp;
-                <input type="radio" name="worker" value="전문가">전문가
-              </div>
-          </div>             
+               <label  class="col-md-3 col-form-label">방 개수</label>
+               <div class="col-md-9">
+                   <div class="input-group mb-3">
+                      <select class="form-control" name="room">
+                        <option selected disabled>선택해주세요.</option>
+                        <option>1개</option>
+                        <option>2개</option>
+                        <option>3개</option>
+                        <option>4개</option>
+                        <option>5개 이상</option>
+                      </select>
+                     </div>
+               </div>
+           </div>   
            <div class="mb-3 row">
                <label  class="col-md-3 col-form-label">방향</label>
                <div class="col-md-9">
@@ -235,43 +188,63 @@
                       </select>
                     </div>
                </div>
-           </div>  
+           </div>    
            <div class="mb-3 row">
-               <label  class="col-md-3 col-form-label">방 개수</label>
+              <label  class="col-md-3 col-form-label">예산</label>
+              <div class="col-md-9">
+                <select class="form-control" name="money">          
+                    <option selected disabled>선택해주세요.</option>
+                    <option>500만원 미만</option>
+                    <option>500~1000만원</option>
+                    <option>1000~1500만원</option>
+                    <option>1500~2000만원</option>
+                    <option>2000~3000만원</option>
+                    <option>3000~4000만원</option>
+                    <option>4000~5000만원</option>
+                    <option>5000만원 이상</option>
+                </select> 
+              </div>
+           </div> 
+           <div class="mb-3 row">
+              <label  class="col-md-3 col-form-label">가족형태</label>
+              <div class="col-md-9">
+                <select class="form-control" name="family">
+                    <option selected disabled>선택해주세요.</option>
+                    <option>싱글라이프</option>
+                    <option>신혼부부</option>
+                    <option>자녀가 있는 집</option>
+                    <option>부모님과 함께사는 집</option>
+                    <option>룸메이트와 사는 집</option>
+                    <option>기타</option>
+                </select>
+              </div>
+           </div> 
+           <div class="mb-3 row">
+              <label  class="col-md-3 col-form-label">작업자</label>
+              <div class="col-md-9" id="work">
+                <input type="radio" name="worker" value="셀프">셀프 &nbsp;&nbsp;&nbsp;
+                <input type="radio" name="worker" value="반셀프">반셀프 &nbsp;&nbsp;&nbsp;
+                <input type="radio" name="worker" value="전문가">전문가
+              </div>
+          </div> 
+
+          <hr class="my-4">
+
+           <div class="mb-3 row">
+               <label  class="col-md-3 col-form-label">썸네일 이미지</label>
                <div class="col-md-9">
-                   <div class="input-group mb-3">
-                      <select class="form-control" name="room">
-                        <option selected disabled>선택해주세요.</option>
-                        <option>1개</option>
-                        <option>2개</option>
-                        <option>3개</option>
-                        <option>4개</option>
-                        <option>5개 이상</option>
-                      </select>
+                   <input class="form-control" type="file" accept="image/png,image/jpeg">
+                   <div class="alert alert-secondary" role="alert">
+                  <ul>
+                      <li>이미지 사이즈 : 350*350</li>
+                      <li>파일 사이즈 : 1M 이하</li>
+                      <li>파일 확장자 : png,jpg만 가능</li>
+                  </ul>
                      </div>
                </div>
            </div>  
-             
-            <hr class="my-4">
-            
-            <div class="mb-3 row">
-               <label  class="col-md-3 col-form-label">썸네일 이미지 *</label>
-               <div class="col-md-9">
-                   <input class="form-control" type="file" accept="image/png,image/jpeg,image/jpg" name="file">
-                   <div class="alert alert-secondary" role="alert" id="thumbPlace">
-	                  <img alt="thumb" src="" id="thumb" style="display: none;">
-	                  <ul id="thumbText">
-	                      <li>이미지 사이즈 : 350*350</li>
-	                      <li>파일 사이즈 : 1M 이하</li>
-	                      <li>파일 확장자 : png, jpg, jpeg만 가능</li>
-	                  </ul>
-                   </div>
-                    
-                     
-               </div>
-           </div>
           
-           <input type="hidden" name="writer" value="jiseong"> <!-- 세션에서 얻어온 nick 넣어주기 -->            
+           <input type="hidden" name="writer" value="지성">             
            <table class="table">
               <tbody class="t-control">    
                   <tr>
@@ -323,7 +296,27 @@
 				alert('평수를 선택해 주세요.');
 				$('select[name=homeSize] option:selected').focus();
 				return;		
-			}			
+			}
+			else if($('select[name=room] option:selected').val() === '선택해주세요.'){
+				alert('방 개수를 선택해 주세요.');
+				$('select[name=homeroom] option:selected').focus();
+				return;		
+			}
+			else if($('select[name=direction] option:selected').val() === '선택해주세요.'){
+				alert('방향을 선택해 주세요.');
+				$('select[name=direction] option:selected').focus();
+				return;		
+			}
+			else if($('select[name=age] option:selected').val() === '선택해주세요.'){
+				alert('준공연차를 선택해 주세요.');
+				$('select[name=age] option:selected').focus();
+				return;		
+			}
+			else if($('select[name=region] option:selected').val() === '선택해주세요.'){
+				alert('지역을 선택해 주세요.');
+				$('select[name=region] option:selected').focus();
+				return;		
+			}
 			else if($('select[name=money] option:selected').val() === '선택해주세요.'){
 				alert('예산을 선택해 주세요.');
 				$('select[name=money] option:selected').focus();
@@ -358,30 +351,10 @@
 		//취소버튼 클릭 이벤트
 		$('#cancelBtn').click(function() {
 			if(confirm('글 작성을 취소하시겠습니까?')){
-				location.href = '${pageContext.request.contextPath}/myhome/homeList';
+				location.href = '${pageContext.request.contextPath}/myhome';
 			}
 			else
 				return;					
-		});
-		
-		//썸네일 미리보기 기능
-		function preView(input) {
-			if(input.files && input.files[0]){
-				var reader = new FileReader();
-				reader.readAsDataURL(input.files[0]); 
-				
-				reader.onload = function(e) {
-					$('#thumb').css('display', 'block');
-					$('#thumb').attr('src', e.target.result);
-					$('#thumbPlace ul').css('display', 'none');
-					console.log(e.target);
-				};
-				
-			}
-		}
-		
-		$('input[name=file]').change(function() {
-			preView(this);			
 		});
 	
 		

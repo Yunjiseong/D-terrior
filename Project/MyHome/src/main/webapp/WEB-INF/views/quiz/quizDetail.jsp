@@ -17,7 +17,6 @@
 <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/jquery-3.6.0.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 <style>
-
 </style>
 
 
@@ -26,33 +25,42 @@
 <body>
 	<form action='<c:url value="/quiz/quizModify" />' method="get" id="quizDetailForm">
 		<div class="contentForm col-xs-12 col-md-12">
-			<input type="hidden" name="#" value="#"> <input type="hidden"
-				name="groupId" value="#"> <input type="hidden" name="depth"
-				value="#"> <input type="hidden" name="#" value="#">
+			<input type="hidden" name="title" value="">
+			<input type="hidden" name="content" value="">
+			<input type="hidden" name="type" value="">
 			<div class="input-group input-group-sm" role="group" aria-label="...">
 				<table class="table table-striped table-bordered">
 					<thead>
 						<tr>
 							<th width="30%">글쓴이</th>
-							<td width="70%"><input type="text" name="writer" value="${article.writer }" readonly="readonly" style="width: 100%"></td>
+							<td width="70%">${article.writer }</td>
 						</tr>
 						<tr>
 							<th style="padding-bottom: 15px;">제목</th>
-							<td><input type="text" name="title"
-								value="${article.title }" readonly="readonly"></td>
+							<td>
+								<div id="quiz_title">${article.title }</div>
+							</td>
 						</tr>
 						<tr>
 							<th style="padding-bottom: 15px;">날짜</th>
 							<td><fmt:formatDate value="${article.regDate }"
 									pattern="yyyy-MM-dd" /></td>
 						</tr>
+						<tr>
+							<th style="padding-bottom: 15px;">분류</th>
+							<td>
+								<div id="quiz_type">${article.type }</div>
+							</td>
+						</tr>
 					</thead>
 					<tbody>
 						<tr height="200" valign="top" style="background-color: #fff;">
 							<td colspan="4">
 								<c:if test="${article.fileLoca != null }">
-									<img alt="가구 이미지" src="/img/${article.fileLoca }" width="100" height="100">
-								</c:if> ${article.content }</td>
+									<img alt="가구 이미지" src="/img/${article.fileLoca }" class="inimg">
+								</c:if>
+								<div id="quiz_content" contentEditable="false" class="boast_inwrite" style="overflow:auto">${article.content }</div>
+							</td>
 						</tr>
 						<tr>
 							<td colspan="4">조회수: ${article.views }</td>
@@ -61,7 +69,7 @@
 							<td colspan="2"
 								style="border-bottom: hidden; border-left: hidden; border-right: hidden;">
 								<div class="btn-group btn-group-sm " style="margin-left: 69%;" role="group" aria-label="...">
-									<input type="submit" class="btn btn-info btns" value="수정">
+									<input type="submit" id="modBtn" class="btn btn-info btns" value="수정">
 									<input type="button" id="delBtn" class="btn btn-info btns"  value="삭제"> 
 									<input type="button" id="listBtn" class="btn btn-info btns"  value="목록">
 								</div>
@@ -144,6 +152,17 @@
 
 	//jQuery start
 	$(function() {
+		//수정 버튼 클릭
+		$('#modBtn').click(function() {
+			const title = $('#quiz_title').text();
+			const content = $('#quiz_content').text();
+			const type = $('#quiz_type').text();
+			console.log(title);
+			console.log(content);
+			$('input[name=title]').val(title);
+			$('input[name=content]').val(content);
+			$('input[name=type]').val(type);
+		});
 	
 		//목록 버튼 클릭
 		$('#listBtn').click(function() {
@@ -270,9 +289,7 @@
 					$('#reply-list').html(strAdd);
 					
 					if(list.length > 0) {
-						
-						console.log(qpc.beginPage);
-						
+												
 						pStrAdd = '';
 						
 						pStrAdd += "<ul class='pagination justify-content: center'>";
@@ -405,7 +422,7 @@
 					
 					
 				}); // 댓글 수정 버튼
-			}
+			} // 댓글 수정
 			
 			
 		}); // 댓글 수정, 삭제

@@ -36,10 +36,10 @@
 <body>
 
 
-	<form action='<c:url value="/quiz/quizModify" />' method="post">
+	<form action='<c:url value="/quiz/quizModify" />'  method="post" enctype="application/x-www-form-urlencoded">
 		<div id="contentForm">
 			<input type="hidden" name="quizNum" value="${article.quizNum }"> 
-			<input type="hidden" name="groupId" value="#"> 
+			<input type="hidden" name="content" value=""> 
 			<input type="hidden" name="depth" value="#"> 
 			<input type="hidden" name="#" value="#">
 			<div class="input-group input-group-sm" role="group" aria-label="...">
@@ -70,25 +70,32 @@
 					<tbody>
 						<tr>
 							<td colspan="2">
-								<textarea class="form-control" rows="10" name="content">${article.content}</textarea>
-								<input type="file" name="file">
+								<div contentEditable="true" id="content" class="boast_inwrite">${article.content }</div>
+								<input multiple="multiple" type="file" name="file">
 							</td>
 						</tr>
 					</tbody>
 				</table>
 			</div>
 			<div class="btn-group btn-group-sm" role="group" aria-label="..." style="margin-bottom: 100px;">
-				<input type="submit" class="btn btn-info btns" value="수정">
+				<input type="submit" id="modify-btn" class="btn btn-info btns" value="수정">
 			</div>
 		</div>
 	</form>
 
-
-
-
-
-
-
 </body>
+
+<script>
+	
+	$(function() {
+		
+		$('#modify-btn').click(function() {
+			const content = $('#content').text();
+			$('input[name=content]').val(content);
+		});
+		
+	}); //jquery end
+	
+</script>
 
 </html>

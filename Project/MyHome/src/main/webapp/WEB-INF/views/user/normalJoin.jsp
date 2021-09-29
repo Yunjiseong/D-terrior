@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=utf-8"
+	pageEncoding="utf-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
@@ -27,7 +27,6 @@ body {
 	background: -o-linear-gradient(bottom left, #fff 0%, #fff 100%);
 	background: linear-gradient(to top right, #fff 0%, #fff 100%);
 }
-
 .input-form {
 	max-width: 680px;
 	margin-top: 80px;
@@ -40,26 +39,21 @@ body {
 	-moz-box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.15);
 	box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.15)
 }
-
 .invalid-checkbox {
 	border: #000 solid 1px;
 	border-radius: 10px;
 	background-color: #fff;
 	width: 50%;
 }
-
 .code {
 	margin-top: 32px;
 }
-
 .checkcss {
 	margin: 5px;
 }
-
 .ka-api {
 	margin: 5px;
 }
-
 .code2 {
 	margin: 0 0 20px 20px;
 }
@@ -153,19 +147,19 @@ body {
 										<label><input class="checkcss" type="checkbox"
 											name="interest" value="intr1">가구</label> <label><input
 											class="checkcss" type="checkbox" name="interest"
-											value="intr2"> 패브릭 </label><br> <label><input
+											value="intr2"> 패브릭</label><br> <label><input
 											class="checkcss" type="checkbox" name="interest"
-											value="intr3"> 조명 </label> <label><input
+											value="intr3"> 조명</label> <label><input
 											class="checkcss" type="checkbox" name="interest"
-											value="intr4"> 장식/소품 </label><br> <label><input
+											value="intr4"> 장식/소품</label><br> <label><input
 											class="checkcss" type="checkbox" name="interest"
-											value="intr5"> 가전 </label> <label><input
+											value="intr5"> 가전</label> <label><input
 											class="checkcss" type="checkbox" name="interest"
-											value="intr6"> 생필품 </label><br> <label><input
+											value="intr6"> 생필품</label><br> <label><input
 											class="checkcss" type="checkbox" name="interest"
-											value="intr7"> 캠핑용품 </label> <label><input
+											value="intr7"> 캠핑용품</label> <label><input
 											class="checkcss" type="checkbox" name="interest"
-											value="intr8"> 주방용품 </label>
+											value="intr8"> 주방용품</label>
 									</div>
 								</div>
 								<div class="mb-4"></div>
@@ -184,7 +178,6 @@ body {
 <script
 	src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script>
-
 /* submit formcheck */
 function formcheck(){
 	/*1.공백체크*/
@@ -210,29 +203,22 @@ function formcheck(){
 		  return false;
 	/*2.올바르지않은입력값*/
 	  } else if(document.getElementById("sendCode").innerHTML != "인증되었습니다") {
-		  alert("이메일 인증을 진행해주세요");
+		  alert("이메일 인증을 진행해주세요")
 		  fc.emailCode.focus();
 		  return false;
 	  } else if(fc.pw.value != fc.pwChk.value){
-		  alert("비밀번호가 일치하지 않습니다");
+		  alert("비밀번호가 일치하지 않습니다")
 		  fc.pw.focus();
 		  return false;
 	  } else if(document.getElementById("nickName").style.borderColor != "green"){
-		  alert("닉네임 중복확인을 해주세요");
+		  alert("닉네임 중복확인을 해주세요")
 		  fc.id.focus();
 		  return false;
-	  } else if(document.getElementById("pw").style.borderColor != "green" || document.getElementById("pwChk").style.borderColor != "green"){
-		  alert("비밀번호를 확인해주세요");
-		  fc.pw.focus();
-		  return false;
-	  }	else {
+	  } else {
 		  alert('회원가입이 완료되었습니다. 로그인창으로 이동합니다');
 		  return true;
 	  }
 }
-
-
-
 /*닉네임 중복확인*/
 $('#nickChk').click(function(){
 	if($('#nickName').val() === ''){
@@ -312,7 +298,6 @@ $('#sendCode').click(function() {
 		}
 	});	
 });
-
 /* 인증번호 확인 */
 var inputCode = document.getElementById("emailCode");
 $('#codeChk').click(function(){
@@ -326,9 +311,7 @@ $('#codeChk').click(function(){
 		$('#emailCode').focus();
 	}
 });
-
 /*아이디 형식(이메일) 검사 스크립트*/
-
 var id = document.getElementById("email");
 id.onkeyup = function() {
     var regex = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
@@ -384,19 +367,16 @@ nform.onkeyup = function() {
     new daum.Postcode({
       oncomplete: function (data) {
         // 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분.
-
         // 각 주소의 노출 규칙에 따라 주소를 조합한다.
         // 내려오는 변수가 값이 없는 경우엔 공백('')값을 가지므로, 이를 참고하여 분기 한다.
         var addr = ''; // 주소 변수
         var extraAddr = ''; // 참고항목 변수
-
         //사용자가 선택한 주소 타입에 따라 해당 주소 값을 가져온다.
         if (data.userSelectedType === 'R') { // 사용자가 도로명 주소를 선택했을 경우
           addr = data.roadAddress;
         } else { // 사용자가 지번 주소를 선택했을 경우(J)
           addr = data.jibunAddress;
         }
-
         // 사용자가 선택한 주소가 도로명 타입일때 참고항목을 조합한다.
         if (data.userSelectedType === 'R') {
           // 법정동명이 있을 경우 추가한다. (법정리는 제외)
@@ -414,11 +394,9 @@ nform.onkeyup = function() {
           }
           // 조합된 참고항목을 해당 필드에 넣는다.
           document.getElementById("sample6_extraAddress").value = extraAddr;
-
         } else {
           document.getElementById("sample6_extraAddress").value = '';
         }
-
         // 우편번호와 주소 정보를 해당 필드에 넣는다.
         document.getElementById('sample6_postcode').value = data.zonecode;
         document.getElementById("sample6_address").value = addr;
@@ -427,7 +405,6 @@ nform.onkeyup = function() {
       }
     }).open();
   }
-
 </script>
 
 </html>

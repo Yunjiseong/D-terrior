@@ -2,11 +2,9 @@ package com.spring.myWeb.myhome.util;
 
 import lombok.Getter;
 import lombok.Setter;
-import lombok.ToString;
 
 @Getter
 @Setter
-@ToString
 public class PageVO {
 	
 	//페이지 정보 관련

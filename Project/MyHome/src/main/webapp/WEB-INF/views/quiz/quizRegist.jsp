@@ -10,6 +10,7 @@
     <title>  QnA  </title> 
 	<link rel="shortcut icon" href="${pageContext.request.contextPath}/resources/img/home-icon.png">
 	<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/bootstrap.css">
+	<script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/jquery-3.6.0.min.js"></script>
     <style>
         #contentForm {
             width: 40%;
@@ -24,6 +25,17 @@
         .btns{
             text-align: right;
         }
+        .boast_inwrite{
+            background-color: white;
+            width: 100%;
+            height: 300px;
+            overflow:auto;
+        }
+        .inimg{
+		    width: 100%;
+		    height: auto;
+		    text-align: center;
+		}
     </style>
 
 
@@ -32,47 +44,113 @@
 <body>
     <form action='<c:url value="/quiz/quizRegist" />' method="post" enctype="multipart/form-data">
         <div id="contentForm"> 
-	        <input type="hidden" name="#" value="#"> 
+	        <input type="hidden" name="content" value="">	         
             <div class="input-group input-group-sm" role="group" aria-label="...">
                 <table class="table table-striped table-bordered">
                     <thead>
                        
                         <tr>
                             <th style="padding-bottom: 15px;">제목</th>
-                            <td><input type="text" name="title" class="form-control" aria-describedby="basic-addon1"></td>
+                            <td>
+                            	<input type="text" name="title" class="form-control" aria-describedby="basic-addon1" autofocus="autofocus">
+                            </td>
                         </tr>
                         <tr>
                             <th style="padding-bottom: 15px;">분류</th>
                             <td>     
-                                <select class="form-control" name="type" id="#">
-									<option>시공</option>
-									<option>도배</option>
-									<option>타일</option>
-									<option>건축자재</option>
-									<option>건축설비</option>
-									<option>장판</option>
-									<option>필름시트</option>
-								</select>
+                                <input type="checkbox" name="type" value="도배"> 도배
+                                <input type="checkbox" name="type" value="장판"> 장판
+                                <input type="checkbox" name="type" value="조명"> 조명
+                                <input type="checkbox" name="type" value="타일"> 타일
+                                <input type="checkbox" name="type" value="페인트"> 페인트 <br>
+                                <input type="checkbox" name="type" value="필름시트"> 필름시트
+                                <input type="checkbox" name="type" value="상품"> 인테리어 상품
+                                <input type="checkbox" name="type" value="기타"> 기타
                             </td>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
                             <td colspan="2"> 
-                            	<textarea class="form-control" rows="10" name="content" placeholder="글을 적어 주세요."></textarea>
-                                <input multiple="multiple" type="file" name="file">
+                            	<div contentEditable="true" id="content" class="boast_inwrite" style="white-space: pre"></div>
+
+                            	<!-- 이미지 미리보기 
+                            		<div class="img-wrap inimg">
+                            			<img id="img" />
+                            		</div>
+                            	 -->
+                                <input type="file" id="input_img" name="file">
                             </td>
                         </tr>
                     </tbody>
                 </table>
 	        	<div class="btn-group btn-group-sm" role="group" aria-label="..."> 
-	            	<input type="submit"class="btn btn-primary btns" value="글쓰기"> 
+	            	<input type="submit" id="regist-btn" class="btn btn-primary btns" value="글쓰기"> 
 	            </div>
             </div>
         </div>
     </form>
 
 </body>
+
+<script>
+	
+	// jquery start
+	$(function() {
+
+		var strAdd;
+		
+		// 글 내용 보내기
+		$('#regist-btn').click(function() {
+			const content = $('#content').html();
+			content.slice(content.indexOf('<div'), content.indexOf('<div') + tag.length + 1);
+			console.log(content);
+			
+			$('input[name=content]').val(content);
+		});
+		
+		// 엔터 -> br
+		
+
+		<%-- 이미지 미리보기 --%>
+		var sel_file;
+		
+		$('#input_img').change(function(e) {
+			
+			const tag = "<div class='img-wrap'><img src='' id='img' class='inimg' /></div>";
+			strAdd += tag;
+			<%--
+			strAdd += "<div class='img-wrap'>";
+			strAdd += "<img src='' id='img' class='inimg' />";
+			strAdd += "</div>";
+			$('#content').html(strAdd);
+			--%>
+			
+			var files = e.target.files;
+			var filesArr = Array.prototype.slice.call(files);
+			var reg = /(.*?)\/(jpg|jpeg|png|bmp)$/;
+			
+			filesArr.forEach(function(f) {
+				if(!f.type.match(reg)){
+					alert('이미지파일만 업로드 가능합니다.');
+					return;
+				}
+				
+				sel_file = f;
+				
+				var reader = new FileReader();
+				reader.onload = function(e) {
+					console.log(e.target.result);
+					$('#img').attr("src", e.target.result); // 읽은 파일 결과
+				}
+				reader.readAsDataURL(f);
+			});
+		}); // 이미지 파일 값 변경 시 수행
+		
+		
+	}); // jquery end
+
+</script>
 
 
 </html>

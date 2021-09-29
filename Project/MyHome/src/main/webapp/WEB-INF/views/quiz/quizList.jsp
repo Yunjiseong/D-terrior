@@ -2,6 +2,9 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+
+<%@ include file="../include/header.jsp"%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -51,6 +54,7 @@
 	                            <option value="writer">작성자</option>
 	                            <option value="content">내용</option>
 	                            <option value="titleContent">제목+내용</option>
+	                            <option value="type">카테고리</option>
 	                        </select>
 	                    </div>
 	                    <div id="#" class="my-2 col-md-4" style="border-radius: 50%;  position: relative; bottom:8px;"
@@ -119,7 +123,7 @@
 														</c:if>
 													</td>
 													<td>${a.writer}</td>
-													<td><fmt:formatDate value="${a.regDate}" pattern="yyyy-MM-dd"/></td>
+													<td><fmt:formatDate value="${a.regDate}" pattern="yyyy-MM-dd HH:mm"/></td>
 													<td>${a.views}</td>
 												<tr>									
 											</c:forEach>
@@ -168,8 +172,8 @@
 	<!-- /.container -->
 
 	<!-- Bootstrap core JavaScript -->
-	<script src="vendor/jquery/jquery.min.js"></script>
-	<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+	<script src="${pageContext.request.contextPath}/vendor/jquery/jquery.min.js"></script>
+	<script src="${pageContext.request.contextPath}/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
 </body>
 
@@ -181,11 +185,6 @@
 	} else if(msg == "regSuccess") {
 		alert('질문 등록이 완료되었습니다.')
 	}
-	
-	var myDropdown = document.getElementById('myDropdown')
-	myDropdown.addEventListener('show.bs.dropdown', function () {
-	  // do something...
-	})
 /*
 	// start JQuery
 	$(function() {
@@ -208,3 +207,5 @@
 	
 </script>
 </html>
+
+<%@ include file="../include/header.jsp"%>
