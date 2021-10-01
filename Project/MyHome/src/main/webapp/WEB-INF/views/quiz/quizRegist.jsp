@@ -103,6 +103,7 @@
 		// 글 내용 보내기
 		$('#regist-btn').click(function() {
 			const content = $('#content').html();
+			content.slice(content.indexOf('<div'), content.indexOf('<div') + tag.length + 1);
 			console.log(content);
 			
 			$('input[name=content]').val(content);
@@ -111,19 +112,19 @@
 		// 엔터 -> br
 		
 
-		<%-- 이미지 미리보기
+		<%-- 이미지 미리보기 --%>
 		var sel_file;
 		
 		$('#input_img').change(function(e) {
 			
 			const tag = "<div class='img-wrap'><img src='' id='img' class='inimg' /></div>";
 			strAdd += tag;
-			
+			<%--
 			strAdd += "<div class='img-wrap'>";
 			strAdd += "<img src='' id='img' class='inimg' />";
 			strAdd += "</div>";
 			$('#content').html(strAdd);
-			
+			--%>
 			
 			var files = e.target.files;
 			var filesArr = Array.prototype.slice.call(files);
@@ -145,7 +146,7 @@
 				reader.readAsDataURL(f);
 			});
 		}); // 이미지 파일 값 변경 시 수행
-		--%>
+		
 		
 	}); // jquery end
 

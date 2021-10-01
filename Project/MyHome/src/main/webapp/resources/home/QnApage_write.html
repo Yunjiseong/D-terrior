@@ -8,28 +8,21 @@
     <title>  QnA  </title> 
     <link rel="shortcut icon" href="../img/home-icon.png">
     <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/qna-corr-wit.css" rel="stylesheet">
     <style>
-        #contentForm {
-            width: 40%;
-            margin: 0 auto;
-            padding-top: 12%;
-        }
-        .table>thead>tr>th,
-        .table>tbody>tr>th {
-            background-color: #e6ecff;
-            text-align: center;
-        }
-        .btns{
-            text-align: right;
-        }
+   
     </style>
 
 
 </head>
 
 <body>
+              
     <form action="#" method="post">
-        <div id="contentForm"> <input type="hidden" name="#" value="#"> <input type="hidden"
+       
+        <div id="contentForm">
+            <h3 class="title">질문 과 답변</h3> 
+            <input type="hidden" name="#" value="#"> <input type="hidden"
                 name="groupId" value="#"> <input type="hidden" name="depth" value="#"> <input
                 type="hidden" name="#" value="#">
             <div class="input-group input-group-sm" role="group" aria-label="...">
@@ -58,16 +51,19 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td colspan="2"> <textarea class="form-control" rows="10" name="content"
-                                    placeholder="글을 적어 주세요."></textarea>
-                                        <form  action="#" method="post" enctype="#">
-                                         <input type="file" name="profile"> </td>
+                            <td colspan="2"> 
+                                <div contentEditable="true" class="boast_inwrite" readonly="readonly">
+                                    <p>dsdss</p>
+                                </div>
+                                         <input type="file" name="profile"> 
+                                        
+                                        </td>
                         </tr>
                         
                     </tbody>
                 </table>
             </div>
-            <div class="btn-group btn-group-sm" role="group" aria-label="..."> <input type="submit"
+            <div class="btn-group btn-group-sm float-right" role="group" aria-label="..."> <input type="submit"
                     class="btn btn-info btns" value="글쓰기"> 
         </div>
     </form>
