@@ -21,7 +21,7 @@ public class MyHomeReplymapperTest {
 		System.out.println("댓글 등록 테스트");
 		for(int i=1;i<=73;i++) {
 			MyHomeReplyVO vo = new MyHomeReplyVO();
-			vo.setBno(441);
+			vo.setBno(234);
 			vo.setWriter("jiseong" + i);
 			vo.setContent("댓글 등록 테스트 " + i);
 			mapper.regist(vo);

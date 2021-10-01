@@ -35,7 +35,7 @@ public class UserService implements IUserService {
 	
 	//로그인 성공 여부
 	@Override
-	public int userLogin(@Param("id") String id, @Param("pw") String pw) {
+	public UserVO userLogin(@Param("id") String id, @Param("pw") String pw) {
 		return mapper.userLogin(id, pw);
 	}
 	
@@ -91,7 +91,8 @@ public class UserService implements IUserService {
 
 	@Override
 	public List<MyHomeVO> getScrap(@Param("pageNum") int pageNum, @Param("nick") String nick) {
-		String scrap = mapper.getScrap(pageNum, nick);
+		String scrap = mapper.getScrap(pageNum, nick);		
+		
 		if(scrap == null) {
 			scrap = "0000";
 		}

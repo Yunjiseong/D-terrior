@@ -2,7 +2,8 @@
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
-<%@include file = "include/header.jsp" %>  	
+<%@include file = "include/header.jsp" %>  
+
 
 <body id="page-top">     
     <div id="demo" class="carousel slide" data-ride="carousel">
@@ -206,7 +207,10 @@
         </div>
     </div>
 
-
+	<div class="button-area text-center button-more" style="margin-top: 50px; margin-bottom: 50px;">
+        <input type="hidden" value="1" class="" name="">
+        <button class="btn btn-default more2" data-addmore="true" onclick="#">더보기</button>
+    </div>
 
 
 

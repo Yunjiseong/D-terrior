@@ -27,11 +27,6 @@
   }
  
 
-  @media (min-width: 768px) {
-    .bd-placeholder-img-lg {
-      font-size: 3.5rem;
-    }
-  }
 
   .side-text{
       display: inline-block;
@@ -43,9 +38,6 @@
       display: block;
   }
 
-  span{
-        color: beige;
-    }
   .ex{
     margin-left: 400px;
   }
@@ -73,6 +65,7 @@
   	position: relative;
   	top: 150px;
   }
+  
 </style>
 
 <!-- Custom styles for this template -->
@@ -80,9 +73,10 @@
 
 </head>
 
-<body class="container">
+<body>
   <main class="mt-3">
-    <div class="container">
+    <div class="container" style="width: 50%;">
+    
        <h2 class="text-center">글쓰기</h2>
       
        <br>

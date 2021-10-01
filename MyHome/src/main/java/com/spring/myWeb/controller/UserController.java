@@ -192,15 +192,14 @@ public class UserController {
 	public String userLogin(String id, String pw, HttpSession session) {
 		System.out.println("로그인요청");
 		
-		int userNum = service.userLogin(id, pw);
-		
-		UserVO vo = service.userInfo(userNum);
+		UserVO vo = service.userLogin(id, pw);		
 
-		if (userNum != 0) {
+		if (vo != null) {
 			System.out.println("로그인성공");
 			session.setAttribute("user", vo);
+			System.out.println("로그인 정보: " + vo);
 			return "redirect:/user/mypage";
-		} else {
+		} else{
 			return "/user/loginfail";
 		}
 	}
@@ -276,8 +275,6 @@ public class UserController {
 		System.out.println("/user/mypage: GET");
 
 		UserVO user = (UserVO)session.getAttribute("user");
-		int userNum = user.getUserNum();
-		user = service.userInfo(userNum);		
 		System.out.println(user.getProfile());
 		model.addAttribute("userInfo", user);
 	}
@@ -351,5 +348,10 @@ public class UserController {
 		
 		return "user/proInfo";
 	}
-
+	
+	//고객센터 연결
+	@GetMapping("/qna")
+	public void qna() {
+		System.out.println("/user/qna/: GET");		
+	}
 }

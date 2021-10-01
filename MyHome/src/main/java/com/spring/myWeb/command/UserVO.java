@@ -32,8 +32,9 @@ public class UserVO {
 	major VARCHAR2(300),
 	profile VARCHAR2(300),
 	reg_date DATE DEFAULT SYSDATE,
-	scrap VARCHAR2(500)
-	paper VARCHAR2(500)
+	scrap VARCHAR2(500),
+	paper VARCHAR2(500),
+	user_num number
 	);
 	 */
 

@@ -5,7 +5,6 @@
 .contentForm {
     width: 40%;
     margin: 0 auto;
-    padding-top: 12%;
 }
 
 .table>thead>tr>th,
@@ -21,7 +20,6 @@
 .container {
     width: 100%;
     margin: 0 auto;
-    padding-top: 12%;
 }
 
 .reply-wrap {
@@ -32,22 +30,11 @@
     margin-top: 10px;
    
 }
-ul {
+.sideul {
     width: 300px;
     margin-left: auto;
     margin-right: auto;
   }
-
-
-.userimg {
-    position: absolute;
-    width: 30px;
-    height: 30px;
-    top: 2px;
-    margin-left: 10px;
-    border-radius: 100%;
-    background-color: #dbdbdb;
-}
 
 /* ======= 댓글 ======== */
 
@@ -58,10 +45,17 @@ ul {
     position: relative;
 }
 
+
+ .userimger {
+    display: inline;
+}
+
+
 .reply-wrap .reply-image {
-    position: absolute;
-    left: 15px;
-    top: 15px;
+	position:relative;
+    left: 10px;
+    width: 30px;
+    height: 30px;
 
 }
 
@@ -108,6 +102,7 @@ ul {
     height: auto;
     text-align: center;
 }
+
 .pro-nick{
     color:cornflowerblue;
 }

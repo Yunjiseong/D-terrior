@@ -13,7 +13,7 @@
 
 
 <style>   
-	 #ngside {
+	  #ngside {
 	    position: fixed;
 	    right: 100px;
 	    bottom: 0;
@@ -61,12 +61,10 @@
 	    position: relative;
 	    bottom: 25px;
 	}
-
 </style>
 </head>
 
-<body>
-    <div class="main">      
+<div class="main">      
         <img id="main" src="${pageContext.request.contextPath}/myhome/display?userNum=720&fileName=${home.thumbImg}" alt="메인사진">
     </div>
     
@@ -130,20 +128,16 @@
     <div class="row" style="width: 100%;">
         <div class="col-xs-12 col-md-12 write-wrap">
             <div class="reply-wrap">
-                <div class="reply-image">                
+                <div class="reply-image" style="width: 50px; height: 50px;">                
                     <img class="userimg" src="${pageContext.request.contextPath}/resources/img/icon.png" alt="prof">
                 </div>
                 <div class="reply-content">
                     <div class="reply-group clearfix">
                        
                         <textarea class="form-control" rows="3" placeholder="댓글을 작성해주세요" id="reply-content"></textarea>
+                        <button class="btn btn-info" id="cancelBtn">취소</button>
                         <button class="btn btn-info" id="regBtn">등록</button>
-                        <button class="btn btn-info"><svg width="24" height="20" viewBox="0 0 24 20"
-                                preserveAspectRatio="xMidYMid meet">
-                                <path fill="#292929" fill-rule="nonzero"
-                                    d="M3.22 20C1.446 20 0 18.547 0 16.765V6.176c0-1.782 1.446-3.235 3.22-3.235h3.118L7.363.377A.586.586 0 0 1 7.903 0h8.195c.24.003.453.152.54.377l1.024 2.564h3.118c1.774 0 3.22 1.453 3.22 3.235v10.589C24 18.547 22.554 20 20.78 20H3.22zm0-1.176h17.56a2.037 2.037 0 0 0 2.05-2.06V6.177c0-1.15-.904-2.058-2.05-2.058h-3.512a.585.585 0 0 1-.54-.368l-1.024-2.574H8.296L7.27 3.75a.585.585 0 0 1-.54.368H3.22a2.037 2.037 0 0 0-2.05 2.058v10.589c0 1.15.904 2.059 2.05 2.059zM12 17.059c-3.064 0-5.561-2.51-5.561-5.588 0-3.08 2.497-5.589 5.561-5.589s5.561 2.51 5.561 5.589c0 3.079-2.497 5.588-5.561 5.588zm0-1.177a4.392 4.392 0 0 0 4.39-4.411A4.392 4.392 0 0 0 12 7.059a4.392 4.392 0 0 0-4.39 4.412A4.392 4.392 0 0 0 12 15.882z">
-                                </path>
-                            </svg></button>
+                     
                     </div>
                 </div>
 
@@ -175,7 +169,7 @@
 
     </div>
     <nav class="pagination-sm pag">
-        <ul class="pagination justify-content: center" id="replyBtn">
+        <ul class="pagination" id="replyBtn" style="position: relative; left: 42%;">
             <%-- 페이지 버튼 영역
             <li class="page-item">
                 <a class="page-link" href="#">
@@ -321,23 +315,27 @@
 				$('#totalReply').html(list.length);
 				
 				//목록 처리
+				//이미지 경로 수정 후 다시 넣기:strAdd += '<img class="userimg" id="img-' + list[i].rno + '" src="' + ${list[i].profile == null ? '${pageContext.request.contextPath}/resources/img/icon.png}' : '${list[i].profile}'} + '" alt="prof">';
+
 				for(let i=0;i<list.length;i++){
-					strAdd += '<div class="col-xs-12 col-md-12 reply-wrap" id="reply">';
-					strAdd += '<div class="reply-image">';
-					strAdd += '<img class="userimg" src="' + list[i].profile + '" alt="prof">';
+					console.log(list[i].profile)
+					strAdd += '<div class="col-xs-12 col-md-12 reply-wrap" id="reply-' + list[i].rno +'" >';
+					strAdd += '<div class="reply-image" style="width: 50px; height: 50px;">';
+					strAdd += '<img class="userimg" id="img-' + list[i].rno + '" src="' + (list[i].profile == null ? '${pageContext.request.contextPath}/resources/img/icon.png' : '${pageContext.request.contextPath}/resources/img/home-icon.png') + '" alt="prof">';
 					strAdd += '</div>';
 					strAdd += '<div class="reply-content">';
 					strAdd += '<div class="reply-group">';
 					strAdd += '<strong class="left">' + list[i].writer + '</strong>'; 
 					strAdd += '<small class="left">' + timeStamp(list[i].regDate) + '</small>';
 					strAdd += '<div class="btn-group-sm" role="group">';
-					strAdd += '<button type="button" class="btn btn-info delBtn" id="' + list[i].rno + '">삭제</button>';
-					strAdd += '<button type="button" class="btn btn-info modBtn" id="' + list[i].rno + '">수정</button>';
+					strAdd += '<button type="button" class="btn btn-info delBtn" reply-page="' + pageNum + '" id="' + list[i].rno + '">삭제</button>';
+					strAdd += '<button type="button" class="btn btn-info modBtn" reply-page="' + pageNum + '" reply-content="' + list[i].content + '" id="' + list[i].rno + '">수정</button>';
 					strAdd += '</div>';
 					strAdd += '</div>';
-					strAdd += '<p id="pageHint" class="' + pageNum + '">' + list[i].content + '</p>';
+					strAdd += '<p id="pageHint-' + list[i].rno +'" class="' + pageNum + '">' + list[i].content + '</p>';
 					strAdd += '</div>';
 					strAdd += '</div>';
+					console.log($('.userimg').attr('src'));
 				}
 				$('#reply').html(strAdd);
 				
@@ -378,31 +376,99 @@
 	
 	//댓글 삭제 처리
 	$('#reply').on('click', '.delBtn', function() {
-		const rno = $(this).attr('id');
+		const rno = $(this).attr('id');		 
+		const delPage = $('#pageHint-' + rno).attr('class');
 		
-		$.ajax({
-			type: "post",
-			url: "${pageContext.request.contextPath}/homeReply/delete/",
-			headers: {
-				"Content-Type" : "application/json"
-			},
-			dataType: "text",
-			data: rno,
-			success: function(result) {
-				if(result === 'delSuccess'){
-					console.log('댓글 삭제 완료!');
-					alert('댓글이 삭제되었습니다.')	;
-					getList($('#pageHint').attr('class'));
-				}					
-			},
-			error: function() {
-				console.log('통신 실패!');
-			}
-		}); //end ajax	
+		console.log('rno: ' + rno);
+		console.log('page: ' + delPage);
+		
+		if(confirm('삭제하시겠습니까?')){			
+			$.ajax({
+				type: "post",
+				url: "${pageContext.request.contextPath}/homeReply/delete",
+				headers: {
+					"Content-Type" : "application/json"
+				},
+				dataType: "text",
+				data: rno,
+				success: function(result) {
+					if(result === 'delSuccess'){
+						console.log('댓글 삭제 완료!');
+						getList(delPage);
+					}					
+				},
+				error: function() {
+					console.log('통신 실패!');
+				}
+			}); //end ajax	
+		}
 	
 	});	
 	
 	//댓글 수정 처리
+	$('#reply').on('click', '.modBtn', function() {	
+		const rno = $(this).attr('id');
+		const modPage = $('#pageHint-' + rno).attr('class');	
+		
+		console.log('rno: ' + rno);
+		console.log('page: ' + modPage);
+
+		let strMod = '';
+		strMod += '<div class="reply-wrap" id="' + rno +'">';
+		strMod += '<div class="reply-image">';               
+		strMod += '<img class="userimg" src="' + $('img-' + rno).attr('scr') +'" alt="prof">';
+		strMod += '</div>';
+		strMod += '<div class="reply-content">';
+		strMod += '<div class="reply-group clearfix">';
+		strMod += '<textarea class="form-control" rows="3" placeholder="댓글을 작성해주세요" id="reply-content-' + rno +'">' + $(this).attr('reply-content') + '</textarea>';
+		strMod += '<button class="btn btn-info" id="mod-cancelBtn">취소</button>';
+		strMod += '<button class="btn btn-info" id="mod-regBtn">등록</button>';
+		strMod += '<button class="btn btn-info"><svg width="24" height="20" viewBox="0 0 24 20"';
+		strMod += 'preserveAspectRatio="xMidYMid meet">';
+		strMod += '<path fill="#292929" fill-rule="nonzero"';
+		strMod += 'd="M3.22 20C1.446 20 0 18.547 0 16.765V6.176c0-1.782 1.446-3.235 3.22-3.235h3.118L7.363.377A.586.586 0 0 1 7.903 0h8.195c.24.003.453.152.54.377l1.024 2.564h3.118c1.774 0 3.22 1.453 3.22 3.235v10.589C24 18.547 22.554 20 20.78 20H3.22zm0-1.176h17.56a2.037 2.037 0 0 0 2.05-2.06V6.177c0-1.15-.904-2.058-2.05-2.058h-3.512a.585.585 0 0 1-.54-.368l-1.024-2.574H8.296L7.27 3.75a.585.585 0 0 1-.54.368H3.22a2.037 2.037 0 0 0-2.05 2.058v10.589c0 1.15.904 2.059 2.05 2.059zM12 17.059c-3.064 0-5.561-2.51-5.561-5.588 0-3.08 2.497-5.589 5.561-5.589s5.561 2.51 5.561 5.589c0 3.079-2.497 5.588-5.561 5.588zm0-1.177a4.392 4.392 0 0 0 4.39-4.411A4.392 4.392 0 0 0 12 7.059a4.392 4.392 0 0 0-4.39 4.412A4.392 4.392 0 0 0 12 15.882z">';
+		strMod += '</path>';
+		strMod += '</svg></button>';
+		strMod += '</div>';
+		strMod += '</div>';
+		strMod += '</div>';
+		
+		$('#reply-' + rno).replaceWith(strMod);		
+		
+		//수정 시
+		$('#mod-regBtn').click(function() {
+			const modContent = $('#reply-content-' + rno).val();
+			console.log(modContent);
+			
+			$.ajax({
+				type: "post",
+				url: "<c:url value='/homeReply/update' />",
+				headers: {
+					"Content-Type" : "application/json"
+				},
+				dataType: "text",
+				data: JSON.stringify({
+					"rno" : rno,
+					"content" : modContent
+				}),
+				success: function(result) {
+					if(result === 'modSuccess'){
+						console.log('댓글 수정 완료!');
+						getList(modPage);
+					}
+				},
+				error: function() {
+					console.log('통신 실패!');
+				}				
+			}); //end ajax
+		});
+		
+		//취소 시
+		$('#mod-cancelBtn').click(function() {
+			getList(modPage);
+		});
+	});
+	
 	
 	
 	//댓글 등록시간 처리

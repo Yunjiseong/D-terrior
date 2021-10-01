@@ -201,8 +201,8 @@
 					$('#total').html('전체 ' + total);
 					
 					for(let i=0;i<list.length;i++){
-						str += '<div class="col-lg-4 col-sm-4">';
-						str += '<div class="card">';
+						str += '<div class="col-lg-4 col-sm-4 col-md-4">';
+						str += '<div class="card" style="width: 20rem">';
 						str += '<a href="${pageContext.request.contextPath}/myhome/homeDetail?bno=' + list[i].bno + '" >';
 						str += '<img class="img" src="${pageContext.request.contextPath}/resources/img/interior1.png" alt="사진">';
 						str += '<div class="card-body">';

@@ -1,6 +1,8 @@
 package com.spring.myWeb.controller;
 
 import java.io.File;
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
 import java.nio.file.Files;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -10,6 +12,7 @@ import java.util.Map;
 import java.util.UUID;
 
 import javax.servlet.annotation.MultipartConfig;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +22,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.util.FileCopyUtils;
+import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -27,6 +31,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import com.spring.myWeb.command.MyHomeVO;
+import com.spring.myWeb.command.SmarteditorVO;
 import com.spring.myWeb.myhome.service.IMyHomeService;
 import com.spring.myWeb.myhome.util.PageVO;
 
@@ -225,8 +230,46 @@ public class MyHomeController {
 		ra.addFlashAttribute("msg", "deleteSuccess");
 
 		return "redirect:/myhome/homeList";
-	}		
-
+	}	
+	
+	//이미지 업로드 처리
+	@PostMapping("/singleImageUploader")
+	public String simpleImageUploader(
+			HttpServletRequest req, SmarteditorVO smarteditorVO) 
+	        	throws UnsupportedEncodingException{
+		String callback = smarteditorVO.getCallback();
+		String callback_func = smarteditorVO.getCallback_func();
+		String file_result = "";
+		String result = "";
+		MultipartFile multiFile = smarteditorVO.getFiledata();
+		try{
+			if(multiFile != null && multiFile.getSize() > 0 && 
+	        		!StringUtils.isEmpty(multiFile.getName())){
+				if(multiFile.getContentType().toLowerCase().startsWith("image/")){
+	            	String oriName = multiFile.getName();
+	                String uploadPath = req.getServletContext().getRealPath("/img");
+	                String path = uploadPath + "/smarteditor/";
+	                File file = new File(path);
+	                if(!file.exists()){
+	                file.mkdirs();
+	                }
+	                String fileName = UUID.randomUUID().toString();
+	                smarteditorVO.getFiledata().transferTo(new File(path + fileName));
+	                file_result += "&bNewLine=true&sFileName=" + oriName + 
+	                			   "&sFileURL=/img/smarteditor/" + fileName;
+				}else{
+					file_result += "&errstr=error";
+				}
+			}else{
+				file_result += "&errstr=error";
+			}
+		} catch (Exception e){
+			e.printStackTrace();
+		}
+		result = "redirect:" + callback + 
+				 "?callback_func=" + URLEncoder.encode(callback_func,"UTF-8") + file_result;
+		return result;
+	}
 
 
 }

@@ -26,7 +26,7 @@ public class AnswerMapperTest {
 		
 		for(int i=1; i<=50; i++) {
 			AnswerVO vo = new AnswerVO();
-			vo.setQuizNum(320);
+			vo.setQuizNum(640);
 			vo.setWriter("김댓글" + i);
 			vo.setContent("테스트 댓글" + i);
 			mapper.regist(vo);

@@ -11,7 +11,7 @@
 <meta name="generator" content="Hugo 0.84.0">
 <link rel="shortcut icon" href="${pageContext.request.contextPath}/resources/img/home-icon.png">
 <link href="${pageContext.request.contextPath}/resources/css/faq.css" rel="stylesheet">
-<script src="${pageContext.request.contextPath}/resources/js/Faq.js" />
+<script src="${pageContext.request.contextPath}/resources/js/Faq.js"></script>
 <title>고객센터</title>
 </head>
 <body>
@@ -160,6 +160,7 @@
         </div>
 
     </div>
+</section>
 </body>
 </html>
 

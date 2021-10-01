@@ -199,9 +199,9 @@
 	</style>
 </head>
 
-<body class="container">
+<body>
   <main class="mt-3">
-    <div class="container">
+    <div class="container" style="width: 50%;">
        <h2 class="text-center">수정하기</h2>
       
        <br>

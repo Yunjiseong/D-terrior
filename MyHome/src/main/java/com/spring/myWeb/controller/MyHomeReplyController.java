@@ -72,6 +72,7 @@ public class MyHomeReplyController {
 	@PostMapping("/delete")
 	public String delete(@RequestBody int rno) {
 		System.out.println("/homeReply/delete: POST");
+		
 		service.delete(rno);
 		
 		return "delSuccess";

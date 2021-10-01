@@ -25,7 +25,7 @@ public interface IUserService {
 	void userDelete(String id);
 	
 	//로그인 성공 여부
-	int userLogin(@Param("id") String id, @Param("pw") String pw);
+	UserVO userLogin(@Param("id") String id, @Param("pw") String pw);
 	
 	//아이디 중복체크
 	int idCheck(String id);

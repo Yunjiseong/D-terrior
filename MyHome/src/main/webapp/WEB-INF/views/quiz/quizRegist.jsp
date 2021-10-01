@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ include file="../include/header.jsp"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,7 +16,6 @@
         #contentForm {
             width: 40%;
             margin: 0 auto;
-            padding-top: 12%;
         }
         .table>thead>tr>th,
         .table>tbody>tr>th {
@@ -153,3 +153,4 @@
 
 
 </html>
+<%@ include file="../include/footer.jsp"%>

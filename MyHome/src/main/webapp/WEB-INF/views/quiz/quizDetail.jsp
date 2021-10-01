@@ -2,6 +2,8 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+
+<%@ include file="../include/header.jsp"%>
 <!DOCTYPE html>
 <html>
 
@@ -11,12 +13,22 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>QnA</title>
 <link rel="shortcut icon" href="${pageContext.request.contextPath}/resources/img/home-icon.png">
-<link href="${pageContext.request.contextPath}/resources/css/bootstrap.css" rel="stylesheet">
+
 <link href="${pageContext.request.contextPath}/resources/css/qna_write_view.css" rel="stylesheet">
 
-<script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/jquery-3.6.0.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
 <style>
+ .userimgs {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    top: 15px;
+    margin-left: 10px;
+    border-radius: 100%;
+    background-color: #dbdbdb;
+}
+
+
 </style>
 
 
@@ -56,9 +68,14 @@
 					<tbody>
 						<tr height="200" valign="top" style="background-color: #fff;">
 							<td colspan="4">
-								<c:if test="${article.fileLoca != null }">
-									<img alt="가구 이미지" src='<c:url value="/quiz/display?fileLoca=${article.fileLoca}" />' class="inimg">
-								</c:if>
+								<c:choose>
+                     <c:when test="${user != null}">
+                        <img src='<c:url value="/user/display?profile=${user.profile }" />' alt="prof" class="userimgse">
+                     </c:when>
+                     <c:otherwise>
+                        <img src='${pageContext.request.contextPath}/resources/img/mi_icon.webp' alt="prof" class="userimg">
+                     </c:otherwise>
+                  </c:choose>
 								<div id="quiz_content" contentEditable="false" class="boast_inwrite" style="overflow:auto">${article.content }</div>
 							</td>
 						</tr>
@@ -66,19 +83,19 @@
 							<td colspan="4">조회수: ${article.views }</td>
 						</tr>
 						<tr style="background-color: #fff;">
-							<td colspan="2"
-								style="border-bottom: hidden; border-left: hidden; border-right: hidden;">
-								<div class="btn-group btn-group-sm " style="margin-left: 69%;" role="group" aria-label="...">
-									<input type="submit" id="modBtn" class="btn btn-info btns" value="수정">
-									<input type="button" id="delBtn" class="btn btn-info btns"  value="삭제"> 
-									<input type="button" id="listBtn" class="btn btn-info btns"  value="목록">
-								</div>
-							</td>
+						
+								
+							
 						</tr>
 					</tbody>
 				</table>
 			</div>
 
+			<div class="btn-group btn-group-sm float-right " role="group" aria-label="...">
+									<input type="submit" id="modBtn" class="btn btn-info btns"style="margin-bottom: 30px;" value="수정">
+									<input type="button" id="delBtn" class="btn btn-info btns" style="margin-bottom: 30px;" value="삭제"> 
+									<input type="button" id="listBtn" class="btn btn-info btns" style="margin-bottom: 30px;"  value="목록">
+								</div>
 		</div>
 	</form>
 
@@ -88,9 +105,12 @@
 		<div class="row col-xs-12 col-md-12" style="width: 145%;">
 			<div class="col-xs-12 col-md-12 write-wrap">
 				<div class="reply-wrap">
-				
-					<div class="reply-image">
-						<img src='<c:url value="/user/display?profile=${user.profile }" />' alt="prof" class="userimg">
+					<div class="low">
+					<div class="reply-imager" style="display: inline;">
+					<c:if test="${user.nickName == article.writer }">
+						<img src='<c:url value="/user/display?profile=${user.profile }" />' alt="prof" class="userimg" style="left: 5px;">				
+					</c:if>
+						<img src='${pageContext.request.contextPath}/resources/img/mi_icon.webp' alt="prof" class="userimg" style="position:relative; left: 10px;">				
 					</div>
 					<div class="reply-content">
 						<div class="reply-group clearfix">
@@ -100,13 +120,13 @@
 					</div>
 
 				</div>
-				
+				</div>
 				<div id="reply-list">
 				
 					<!-- ajax로 작성할 태그(답변) -->
 					<!--   
 					<div class="reply-wrap">
-						<div class="reply-image">
+						<div class="reply-images">
 							<img src="${pageContext.request.contextPath}/resources/img/icon.png" alt="prof" class="userimg">
 						</div>
 						<form action="/answer/answerModify" method="post">
@@ -129,7 +149,7 @@
 			</div>
 		</div>
 		
-		<nav id ='answerPage' class="pagination-sm pag">
+		<nav id ='answerPage' class="pagination-sm pag"  style="position: absolute; left: 41.5%">
 		
 		<!-- ajax로 작성(페이징) -->
 			<!--  
@@ -270,8 +290,8 @@
 					
 					for(let i=0; i<list.length; i++) {
 						strAdd += "<div id='reply-" + list[i].answerNum + "' class='reply-wrap'>";
-						strAdd += "<div class='reply-image'>";
-						strAdd += "<img src='${pageContext.request.contextPath}/resources/img/icon.png' alt='prof' class='userimg'>";
+						strAdd += "<div class='reply-images'>";
+						strAdd += "<img src='${pageContext.request.contextPath}/resources/img/icon.png' alt='prof' class='userimgs'>";
 						strAdd += "</div>";
 						strAdd += "<div class='reply-content'>"
 						strAdd += "<div class='reply-group'>";
@@ -295,8 +315,8 @@
 						pStrAdd += "<ul class='pagination justify-content: center'>";
 						
 						if(qpc.prev) {
-							pStrAdd += "<li class='page-item'><button id='" + --qpc.beginPage + "' class='page-link'> 이전 </button></li>"
-							++qpc.beginPage;
+							pStrAdd += "<li class='page-item'><button id='" + (qpc.beginPage-1) + "' class='page-link'> 이전 </button></li>"
+							(qpc.beginPage+1);
 						}
 						
 						for(let j=qpc.beginPage; j<=qpc.endPage; j++) {
@@ -433,4 +453,6 @@
 </script>
 
 </html>
+
+<%@ include file="../include/footer.jsp"%>
 

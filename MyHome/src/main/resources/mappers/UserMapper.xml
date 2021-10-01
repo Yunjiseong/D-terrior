@@ -67,8 +67,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
  		WHERE id = #{id} 
  	</delete>
  	
- 	<select id="userLogin" resultType="int">
-		SELECT user_num FROM users
+ 	<select id="userLogin" resultMap="user">
+		SELECT * FROM users
 		WHERE id = #{id}
 		AND pw = #{pw}
 	</select>

@@ -2,6 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<%@ include file="../include/header.jsp"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,8 +17,7 @@
 <style>
 #contentForm {
 	width: 40%;
-	margin: 0 auto;
-	padding-top: 12%;
+	margin: 30 auto;
 }
 
 .table>thead>tr>th, .table>tbody>tr>th {
@@ -99,3 +99,4 @@
 </script>
 
 </html>
+<%@ include file="../include/footer.jsp"%>

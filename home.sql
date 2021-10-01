@@ -33,6 +33,22 @@ create table myhome(
     img10 varchar2(300)
 );
 
+create table myhomereply(
+    bno number,
+    rno number primary key,
+    writer varchar2(100),
+    content varchar2(2000),
+    regdate date default sysdate,
+    updatedate date
+);
+
+create sequence myhomereply_seq
+    start with 1
+    increment by 1
+    maxvalue 9999
+    nocache
+    nocycle;
+
 alter table myhome
 drop column updatedate; 
 
@@ -111,12 +127,12 @@ maxvalue 10000
 nocache
 nocycle;
 */
-
+drop table users;
 CREATE TABLE users (
 	id VARCHAR2(100),
 	pw VARCHAR2(50) NOT NULL,
 	nick_name VARCHAR2(50) NOT NULL,
-    userNum number(10, 0) primary key,
+    user_Num number(10, 0) primary key,
 	phone1 VARCHAR2(20) NOT NULL,
 	phone2 VARCHAR2(20) NOT NULL,
 	phone3 VARCHAR2(20) NOT NULL,
@@ -130,6 +146,13 @@ CREATE TABLE users (
 	reg_date DATE DEFAULT SYSDATE,
 	scrap VARCHAR2(500) 
 	);
+
+create sequence user_seq
+    start with 1
+    increment by 1
+    maxvalue 10000
+    nocache
+    nocycle;
     
     alter table users
     add userNum number(10,0) primary key;

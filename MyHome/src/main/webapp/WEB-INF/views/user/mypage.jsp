@@ -45,7 +45,7 @@
  							<img class="my" src='${pageContext.request.contextPath}/resources/img/mi_icon.webapp'>
  						</c:when>
  						<c:otherwise>
-		 					<img class="my" src='<c:url value="/user/display?profile=${userInfo.profile }"/>'>
+		 					<img class="my" src='<c:url value="/user/display?profile=${userInfo.profile}"/>'>
  						</c:otherwise>
  					</c:choose>
  					<div class="ninkname">${userInfo.nickName } </div>
