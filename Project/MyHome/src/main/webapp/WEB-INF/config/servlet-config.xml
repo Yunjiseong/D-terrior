@@ -43,13 +43,11 @@
 		<beans:property name="defaultEncoding" value="utf-8" />
 	
 	</beans:bean>
-	<!-- websockethandler -->
-	<websocket:handlers allowed-origins="http://*">
-	<websocket:mapping handler="echoHandler" path="echo"/>
-	<websocket:handshake-interceptors>
-	<beans:bean class="org.springframework.web.socket.server.support.HttpSessionHandshakeInterceptor"/>
-	</websocket:handshake-interceptors>
-	<websocket:sockjs></websocket:sockjs>
-	</websocket:handlers>
-	<beans:bean id="echoHandler" class="com.spring.myWeb.chat.EchoHandler"></beans:bean>
+	
+	<!-- <websocket:handlers allowed-origins="*" >
+        <websocket:mapping handler="handlerChat" path="/chat" />
+        <websocket:sockjs websocket-enabled="true" />
+    </websocket:handlers>
+    <beans:bean id="handlerChat" class="com.spring.myWeb.chat.HandlerChat" /> -->
+
 </beans:beans>

@@ -3,6 +3,7 @@ package com.spring.myWeb.myhome.mapper;
 import java.util.List;
 
 import com.spring.myWeb.command.MyHomeVO;
+import com.spring.myWeb.command.UserVO;
 import com.spring.myWeb.myhome.util.PageVO;
 
 public interface IMyHomeMapper {
@@ -23,6 +24,9 @@ public interface IMyHomeMapper {
 	void update(MyHomeVO vo);
 	
 	//글 삭제
-	void delete(int bno);  	
+	void delete(int bno);  
+	
+	//프로필 정보 불러오기
+	String getProfile(String writer);
 
 }

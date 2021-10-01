@@ -14,7 +14,7 @@ public class PageCreator {
 	private int totalArticle;
 	private boolean prev;
 	private boolean next;	
-	private final int buttonNum = 10;
+	private final int buttonNum = 5;
 	
 	//생성자로 초기값 셋팅
 	public PageCreator(PageVO paging, int totalArticle) {
@@ -25,10 +25,14 @@ public class PageCreator {
 	
 	//페이지 변수 계산
 	private void calcPage() {
-		beginPage = (int) Math.floor((double) paging.getNowPage() / buttonNum) * buttonNum + 1;
-		endPage = beginPage + buttonNum - 1;
+		endPage = (int) Math.ceil((double) paging.getNowPage() / buttonNum) * buttonNum;
+		beginPage = endPage - buttonNum + 1;
 		prev = beginPage == 1 ? false : true;
-		next = paging.getCountPerPage() * endPage >= totalArticle ? false : true;		
+		next = paging.getCountPerPage() * endPage >= totalArticle ? false : true;	
+		
+		if(!next) {
+			endPage =(int) Math.ceil((double) totalArticle / paging.getCountPerPage());
+		}
 	}
 	
 

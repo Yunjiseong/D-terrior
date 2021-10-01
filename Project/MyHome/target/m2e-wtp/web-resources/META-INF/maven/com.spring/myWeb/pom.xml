@@ -224,13 +224,11 @@
 			<artifactId>spring-context-support</artifactId>
 			<version>${org.springframework-version}</version>
 		</dependency>
-		
-		
-		<!-- Web Socket Setting -->
-		<dependency>
+		<!-- websocket -->
+		 <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-websocket</artifactId>
-            <version>5.3.6</version>
+            <version>${org.springframework-version}</version>
         </dependency>
         <dependency>
             <groupId>javax.websocket</groupId>
@@ -243,8 +241,7 @@
             <artifactId>json-simple</artifactId>
             <version>1.1.1</version>
         </dependency>
-
-
+		
 
 	</dependencies>
 
