@@ -1,4 +1,4 @@
-package com.spring.myWeb.user.mapper;
+	package com.spring.myWeb.user.mapper;
 
 import java.util.List;
 import java.util.Map;
@@ -47,11 +47,14 @@ public interface IUserMapper {
 		int getTotalCount(@Param("type") String type, @Param("nick") String nick);
 		
 		// 스크랩 게시글
-		String getScrap(@Param("pageNum") int pageNum, @Param("nick") String nick);
+		String getScrap(@Param("nick") String nick);
 
 		// 스크랩 게시글 수
 		String scrapCount(String nick);
 		
 		// 등업 회원 정보
 		List<UserVO> proInfo(QuizPageVO page);
+		
+		// 회원 등업
+		void upgrade(int userNum);
 }

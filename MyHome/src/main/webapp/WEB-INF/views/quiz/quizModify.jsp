@@ -3,6 +3,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <%@ include file="../include/header.jsp"%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -17,14 +18,19 @@
 <style>
 #contentForm {
 	width: 40%;
-	margin: 30 auto;
+	margin: 0 auto;
+	padding-top: 12%;
 }
-
 .table>thead>tr>th, .table>tbody>tr>th {
 	background-color: #e6ecff;
 	text-align: center;
 }
-
+.boast_inwrite{
+            background-color: white;
+            width: 100%;
+            height: 300px;
+            overflow:auto;
+        }
 .btns {
 	text-align: right;
 }
@@ -36,16 +42,18 @@
 <body>
 
 
-	<form action='<c:url value="/quiz/quizModify" />'  method="post" enctype="application/x-www-form-urlencoded">
+	<form action='<c:url value="/quiz/quizModify" />'  method="post" enctype="multipart/form-data">
 		<div id="contentForm">
 			<input type="hidden" name="quizNum" value="${article.quizNum }"> 
 			<input type="hidden" name="content" value=""> 
-			<input type="hidden" name="depth" value="#"> 
-			<input type="hidden" name="#" value="#">
+			<input type="hidden" name="fileLoca" value="${article.fileLoca }"> 
+			<input type="hidden" name="pageNum" value="${page.pageNum }">
+			<input type="hidden" name="condition" value="${page.condition }">
+			<input type="hidden" name="keyWord" value="${page.keyword }">
+			<input type="hidden" name="sort" value="${page.sort }">
 			<div class="input-group input-group-sm" role="group" aria-label="...">
-				<table class="table table-striped table-bordered">
+				<table class="table table-striped table-bordered">	
 					<thead>
-
 						<tr>
 							<th style="padding-bottom: 15px;">제목</th>
 							<td>
@@ -53,19 +61,18 @@
 							</td>
 						</tr>
 						<tr>
-							<th style="padding-bottom: 15px;">분류</th>
-							<td>
-								<select class="form-control" name="type" id="#">
-									<option>시공</option>
-									<option>도배</option>
-									<option>타일</option>
-									<option>건축자재</option>
-									<option>건축설비</option>
-									<option>장판</option>
-									<option>필름시트</option>
-								</select>
-							</td>
-						</tr>
+                            <th style="padding-bottom: 15px;">분류</th>
+                            <td>     
+                                <input type="checkbox" class="checkcss" name="type" value="도배"> 도배
+                                <input type="checkbox" class="checkcss" name="type" value="장판"> 장판
+                                <input type="checkbox" class="checkcss" name="type" value="조명"> 조명
+                                <input type="checkbox" class="checkcss" name="type" value="타일"> 타일
+                                <input type="checkbox" class="checkcss" name="type" value="페인트"> 페인트 <br>
+                                <input type="checkbox" class="checkcss" name="type" value="필름시트"> 필름시트
+                                <input type="checkbox" class="checkcss" name="type" value="상품"> 인테리어 상품
+                                <input type="checkbox" class="checkcss" name="type" value="기타"> 기타
+                            </td>
+                        </tr>
 					</thead>
 					<tbody>
 						<tr>
@@ -94,9 +101,21 @@
 			$('input[name=content]').val(content);
 		});
 		
+		// 질문 유형 체크 박스
+		  const types = '${article.type}'.split(',');
+		  
+		  for(var i=0; i<types.length; i++) {
+			  for(var j=0; j<$('.checkcss').length; j++) {
+				  if(types[i] == $('.checkcss')[j].value) {
+					  $('.checkcss')[j].checked = 'true';
+				  }
+			  }
+		  }
+		
 	}); //jquery end
 	
 </script>
 
 </html>
+
 <%@ include file="../include/footer.jsp"%>

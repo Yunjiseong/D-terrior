@@ -3,7 +3,16 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
 <%@include file = "include/header.jsp" %>  
-
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title> g </title>
+  <link rel="shortcut icon" href="${pageContext.request.contextPath}/resources/img/home-icon.png">
+  <link href="${pageContext.request.contextPath}/resources/css/indexcss.css" rel="stylesheet">
+ 
+</head>
 
 <body id="page-top">     
     <div id="demo" class="carousel slide" data-ride="carousel">
@@ -27,6 +36,7 @@
                 <li data-target="#demo" data-slide-to="2"></li>
             </ul> <!-- 인디케이터 끝 -->
         </div>
+        </div>
 
 
 
@@ -40,7 +50,7 @@
         </div>
 
 
-        <div class="cards col-md-2">
+        <div class="cards col-md-2 " >
             <div class="card" style="width: 100%;">
                 <a href="#"><img src="${pageContext.request.contextPath }/resources/img/interior10.png" class="card-img-top" alt="..."></a>
                 <div class="card-body">
@@ -59,8 +69,10 @@
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
+                </div>
+               </div> 
+ 
+        
 
         <div class="cards col-md-2">
             <div class="card" style="width: 100%;">
@@ -107,7 +119,7 @@
             </div>
         </div>
         
-        <div class="cards col-md-2">
+        <div class="cards col-md-2" >
             <div class="card" style="width: 100%;">
                 <a href="#"><img src="${pageContext.request.contextPath }/resources/img/interior10.png" class="card-img-top" alt="..."></a>
                 <div class="card-body">
@@ -128,12 +140,8 @@
                 </div>
             </div>
         </div>
+        
 
-
-
-
-    </div>
-    </div>
 
     <div class="button-area text-center button-more" style="margin-top: 50px; margin-bottom: 50px;">
         <input type="hidden" value="1" class="" name="">
@@ -142,7 +150,6 @@
 
     <h3 class="best_title">내집 뽐내기 BEST</h3>
 
-    <div class="col-md-12">
         <div class="board">
             <div class="cards col-md-2">
                 <div class="card" style="width: 100%;">
@@ -205,9 +212,9 @@
                 </div>
             </div>
         </div>
-    </div>
+    
 
-	<div class="button-area text-center button-more" style="margin-top: 50px; margin-bottom: 50px;">
+   <div class="button-area text-center button-more" style="margin-top: 50px; margin-bottom: 50px;">
         <input type="hidden" value="1" class="" name="">
         <button class="btn btn-default more2" data-addmore="true" onclick="#">더보기</button>
     </div>
@@ -404,4 +411,3 @@
 </body>
 
 <%@include file = "include/footer.jsp" %> 
-

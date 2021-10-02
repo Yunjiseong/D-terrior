@@ -2,6 +2,8 @@ package com.spring.myWeb.user.service;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.apache.ibatis.annotations.Param;
 
 import com.spring.myWeb.command.MyHomeVO;
@@ -40,7 +42,7 @@ public interface IUserService {
 	MyHomeVO homeArticle(int bno);	
 			
 	// q&a 게시글
-	List<QuizVO> quizArticles(String nick, String type, QuizPageVO page);
+	List<QuizVO> quizArticles(String nick, String type, QuizPageVO page, String major);
 		
 	// 게시글 수
 	int getTotalCount(@Param("type") String type, @Param("nick") String nick);
@@ -53,4 +55,10 @@ public interface IUserService {
 	
 	// 등업 회원 정보
 	List<UserVO> proInfo(QuizPageVO page);
+	
+	// 회원 등업
+	void upgrade(int userNum);
+	
+	//로그아웃
+	void logout(HttpSession session);
 }

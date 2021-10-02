@@ -1,4 +1,4 @@
-section{
++section{
    height:70%
     padding: 20px;
     width: 100%;
@@ -94,10 +94,10 @@ left: 20px;
 float: left;
 }
 .tbtop{
-	position: absolute;
-	left:20px
+   position: absolute;
+   left:20px
 }
-.modal {
+.modal1 {
     position: absolute;
     top: 0;
     left: 0;
@@ -120,7 +120,7 @@ float: left;
     left: 50%;
 
     width: 330px;
-    height: 300px;
+    height: 330px;
 
     padding: 40px;
 
@@ -150,7 +150,7 @@ float: left;
 .modal_body{
     font-size: large;
 }
-.inner {	
+.inner {   
 text-align: center;
     width: 40%;
     padding: 10px;
@@ -168,4 +168,7 @@ position: initial;
 }
 .dete,.eye{
 font-size: 13px;
+}
+.icol{
+   color: black;
 }

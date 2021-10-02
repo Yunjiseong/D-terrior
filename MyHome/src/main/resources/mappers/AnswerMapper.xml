@@ -24,7 +24,10 @@
 			SELECT ROWNUM rn, tbl.* 
 			FROM
 			(
-				SELECT * FROM answer
+				SELECT a.*, u.profile 
+				FROM answer a
+				LEFT JOIN users u
+				ON a.writer = u.nick_name
 				WHERE quiz_num = #{quizNum}
 				ORDER BY answer_num DESC
 			) tbl

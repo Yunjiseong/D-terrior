@@ -5,6 +5,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpSession;
+
 import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -75,12 +77,26 @@ public class UserService implements IUserService {
 	}
 	
 	@Override
-	public List<QuizVO> quizArticles(String nick, String type, QuizPageVO page) {
+	public List<QuizVO> quizArticles(String nick, String type, QuizPageVO page, String major) {
 		Map<String, Object> data = new HashMap<>();
 		data.put("nick", nick);
 		data.put("page", page);
 		data.put("type", type);
-		return mapper.quizArticles(data);
+		data.put("major", major);
+		
+		List<QuizVO> list = mapper.quizArticles(data);
+		
+		for(QuizVO vo : list) {
+			long today = System.currentTimeMillis();
+			long regDate = vo.getRegDate().getTime();
+			
+			if((today - regDate) < 60*60*1000) {
+				vo.setNewMark(true);
+			} else {
+				vo.setNewMark(false);
+			}
+		}
+		return list;
 	}
 	
 	
@@ -91,14 +107,16 @@ public class UserService implements IUserService {
 
 	@Override
 	public List<MyHomeVO> getScrap(@Param("pageNum") int pageNum, @Param("nick") String nick) {
-		String scrap = mapper.getScrap(pageNum, nick);		
+		String scrap = mapper.getScrap(nick);		
 		
 		if(scrap == null) {
 			scrap = "0000";
+			return null;
 		}
+		
 		int s=0;
 		List<MyHomeVO> list = new ArrayList<>();
-		for(int i=0; i<scrap.length(); i+=4) {
+		for(int i=(pageNum-1)*24; i<(scrap.length()<pageNum*24?scrap.length():pageNum*24); i+=4) {
 			s = Integer.parseInt(scrap.substring(i, i+4));
 			list.add(mapper.homeArticle(s));
 		}
@@ -122,5 +140,16 @@ public class UserService implements IUserService {
 	public List<UserVO> proInfo(QuizPageVO page) {
 		return mapper.proInfo(page);
 	}
+	
+	@Override
+	public void upgrade(int userNum) {
+		mapper.upgrade(userNum);
+	}
+	
+	@Override
+	   public void logout(HttpSession session) {
+	      session.removeAttribute("user");
+	      
+	   }
 	
 }

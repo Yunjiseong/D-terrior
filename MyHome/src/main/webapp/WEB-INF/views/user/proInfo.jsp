@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,6 +13,8 @@
  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
  integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
  <link href="${pageContext.request.contextPath}/resources/css/manager_info.css" rel="stylesheet">
+ <script src="${pageContext.request.contextPath}/resources/js/jquery.js"></script>
+ 
 <style>
 
 </style>
@@ -22,7 +25,7 @@
  <div class="input-form-backgroud row">
    <div class="input-form col-md-12 mx-auto">
      <h4 class="mb-3">등업 정보</h4>
-     <form class="validation-form" novalidate>
+     <form action='<c:url value="/user/upgrade/${proInfo.userNum }" />' method="post" class="validation-form" novalidate>
        <div class="mb-3"> <label for="email">아이디</label> 
        <input type="email" class="form-control" id="id" value="${proInfo.id }" required readonly>
        </div>
@@ -47,33 +50,31 @@
            <div class="row">
              <div class="mb-3" style="margin-top: 10px;"> <label for="Attention">관심분야</label>
                <div class=invalid-checkbox>
-                <label><input class="checkcss" type="checkbox" name="#" value="intr1">시공</label>
-                <label><input class="checkcss" type="checkbox" name="#" value="intr2"> 타일</label>
-                <label><input class="checkcss" type="checkbox" name="#" value="intr3"> 건축자재</label>
-                <label><input class="checkcss" type="checkbox" name="#" value="intr4"> 건축설비</label>
-                <label><input class="checkcss" type="checkbox" name="#" value="intr5"> 창호/샷시</label>
-                <label><input class="checkcss" type="checkbox" name="#" value="intr6"> 도배</label>
-                <label><input class="checkcss" type="checkbox" name="#" value="intr7"> 창틀</label>
-                <label><input class="checkcss" type="checkbox" name="#" value="intr8"> 페인트</label>
+                	<input type="checkbox" class="checkcss" name="major" value="도배"> 도배
+	                <input type="checkbox" class="checkcss" name="major" value="장판"> 장판 <br>
+	                <input type="checkbox" class="checkcss" name="major" value="조명"> 조명
+	                <input type="checkbox" class="checkcss" name="major" value="타일"> 타일 <br>
+	                <input type="checkbox" class="checkcss" name="major" value="페인트"> 페인트 
+	                <input type="checkbox" class="checkcss" name="major" value="필름시트"> 필름시트<br>
+	                <input type="checkbox" class="checkcss" name="major" value="상품"> 인테리어 상품
+	                <input type="checkbox" class="checkcss" name="major" value="기타"> 기타
                </div>
                <div class="mb-3" style="margin-top: 20px;">
                    <label for="files">증빙서류</label>
-                <form action="#" method="post" enctype="#"><br>
 
-                    <a href="file.pdf" download="newfilename">DownLoad</a>
+                    <a href='<c:url value="/user/download?paper=${proInfo.paper }" />' >DownLoad</a>
               </div>
-
-               </select>
 
              </div>
 
-             <div class="mb-4"></div> <button class="btn btn-info btn-lg btn-block" type="submit">등업 완료</button>
+             <div class="mb-4"></div> <button id="upgrade-btn" class="btn btn-info btn-lg btn-block" type="button">등업 완료</button>
+             
      </form>
      </div>
     </div>
     </div>
 
- </div>
+</div>
 </div>
 
 </body>
@@ -83,17 +84,22 @@
 	// jqiery end
 	$(function() {
 		
-		// 관심분야 체크 박스
-		  const interests = '${proInfo.interest}'.split(',');
-		  
-		  for(var i=0; i<interests.length; i++) {
-			  for(var j=0; j<$('.checkcss').length; j++) {
-				  if(interests[i] == $('.checkcss')[j].value) {
-					  $('.checkcss')[j].checked = 'true';
-					  $('.checkcss')[j].disabled = 'true';
-				  }
-			  }
+	  // 관심분야 체크 박스
+	  const major = '${proInfo.major}';
+	  
+	  for(var j=0; j<$('.checkcss').length; j++) {
+		  if(major === $('.checkcss')[j].value) {
+			  $('.checkcss')[j].checked = 'true';
 		  }
+	  }
+	  
+	  $('#upgrade-btn').click(function() {
+		var result = confirm('${proInfo.nickName}님의 등급을 변경하시겠습니까?');
+		
+		if(result) {
+			$('#upgrade-btn').attr('type', 'submit');
+		}
+	})
 		
 	});
 

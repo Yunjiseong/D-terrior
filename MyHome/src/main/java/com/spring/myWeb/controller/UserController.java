@@ -58,8 +58,9 @@ public class UserController {
 
 	// 회원가입요청
 	@PostMapping("/userJoin")
-	public String join(UserVO vo, @RequestParam(required = false) MultipartFile file) {
+	public String join(UserVO vo, @RequestParam("file") MultipartFile file) {
 		System.out.println("회원가입요청");
+		System.out.println("file");
 		try {
 			String fileRealName = file.getOriginalFilename(); // 파일 정보
 			Long size = file.getSize(); // 파일 사이즈
@@ -77,13 +78,13 @@ public class UserController {
 //				System.out.println("생성된 고유 문자열: " + uniqueName);
 //				System.out.println("확장자명: " + fileExtension);
 
-			File saveFile = new File(uploadFolder + "\\" + vo.getNickName() + fileExtension);
+			File saveFile = new File(uploadFolder + "\\" + vo.getId() + fileExtension);
 			file.transferTo(saveFile); // 실제 파일 저장 메서드 (fileWriter 작업을 손쉽게 한방에 처리해 줍니다.)
-			vo.setPaper(saveFile.toString());
+			vo.setPaper(vo.getId() + fileExtension);
+			service.userJoin(vo);
 		} catch (Exception e) {
 			System.out.println("업로드 중 문제 발생!: " + e.getMessage());
 		}
-		service.userJoin(vo);
 
 		return "user/loginPage";
 	}
@@ -94,14 +95,14 @@ public class UserController {
 		System.out.println("/user/userModify: GET");
 
 		int userNum = ((UserVO) session.getAttribute("user")).getUserNum();
-		System.out.println(userNum);
+		UserVO user = service.userInfo(userNum);
 		
-		model.addAttribute("userInfo", service.userInfo(userNum));
+		model.addAttribute("userInfo", user);
 	}
 
 	// 회원정보수정요청
 	@PostMapping("/userModify")
-	public String userUpdate(UserVO vo, @RequestParam("file") MultipartFile file) {
+	public String userUpdate(UserVO vo, @RequestParam("file") MultipartFile file, Model model) {
 		System.out.println("/user/userModify: POST");
 
 		try {
@@ -198,11 +199,22 @@ public class UserController {
 			System.out.println("로그인성공");
 			session.setAttribute("user", vo);
 			System.out.println("로그인 정보: " + vo);
-			return "redirect:/user/mypage";
+			return "redirect:/";
 		} else{
 			return "/user/loginfail";
 		}
 	}
+	
+	//로그아웃
+	   @GetMapping("/logout")
+	   public String logout(HttpSession session, RedirectAttributes ra) {
+	      System.out.println("/user/logout/: GET");      
+	      service.logout(session);
+	      
+	      ra.addFlashAttribute("msg", "logoutSuccess");
+	      
+	      return "redirect:/";
+	   }
 
 	// 아이디중복체크
 	@ResponseBody
@@ -274,9 +286,8 @@ public class UserController {
 	public void getMypage(HttpSession session, Model model) {
 		System.out.println("/user/mypage: GET");
 
-		UserVO user = (UserVO)session.getAttribute("user");
-		System.out.println(user.getProfile());
-		model.addAttribute("userInfo", user);
+		int userNum = ((UserVO)session.getAttribute("user")).getUserNum();
+		model.addAttribute("userInfo", service.userInfo(userNum));
 	}
 	
 	//프로필 사진 요청
@@ -308,6 +319,7 @@ public class UserController {
 		System.out.println(type + "List GET");
 		
 		String nick = ((UserVO) session.getAttribute("user")).getNickName();
+		String major = ((UserVO) session.getAttribute("user")).getMajor();
 		
 		QuizPageVO page = new QuizPageVO();
 		page.setPageNum(pageNum);
@@ -321,13 +333,13 @@ public class UserController {
 		} else {
 			qpc.setPageTotalCount(service.getTotalCount(type, nick));			
 		}
-
+		
 		Map<String, Object> data = new HashMap<>();
 
 		if (type.equals("home")) {
 			data.put("list", service.homeArticles(nick, page));
 		} else if(type.equals("quiz") || type.equals("recoQuiz")) {
-			data.put("list", service.quizArticles(nick, type, page));
+			data.put("list", service.quizArticles(nick, type, page, major));
 		} else if(type.equals("scrap")) {
 			data.put("list", service.getScrap(pageNum, nick));
 		} else if(type.equals("upgrade")) {
@@ -341,13 +353,45 @@ public class UserController {
 	
 	// 등업 신청 화면 요청
 	@GetMapping("/proInfo/{userNum}")
-	public String proInfo(@PathVariable int userNum, Model model) {
+	public String getProInfo(@PathVariable int userNum, Model model) {
 		System.out.println("/user/proInfo/" + userNum + ": GET");
 		
 		model.addAttribute("proInfo", service.userInfo(userNum));
-		
 		return "user/proInfo";
 	}
+	
+	// 등업 신청
+	@PostMapping("/upgrade/{userNum}")
+	public String proInfo(@PathVariable int userNum) {
+		System.out.println("/upgrade: POST");
+		
+		service.upgrade(userNum);
+		return "redirect:/user/mypage";
+	}
+	
+	// 증빙 서류 다운로드
+	@GetMapping("/download")
+	@ResponseBody
+	public ResponseEntity<byte[]> download(String paper) {
+		System.out.println("/user/download: GET");
+		
+		File file = new File("C:\\test\\upload\\" + paper);
+		
+		ResponseEntity<byte[]> result = null;
+		
+		try {
+			HttpHeaders header = new HttpHeaders();
+			header.add("Content-Disposition", "attachment; filename=" + paper);
+			
+			result = new ResponseEntity<>(FileCopyUtils.copyToByteArray(file), header, HttpStatus.OK);			
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return result;
+	}
+	
 	
 	//고객센터 연결
 	@GetMapping("/qna")

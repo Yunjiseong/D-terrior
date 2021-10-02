@@ -4,6 +4,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -26,8 +28,9 @@ public class AnswerController {
 	private IAnswerService service;
 	
 	@PostMapping("/answerRegist")
-	public String regist(@RequestBody AnswerVO vo) {
+	public String regist(HttpSession session ,@RequestBody AnswerVO vo) {
 		System.out.println("/answer/answerRegist: POST");
+		System.out.println(session.getAttribute("user"));
 		
 		service.regist(vo);
 		return "regSuccess";

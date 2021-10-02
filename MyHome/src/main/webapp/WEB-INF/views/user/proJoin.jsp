@@ -10,7 +10,7 @@
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>회원가입(전문가회원)</title>
+<title>회원가입(전문회원)</title>
 <link rel="shortcut icon" href="../img/home-icon.png">
 <!-- Bootstrap CSS -->
 <link rel="stylesheet"
@@ -64,10 +64,8 @@ body {
 	<div class="container">
 		<div class="input-form-backgroud row">
 			<div class="input-form col-md-12 mx-auto">
-				<h4 class="mb-3">회원가입(전문가회원)</h4>
-				<form action="<c:url value='/user/userJoin' />" method="post"
-					class="validation-form" novalidate enctype="multipart/form-data"
-					onsubmit="return formcheck()" name="fc">
+				<h4 class="mb-3">회원가입(전문회원)</h4>
+				<form action="<c:url value='/user/userJoin' />" method="post" class="validation-form" novalidate enctype="multipart/form-data" onsubmit="return formcheck()" name="fc">
 					<div class="mb-3">
 						<label for="email">이메일</label> <input type="email"
 							class="form-control" id="email" placeholder="you@example.com"
@@ -137,24 +135,23 @@ body {
 								type="text" id="sample6_address" placeholder="주소"
 								name="addrBasic"><br> <input class="ka-api"
 								type="text" id="sample6_detailAddress" placeholder="상세주소"
-								name="addrDetail"> <input class="ka-api" type="text"
-								id="sample6_extraAddress" placeholder="참고항목" readonly>
+								name="addrDetail">
 
 							<div class="row">
 								<div class="col-md-8 mb-3">
-									<label for="Attention">전문분야 </label>
-									<<div class=invalid-checkbox>
-                                      <label><input class="checkcss" type="checkbox" name="major" value="major1"> 시공</label>
-                                      <label><input class="checkcss" type="checkbox" name="major" value="major2"> 타일</label><br>
-                                      <label><input class="checkcss" type="checkbox" name="major" value="major3"> 건축자재</label>
-                                      <label><input class="checkcss" type="checkbox" name="major" value="major4"> 건축설비</label><br>
-                                      <label><input class="checkcss" type="checkbox" name="major" value="major5"> 창호/샷시</label>
-                                      <label><input class="checkcss" type="checkbox" name="major" value="major6"> 도배</label><br>
-                                      <label><input class="checkcss" type="checkbox" name="major" value="major7"> 창틀</label>
-                                      <label><input class="checkcss" type="checkbox" name="major" value="major8"> 페인트</label>
+									<label for="Attention">전문분야(1개 필수선택)</label>
+									<div class=invalid-checkbox>
+		                                <input type="checkbox" name="major" value="도배"> 도배
+		                                <input type="checkbox" name="major" value="장판"> 장판 <br>
+		                                <input type="checkbox" name="major" value="조명"> 조명
+		                                <input type="checkbox" name="major" value="타일"> 타일 <br>
+		                                <input type="checkbox" name="major" value="페인트"> 페인트 
+		                                <input type="checkbox" name="major" value="필름시트"> 필름시트<br>
+		                                <input type="checkbox" name="major" value="상품"> 인테리어 상품
+		                                <input type="checkbox" name="major" value="기타"> 기타
                                     </div>
                                     <div class="col-md-8 mb-3"><label>증빙서류</label>
-                                        <input type="file" name="file" multiple>
+                                        <input id="file" type="file" name="file">
                                     </div>
 								<button class="btn btn-info btn-lg btn-block" type="submit">가입하기</button>
 				</form>
@@ -172,6 +169,7 @@ body {
 	src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script>
 /* submit formcheck */
+
 function formcheck(){
 	/*1.공백체크*/
 	  if(fc.id.value === '') {
@@ -194,6 +192,15 @@ function formcheck(){
 		  alert("비밀번호를 입력해주세요");
 		  fc.pwChk.focus();
 		  return false;
+	  } else if(fc.file.value === '') {
+		  alert("증빙서류를 등록해주세요");
+		  return false;
+	  } else if(!$("input:checked[name='major']").is(":checked")) {
+		  alert("전문분야 1개는 필수선택입니다");
+		  return false; 
+	  } else if($('input:checkbox[name=major]:checked').length > 1) {
+		  alert("전문분야는 1개만 선택 가능합니다");
+		  return false;
 	/*2.올바르지않은입력값*/
 	  } else if(document.getElementById("sendCode").innerHTML != "인증되었습니다") {
 		  alert("이메일 인증을 진행해주세요")
@@ -212,6 +219,11 @@ function formcheck(){
 		  return true;
 	  }
 }
+/*체크박수 갯수 제한*/	
+
+
+
+
 /*닉네임 중복확인*/
 $('#nickChk').click(function(){
 	if($('#nickName').val() === ''){

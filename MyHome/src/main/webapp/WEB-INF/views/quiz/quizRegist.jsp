@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ include file="../include/header.jsp"%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,6 +17,7 @@
         #contentForm {
             width: 40%;
             margin: 0 auto;
+            padding-top: 12%;
         }
         .table>thead>tr>th,
         .table>tbody>tr>th {
@@ -45,6 +47,7 @@
     <form action='<c:url value="/quiz/quizRegist" />' method="post" enctype="multipart/form-data">
         <div id="contentForm"> 
 	        <input type="hidden" name="content" value="">	         
+	        <input type="hidden" name="writer" value="${user.nickName }">	         
             <div class="input-group input-group-sm" role="group" aria-label="...">
                 <table class="table table-striped table-bordered">
                     <thead>
@@ -52,7 +55,7 @@
                         <tr>
                             <th style="padding-bottom: 15px;">제목</th>
                             <td>
-                            	<input type="text" name="title" class="form-control" aria-describedby="basic-addon1" autofocus="autofocus">
+                            	<input id="title" type="text" name="title" class="form-control" aria-describedby="basic-addon1" autofocus="autofocus">
                             </td>
                         </tr>
                         <tr>
@@ -85,7 +88,7 @@
                     </tbody>
                 </table>
 	        	<div class="btn-group btn-group-sm" role="group" aria-label="..."> 
-	            	<input type="submit" id="regist-btn" class="btn btn-primary btns" value="글쓰기"> 
+	            	<input type="button" id="regist-btn" class="btn btn-primary btns" value="글쓰기"> 
 	            </div>
             </div>
         </div>
@@ -97,20 +100,24 @@
 	
 	// jquery start
 	$(function() {
-
 		var strAdd;
 		
 		// 글 내용 보내기
 		$('#regist-btn').click(function() {
 			const content = $('#content').html();
 			console.log(content);
+			console.log($('#title').val());
+			if($('#title').val() === '') {
+				alert('제목을 입력해 주세요.');
+			} else if(content === '') {
+				alert('내용을 입력해 주세요.');
+			} else {
+				$('input[name=content]').val(content);
+				$('#regist-btn').attr('type', 'submit');
+			}
 			
-			$('input[name=content]').val(content);
 		});
 		
-		// 엔터 -> br
-		
-
 		<%-- 이미지 미리보기
 		var sel_file;
 		
@@ -148,7 +155,6 @@
 		--%>
 		
 	}); // jquery end
-
 </script>
 
 

@@ -13,9 +13,11 @@
 <link href="${pageContext.request.contextPath}/resources/css/faq.css" rel="stylesheet">
 <script src="${pageContext.request.contextPath}/resources/js/Faq.js"></script>
 <title>고객센터</title>
+<style>
+</style>
 </head>
-<body>
-	<section id="content"><div class="content-wrap">
+<body style="margin-top: 90px;">
+   <section id="content"><div class="content-wrap">
 
         <div class="container">
             <div class="row">
@@ -132,23 +134,38 @@
                         <div class="col-md-6 col-lg-12">
                             <div class="card">
                                 <!-- 아래에서 CS-center 이미지와 정보를 변경하세요! -->
-                                <img class="card-img-top" src="../img/cs.PNG" alt="cs이미지" >
+                                <img class="card-img-top" src="${pageContext.request.contextPath }/resources/img/cs.PNG" alt="cs이미지" >
                                  <div class="card-body notoppadding">
-                                    <h4 class="mb-1 color">고객센터 TEL:</h4>
+                                    <h4 class="mb-1">고객센터 TEL:</h4>
                                     <h2 class="card-title mb-2"><span class="lnr lnr-phone-handset"></span> (070) 7575-5858</h2>
-                                    <p class="card-text">24/7/365 편리한 서비스를 실현합니다. 이메일문의: <a class="btn-link" href="mailto:mail@naver.com">mail@naver.com</a></p>
+                                    <p class="card-text">24/7/365 편리한 서비스를 실현합니다. 이메일문의: <a class="btn-link" href="mailto:mail@naver.com">Dterrior@naver.com</a></p>
                                 </div>
                             </div>
                         </div>
                         
                         <!-- ■ 콘텐츠박스 2 -->
                         <div class="col-md-6 col-lg-12 mt-4">
-                            <div class="card bg mb-5 pb-2 px-2">
+                            <div class="card bg px-2">
                                 <div class="card-body">
                                     <!-- 아래에서 텍스트 정보를 변경하세요! -->
                                     <h3 class="mb-3 uppercase ls1">D'terrior</h3>
-                                    <p class="card-text text-white-50 mb-3">D'terrior는 D'terrior 사용자 들에게 인테리어의 정보와 인테리어 판매를 같이하는 인테리어 커뮤니티 스토어 입니다.</p>
-
+                                    
+                                    
+                                    <p class="card-text text-50 mb-3">D'terrior는 D'terrior 사용자 들에게 인테리어의 정보와 인테리어 판매를 같이하는 인테리어 커뮤니티 스토어 입니다.</p>
+                        
+                                </div>
+                            </div>
+                        </div>         
+                        <!-- ■ 콘텐츠박스 3 -->
+                        <div class="col-md-6 col-lg-12 mt-4">
+                            <div class="card bg  pb-2 px-2">
+                                <div class="card-body">
+                                    <!-- 아래에서 텍스트 정보를 변경하세요! -->
+                                    <h3 class="mb-3 uppercase ls1">1:1 채팅 상담하기</h3>
+                           <button class="btn btn-info btn-lg userbtn" id="openChatBox" 
+                           style="width: 220px;"
+                           onclick="window.open('${pageContext.request.contextPath}/chat/openChat',
+                           '상담하기','width=400, height=400, scrollbars=no, resizable=no, toolbars=no, menubar=no')">여기를 클릭하세요</button>
                                 </div>
                             </div>
                         </div>

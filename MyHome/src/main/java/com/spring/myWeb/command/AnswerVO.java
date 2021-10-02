@@ -45,5 +45,6 @@ public class AnswerVO {
 	private String content;
 	private Timestamp regDate;
 	private Timestamp updateDate;
+	private String profile;
 
 }

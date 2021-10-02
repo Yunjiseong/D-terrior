@@ -7,16 +7,19 @@
     display: none;
     background-color: white;
      font-style: inherit;
-     margin-top: 80px;
+     margin-top: 67px;
+    
     
     
 }
+
 #store{
     display: none;
     background-color: white;
      font-style: inherit;
-     margin-top: 80px;
-    
+     margin-top: 67px;
+     
+   
     
 }
 .lnr-magnifier {
@@ -25,23 +28,43 @@
 }
 #header-cate{
     display: none;
+    max-width:2000px;
     
-    text-align: center;
-    margin-top: 130px;
+    margin-top: 110px;
+    font-size:0.9em;
+    
     
     
 }
-.category-list ul li:first-child {
-    margin-left: 0;
-  }
+.fixed-top2 {
+  position: fixed;
+  
+  margin:0 auto;
+  z-index: 1030;
+}
+
+.list-st{
+	list-style:none;
+	float:left;
+	
+	 
+	 width:100%;
+}
+.header-categorys{
+	margin:0 auto;
+	
+}
   .header-categorys ul li {
     display: inline-block;
     margin: 0px;
     text-align: center; 
-  }
-  .collapse{
-      background-color: white;
-  }
+  }<!--3번째헤더 옆으로정렬-->
+
+
+
+
+
+
   a{
       color: black;
   }
@@ -69,20 +92,6 @@ body, html {
 }
 .collapse{
   background-color: rgba(0,0,0,0);
-}
-.nav-item2{
-  font-size: 0.925em;
- 
-  
-  
-}
-
-.fixed-top2 {
-  position: fixed;
-  top: 0;
-  right: 0;
-  
-  z-index: 1030;
 }
 
 .modal {
@@ -135,3 +144,12 @@ margin-top: 40px;
 margin-left: 35px;
 margin-bottom: 60px;
 }
+#homepage-margin{
+  margin-top:83px;
+  }   
+ .nav-item2{
+font-size:0.95em;
+}
+  
+
+
